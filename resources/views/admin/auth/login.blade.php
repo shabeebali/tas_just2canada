@@ -10,15 +10,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-        <link href="/css/app.css" rel="stylesheet">
-
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         @livewireStyles
-        <script src="/js/app.js"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
