@@ -25,7 +25,7 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 $segments = $request->segments();
                 // dd($segments);
-                if($segments[0] == 'admin') {
+                if(in_array('admin',$segments)) {
                     return redirect(route('admin.home'));
                 }
                 return redirect(RouteServiceProvider::HOME);

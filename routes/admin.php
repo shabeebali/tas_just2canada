@@ -13,7 +13,7 @@ Route::middleware(['guest'])->group(function() {
     Route::post('login',[AuthController::class,'doLogin'])->name('admin.auth.login');
 });
 
-Route::middleware(['web','role:admin|super_admin'])->name('admin.')->group(function() {
+Route::middleware(['auth:web','role:admin|super_admin'])->name('admin.')->group(function() {
     Route::get('dashboard',[AdminController::class,'dashboard'])->name('home');
     Route::resource('testimonials',TestimonialController::class);
     Route::resource('pages',PageController::class);

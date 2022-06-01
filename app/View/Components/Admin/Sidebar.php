@@ -25,9 +25,9 @@ class Sidebar extends Component
         ];
         foreach($this->menuItems as $index => $item) {
             if(request()->is(substr(route($item['route_name'],[],false).'*',1))) {
-                $this->menuItems[$index]['class'] = 'sidebar-menu-item text-sm px-3 py-4 hover:bg-slate-700 text-lime-300 bg-slate-700 hover:text-lime-300';
+                $this->menuItems[$index]['class'] = 'sidebar-menu-item text-sm hover:bg-slate-700 text-lime-300 bg-slate-700 hover:text-lime-300';
             } else {
-                $this->menuItems[$index]['class'] = 'sidebar-menu-item text-sm px-3 py-4 hover:bg-slate-700 text-white hover:text-lime-300';
+                $this->menuItems[$index]['class'] = 'sidebar-menu-item text-sm hover:bg-slate-700 text-white hover:text-lime-300';
             }
         }
         // dd($this->menuItems);

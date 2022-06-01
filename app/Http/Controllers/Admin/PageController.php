@@ -15,11 +15,19 @@ class PageController extends Controller
      */
     public function index()
     {
+        $data = Page::select('id','title','url_key')->paginate(20);
+        $columns = [
+            ['label' => 'ID', 'field' => 'id', 'align' => 'left', 'sortable' => true],
+            ['label' => 'Page Title', 'field' => 'title', 'align' => 'left', 'sortable' => true],
+            ['label' => 'Path', 'field' => 'url_key', 'align' => 'left', 'sortable' => true],
+        ];
         return view('admin.pages.index',[
             'title' => 'Pages',
             'breadcrumbs' => [
                 ['label' => 'Pages', 'route_name' => 'admin.pages.index']
-            ]
+            ],
+            'data' => $data,
+            'columns' => $columns
         ]);
     }
 

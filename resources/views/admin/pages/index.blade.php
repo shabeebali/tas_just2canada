@@ -1,7 +1,3 @@
-<x-layouts.admin>
-    <x-blocks.page-header :title="$title" :breadcrumbs="$breadcrumbs">
-        <x-slot name="afterTitle">
-            <x-blocks.button variant="primary" label="Create" class="ml-4 mr-0 mb-0" href="{{ route('admin.pages.create') }}"/>
-        </x-slot>
-    </x-blocks.page-header>
+<x-layouts.admin :title="$title" :breadcrumbs="$breadcrumbs" create-button create-route="admin.pages.create">
+    <x-blocks.table striped :data="$data" :columns="$columns" routeh="/admin/pages" row-key="id" has-delete has-edit/>
 </x-layouts.admin>

@@ -36,6 +36,10 @@ class Button extends Component
         if($this->variant == 'primary') {
             $this->componentClass .= ' text-white bg-blue-700 hover:bg-blue-800';
         }
+        if($this->variant == 'success') {
+            $this->componentClass .= ' text-white bg-green-700 hover:bg-green-800';
+        }
+        
     }
     /**
      * Get the view / contents that represent the component.
