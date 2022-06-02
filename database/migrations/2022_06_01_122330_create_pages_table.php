@@ -17,7 +17,9 @@ class CreatePagesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('url_key');
-            $table->text('content');
+            $table->text('content')->nullable();
+            $table->boolean('active');
+            $table->boolean('show_in_main_menu');
             $table->timestamps();
         });
     }

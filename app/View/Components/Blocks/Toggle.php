@@ -4,7 +4,7 @@ namespace App\View\Components\Blocks;
 
 use Illuminate\View\Component;
 
-class Checkbox extends Component
+class Toggle extends Component
 {
     public $label;
     public $name;
@@ -28,6 +28,6 @@ class Checkbox extends Component
      */
     public function render()
     {
-        return view('components.blocks.checkbox');
+        return view('components.blocks.toggle');
     }
 }

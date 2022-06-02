@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" style="width: 100%; height: 100%; min-height: 100% !important;">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,22 +18,40 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         @livewireStyles
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
     </head>
-    <body class="antialiased">
-        <div class="wrapper h-auto w-full" x-data="{showSidebar: false}">
+    <body class="antialiased h-full">
+        <div class="wrapper h-auto min-h-full w-full relative" x-data="{showSidebar: false}">
             <x-admin.header/>
             <x-admin.sidebar/>
-            <div class="content-wrapper ml-0 lg:ml-60 h-screen">
+            <div class="content-wrapper ml-0 lg:ml-60 relative">
                 @if($title)
                     <x-blocks.page-header :title="$title" :breadcrumbs="$breadcrumbs" :no-breadcrumbs="!$breadcrumbs">
-                        @if($createButton)
+                        @if($afterTitleButton)
                             <x-slot name="afterTitle">
-                                <x-blocks.button variant="primary" label="Create" class="ml-4 mr-0 mb-0" href="{{ route($createRoute) }}"/>
+                                <x-blocks.button variant="primary" :label="$afterTitleButtonLabel" class="ml-4 mr-0 mb-0" :type="$afterTitleButtonType" href="{{ $afterTitleButtonRoute ? route($afterTitleButtonRoute) : NULL }}" :formId="$afterTitleButtonForm"/>
                             </x-slot>
                         @endif
                     </x-blocks.page-header>
                 @endif
-                <div class="p-4">
+                <div class="p-4 relative">
+                    @if(session('success'))
+                        <x-blocks.alert type="success">
+                            {{ session('success') }}
+                        </x-blocks.alert>
+                    @elseif(session('danger'))
+                        <x-blocks.alert type="danger">
+                            {{ session('danger') }}
+                        </x-blocks.alert>
+                    @elseif(session('info'))
+                        <x-blocks.alert type="info">
+                            {{ session('info') }}
+                        </x-blocks.alert>\
+                    @elseif(session('warning'))
+                        <x-blocks.alert type="warning">
+                            {{ session('warning') }}
+                        </x-blocks.alert>
+                    @endif
                     {{ $slot }}
                 </div>
             </div>

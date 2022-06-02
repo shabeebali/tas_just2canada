@@ -23,25 +23,25 @@
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 lg:w-1/3">
                 @if ($errors->any())
-                    <x-blocks.alert-danger>
+                    <x-blocks.alert type="danger">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
                         </ul>
-                    </x-blocks.alert-danger>
+                    </x-blocks.alert>
                 @endif
                 <div class="flex justify-center pt-8 sm:pt-0">
                     <img src="{{asset('img/logo.png')}}" width="200"/>
                 </div>
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1">
-                        <div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                             <form method="POST" action="{{route('admin.auth.login')}}">
                                 @csrf
                                 <x-blocks.input-field name="email" type="email" label="Email" value="{{ old('email') }}"/>
                                 <x-blocks.input-password-field name="password" label="Password"/>
-                                <x-blocks.checkbox name="remember" label="Remember Me?" is-checked="{{ old('remember') }}"/>
+                                <x-blocks.toggle name="remember" label="Remember Me?" is-checked="{{ old('remember') }}"/>
                                 <x-blocks.button label="Login" full-width type="submit"/>
                             </form>
                         </div>

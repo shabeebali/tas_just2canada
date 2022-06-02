@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -55,7 +57,19 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|unique:pages',
+            'url_key' => 'nullable|unique:pages'
+        ]);
+        $page = new Page();
+        $page->title = $request->input('title');
+        $page->url_key = $request->input('url_key') ?? Str::slug($request->input('title'));
+        $page->content = $request->input('content');
+        $page->active = $request->has('active');
+        $page->show_in_main_menu = $request->has('show_in_main_menu');
+        $page->save();
+
+        return Response::redirectToRoute('admin.pages.index')->with('success','Page Created Successfully');
     }
 
     /**
@@ -77,7 +91,14 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        return view('admin.pages.edit',[
+            'title' => 'Edit Page: '.$page->title,
+            'breadcrumbs' => [
+                ['label' => 'Pages', 'route_name' => 'admin.pages.index'],
+                ['label' => 'Edit', 'route_name' => 'admin.pages.index']
+            ],
+            'page' => $page
+        ]);
     }
 
     /**
@@ -89,7 +110,18 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
-        //
+        $request->validate([
+            'title' => 'required|unique:pages,title,'.$page->id,
+            'url_key' => 'nullable|unique:pages,url_key,'.$page->id
+        ]);
+        $page->title = $request->input('title');
+        $page->url_key = $request->input('url_key') ?? Str::slug($request->input('title'));
+        $page->content = $request->input('content');
+        $page->active = $request->has('active');
+        $page->show_in_main_menu = $request->has('show_in_main_menu');
+        $page->save();
+
+        return Response::redirectToRoute('admin.pages.index')->with('success','Page Updated Successfully');
     }
 
     /**
