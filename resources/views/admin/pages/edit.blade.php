@@ -20,8 +20,8 @@
                         </ul>
                     </x-blocks.alert>
                 @endif
-                <x-blocks.input-field label="Page Title" name="title" value="{{ old('title',$page->title) }}"/>
-                <x-blocks.input-field label="URL Path" name="url_key" value="{{ old('url_key', $page->url_key) }}"/>
+                <x-blocks.input-field label="Page Title" name="title" value="{{ old('title',$page->title) }}"></x-blocks.input-field>
+                <x-blocks.input-field label="URL Path" name="url_key" value="{{ old('url_key', $page->url_key) }}"></x-blocks.input-field>
                 <div>
                     <div class="text-sm font-medium py-2">Page Content</div>
                     <textarea id="editor" name="content">{{old('content',$page->content)}}</textarea>
