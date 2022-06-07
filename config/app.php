@@ -161,6 +161,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Webwizo\Shortcodes\ShortcodesServiceProvider::class,
+        App\Providers\ShortcodesServiceProvider::class,
 
         /*
          * Package Service Providers...

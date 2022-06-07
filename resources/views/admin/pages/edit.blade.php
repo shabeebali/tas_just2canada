@@ -33,8 +33,8 @@
         <script>
             tinymce.init({
                 selector: 'textarea#editor',
-                plugins: ['link','image','table','code'],  // required by the code menu item,
-                menubar: 'edit insert format tools table',
+                plugins: ['link','table','code'],  // required by the code menu item,
+                menubar: 'edit insert format tools table'
             });
         </script>
     </x-blocks.card>
