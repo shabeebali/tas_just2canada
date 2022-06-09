@@ -50,14 +50,16 @@
                             {{ $data->form_data['country'] }}
                         </td>
                     </tr>
-                    <tr class="{{ $rowClass }}">
-                        <th scope="row" class="{{ $headingClass }}">
-                            City of residence
-                        </th>
-                        <td class="{{ $valueClass }}">
-                            {{ $data->form_data['city_of_residence'] }}
-                        </td>
-                    </tr>
+                    @if(isset($data->form_data['city_of_residence']))
+                        <tr class="{{ $rowClass }}">
+                            <th scope="row" class="{{ $headingClass }}">
+                                City of residence
+                            </th>
+                            <td class="{{ $valueClass }}">
+                                {{ $data->form_data['city_of_residence'] }}
+                            </td>
+                        </tr>
+                    @endif
                     <tr class="{{ $rowClass }}">
                         <th scope="row" class="{{ $headingClass }}">
                             Nationality
@@ -311,14 +313,16 @@
                             </td>
                         </tr>
                     @endif
-                    <tr class="{{ $rowClass }}">
-                        <th scope="row" class="{{ $headingClass }}">
-                            English Language Proficiency
-                        </th>
-                        <td class="{{ $valueClass }}">
-                            {{ $data->form_data['language_proficiency'] }}
-                        </td>
-                    </tr>
+                    @if(isset($data->form_data['language_proficiency']))
+                        <tr class="{{ $rowClass }}">
+                            <th scope="row" class="{{ $headingClass }}">
+                                English Language Proficiency
+                            </th>
+                            <td class="{{ $valueClass }}">
+                                {{ $data->form_data['language_proficiency'] }}
+                            </td>
+                        </tr>
+                    @endif
                     <tr class="{{ $rowClass }}">
                         <th scope="row" class="{{ $headingClass }}">
                             Queries
