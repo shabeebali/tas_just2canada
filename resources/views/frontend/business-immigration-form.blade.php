@@ -41,17 +41,17 @@
                         <br>
                         <br>
                         <div class="form-inner">
-                            <div class="col-md-6">Full Name
+                            <div class="col-md-6">1. Full Name
                                 <span class="spanHighlight">*</span> (As per your Passport)
                                 <input id="txtName" type="text" class="form-control col-12" maxlength="40" name="name" value="{{ old('name') }}">
                             </div>
-                            <div class="col-md-6">E-mail<span class="spanHighlight">*</span>
+                            <div class="col-md-6">2. E-mail<span class="spanHighlight">*</span>
                                 <input id="txtEmail" type="email" class="form-control col-12" maxlength="40" name="email" value="{{ old('email') }}"></div>
                             <div class="clearfix"></div>
-                            <div class="col-md-6">Phone Number (with country and area code)<span class="spanHighlight">*</span> <br>
+                            <div class="col-md-6">3. Phone Number (with country and area code)<span class="spanHighlight">*</span> <br>
                                 <input id="txtTelephone" type="text" class="form-control col-12" style="" placeholder="000-000-0000" maxlength="40" name="phone" value="{{ old('phone') }}">
                             </div>
-                            <div class="col-md-6">What is your current country of residence?<span class="spanHighlight">*</span>
+                            <div class="col-md-6">4. What is your current country of residence?<span class="spanHighlight">*</span>
                                 <select id="txtCountry" class="form-control col-12" name="country">
                                     <option value="0">--Select--</option>
                                     @foreach($countries as $country)
@@ -60,20 +60,24 @@
                                 </select>
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-6">What is your nationality?<span class="spanHighlight">*</span>
+                            <div class="col-md-6">5. What is your current city of residence?<span class="spanHighlight">*</span>
+                                <input id="txtNationality" type="text" class="form-control col-12" maxlength="40" name="city_of_residence" value="{{ old('city_of_residence') }}">
+                            </div>
+                            <div class="col-md-6">6. What is your nationality?<span class="spanHighlight">*</span>
                                 <input id="txtNationality" type="text" class="form-control col-12" maxlength="40" name="nationality" value="{{ old('nationality') }}">
                             </div>
-                            <div class="col-md-6">How did you obtain our reference? (optional)<span class="spanHighlight"></span>
+                            <div class="clearfix"></div>
+                            <div class="col-md-6">7. How did you obtain our reference? (optional)<span class="spanHighlight"></span>
                                 <input id="txtReference" type="text" class="form-control col-12" maxlength="40"  name="reference" value="{{ old('reference') }}"></div>
                             <div class="clearfix"></div>
-                            <div class="col-md-6">Are you currently in Canada ?<span class="spanHighlight">*</span>
+                            <div class="col-md-6">8. Are you currently in Canada ?<span class="spanHighlight">*</span>
                                 <br>
                                 <input name="in_canada" class="radAre_you_Currently_In_Canada" type="radio" value="Yes" @if(old('in_canada') == 'Yes') checked @endif>Yes &nbsp;&nbsp
                                 <input class="radAre_you_Currently_In_Canada" name="in_canada" type="radio" value="No" @if(old('in_canada') == 'No') checked @endif>No &nbsp;&nbsp;
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-8">Please select which experience pertains to you<span class="spanHighlight">*</span><br>
+                            <div class="col-md-8">9. Please select which experience pertains to you<span class="spanHighlight">*</span><br>
                                 <input class="chkExperience" name="experience" type="radio" value="Business Person" @if(old('experience') == 'Business Person') checked @endif> Business Person <br>
                                 <input name="experience" class="chkExperience" type="radio" value="Senior Manager" @if(old('experience') == 'Senior Manager') checked @endif> Senior Manager <br>
                                 <input name="experience" class="chkExperience" type="radio" value="Self Employed Artist" @if(old('experience') == 'Self Employed Artist') checked @endif> Self Employed Artist <br>
@@ -81,7 +85,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12">What area of business or management experience have you acquired in the past 10 years (you can select more than one option)<span class="spanHighlight">*</span><br>
+                            <div class="col-md-12">10. What area of business or management experience have you acquired in the past 10 years (you can select more than one option)<span class="spanHighlight">*</span><br>
                                 <input class="radArea_of_business" name="area_of_business[]" type="checkbox" value="Manufacturing / trading"  @if(in_array('Manufacturing / trading',old('area_of_business',[]))) checked @endif> Manufacturing / trading <br>
                                 <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Only trading / Import / Export" @if(in_array('Only trading / Import / Export',old('area_of_business',[]))) checked @endif>Only trading / Import / Export <br>
                                 <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Project work (builder / Construction etc)" @if(in_array('Project work (builder / Construction etc)',old('area_of_business',[]))) checked @endif> Project work (builder / Construction etc) <br>
@@ -92,11 +96,11 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12">Briefly describe product/commodity you deal in your business<span class="spanHighlight">*</span>
+                            <div class="col-md-12">11. Briefly describe product/commodity you deal in your business<span class="spanHighlight">*</span>
                                 <textarea id="texProduct_Description" name="product_description" cols="" rows="4" class="form-control">{{ old('product_description') }}</textarea>
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12">What is your education qualification?<span class="spanHighlight">*</span><br>
+                            <div class="col-md-12">12. What is your education qualification?<span class="spanHighlight">*</span><br>
                                 <input class="radEducational_Qualification" name="qualification" type="radio" value="Post graduate" @if(old('qualification') == 'Post graduate') checked @endif>Post graduate <br>
                                 <input name="qualification" class="radEducational_Qualification" type="radio" value="Bachelors degree (15 years of education)" @if(old('qualification') == 'Bachelors degree (15 years of education)') checked @endif> Bachelors degree (15 years of education) <br>
                                 <input class="radEducational_Qualification" name="qualification" type="radio" value="Did not complete Bachelors degree" @if(old('qualification') == 'Did not complete Bachelors degree') checked @endif> Did not complete Bachelors degree <br>
@@ -108,11 +112,11 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-4">Date of Birth of Principal Applicant<span class="spanHighlight">*</span>
+                            <div class="col-md-4">13. Date of Birth of Principal Applicant<span class="spanHighlight">*</span>
                                 <input id="txtDate_of_birth_of_Principal_Applicant" type="date" class="form-control col-12" maxlength="40" name="dob" value="{{ old('dob') }}">
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12">Marital Status<span class="spanHighlight">*</span><br>
+                            <div class="col-md-12">14. Marital Status<span class="spanHighlight">*</span><br>
                                 <input class="radMarital_status" name="marital_status" x-model="marital_status" type="radio" value="Married" @if(old('marital_status') == 'Married') checked @endif>Married <br>
                                 <input class="radMarital_status" name="marital_status" x-model="marital_status" type="radio" value="Divorced" @if(old('marital_status') == 'Divorced') checked @endif>Divorced <br>
                                 <input class="radMarital_status" name="marital_status" x-model="marital_status" type="radio" value="Legally Separated" @if(old('marital_status') == 'Legally Separated') checked @endif> Legally Separated <br>
@@ -122,11 +126,11 @@
                             <br>
                             <template x-if="marital_status == 'Married'">
                                 <div>
-                                    <div class="col-md-4 divIfmarried">Your Spouse's Date of Birth
+                                    <div class="col-md-4 divIfmarried">14a. Your Spouse's Date of Birth
                                         <input id="txtSpouse_Date_Of_Birth" type="date" class="form-control col-12" maxlength="40" name="spouse_dob" value="{{ old('spouse_dob') }}">
                                     </div>
                                     <div class="clearfix"></div>
-                                    <div class="col-md-12 divIfmarried">Your spouse’s experience?<br>
+                                    <div class="col-md-12 divIfmarried">14b. Your spouse’s experience?<br>
                                         <input name="spouse_experience" class="radSpouse_Experience" type="radio" value="Work Experience as a Business person" @if(old('spouse_experience') == 'Work Experience as a Business person') checked @endif> Work Experience as a Business person <br>
                                         <input class="radSpouse_Experience" name="spouse_experience" type="radio" value="Work Experience as a Skilled Worker" @if(old('spouse_experience') == 'Work Experience as a Skilled Worker') checked @endif> Work Experience as a Skilled Worker
                                         <input class="radSpouse_Experience" name="spouse_experience" type="radio" value="Not employed currently" @if(old('spouse_experience') == 'Not employed currently') checked @endif> Not employed currently <br>
@@ -138,7 +142,7 @@
                                 </div>
                             </template>
                             <template x-if="marital_status !== 'Never Married'">
-                                <div class="col-md-4 divIfmarried divChildren">How many children do you have?<span class="spanHighlight">*</span>
+                                <div class="col-md-4 divIfmarried divChildren">14.c How many children do you have?<span class="spanHighlight">*</span>
                                     <select id="txtHow_many_Children" class="form-control col-12" name="no_of_children">
                                         <option value="0"  @if(old('no_of_children') == '0') checked @endif>0</option>
                                         <option value="1" @if(old('no_of_children') == '1') checked @endif>1</option>
@@ -155,13 +159,13 @@
                                 </div>
                             </template>
                             <div class="clearfix"></div>
-                            <div class="col-md-12 divIfmarried divChildren" style="display: none;">Do you have children less than 22 years of age? You can include them in your PR application<span class="spanHighlight">*</span><br>
+                            <div class="col-md-12 divIfmarried divChildren" style="display: none;">15. Do you have children less than 22 years of age? You can include them in your PR application<span class="spanHighlight">*</span><br>
                                 <input class="radDo_you_have_Children_less_than_22_years_of_age " name="children_lt_20" type="radio" value="Yes" @if(old('children_lt_20') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
                                 <input class="radDo_you_have_Children_less_than_22_years_of_age" name="children_lt_20" type="radio" value="No" @if(old('children_lt_20') == 'No') checked @endif> No &nbsp;&nbsp;
                                 <br><br>
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12 divIfmarried divChildren" style="display: none;">Do you have children enrolled in accredited Canadian education institution/s and are actively pursuing academic, professional or vocational training on a full-time basis? <span class="spanHighlight">*</span><br>
+                            <div class="col-md-12 divIfmarried divChildren" style="display: none;">16. Do you have children enrolled in accredited Canadian education institution/s and are actively pursuing academic, professional or vocational training on a full-time basis? <span class="spanHighlight">*</span><br>
                                 <input
                                     class="radDo_you_have_children_enrolled_in_accredited_Canadian_education_institutions"
                                     name="children_enrolled" type="radio"
@@ -170,7 +174,7 @@
                                     name="children_enrolled" type="radio"
                                     value="No" @if(old('children_enrolled') == 'No') checked @endif> No &nbsp;&nbsp; <br> <br></div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12 divIfmarried divChildren" style="display: none;">Do you have any of your children who are Canadian citizens or permanent residents of Canada? <span class="spanHighlight">*</span><br>
+                            <div class="col-md-12 divIfmarried divChildren" style="display: none;">17. Do you have any of your children who are Canadian citizens or permanent residents of Canada? <span class="spanHighlight">*</span><br>
                                 <input class="radDo_you_have_any_of_your_children_who_are_Canadian_citizens_or_permanent_residents_of_Canada"
                                     name="children_canadian" type="radio"
                                     value="Yes" @if(old('children_canadian') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
@@ -178,7 +182,7 @@
                                     name="children_canadian" type="radio"
                                     value="No" @if(old('children_canadian') == 'No') checked @endif> No &nbsp;&nbsp; <br> <br></div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12 divIfmarried divChildren" style="display: none;">Do you, your spouse
+                            <div class="col-md-12 divIfmarried divChildren" style="display: none;">18. Do you, your spouse
                                 or your children have a physical or mental disorder that requires medical
                                 attention?<span class="spanHighlight">*</span><br>
                                 <input class="radDo_you_your_spouse_or_your_children_have_a_physical_or_mental_disorder"
@@ -188,7 +192,7 @@
                                     name="spouse_children_mental"
                                     type="radio" value="No" @if(old('spouse_children_mental') == 'No') checked @endif> No &nbsp;&nbsp; <br> <br></div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12">Have you been ordered to leave Canada or any other country?<span
+                            <div class="col-md-12">19. Have you been ordered to leave Canada or any other country?<span
                                     class="spanHighlight">*</span><br>
                                 <input class="radHave_you_been_ordered_to_leave_Canada_or_any_other_country"
                                        name="leave_canada" type="radio" value="Yes" @if(old('leave_canada') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
@@ -197,7 +201,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12">Have you ever committed, been arrested for, or been charged with any
+                            <div class="col-md-12">20. Have you ever committed, been arrested for, or been charged with any
                                 offense in any country, including driving under the influence of alcohol or drugs?<span
                                     class="spanHighlight">*</span><br>
                                 <input
@@ -209,7 +213,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12">Have you ever been in the military (including mandatory service), a
+                            <div class="col-md-12">21. Have you ever been in the military (including mandatory service), a
                                 militia, or a civil defense unit or the police?<span class="spanHighlight">*</span><br>
                                 <input class="radHave_you_ever_been_in_the_military_including_mandatory_service_a_militia_or_a_civil_defense_unit_or_the_police"
                                     name="in_military"
@@ -220,7 +224,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12">Have you ever been employed by a government in a security-related
+                            <div class="col-md-12">22. Have you ever been employed by a government in a security-related
                                 capacity?<span class="spanHighlight">*</span><br>
                                 <input class="radHave_you_ever_been_employed_by_a_government_in_a_security_related_capacity"
                                     name="employed_in_security" type="radio" value="Yes" @if(old('employed_in_security') == 'Yes') checked @endif> Yes
@@ -231,7 +235,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12">Have you visited other countries within the last 10 years?<span
+                            <div class="col-md-12">23. Have you visited other countries within the last 10 years?<span
                                     class="spanHighlight">*</span><br>
                                 <input class="radHave_you_visited_other_countries_within_the_last_10_years"
                                        name="visited_in_10_years" type="radio" x-model="visited_in_10_years" value="Yes" @if(old('visited_in_10_years') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
@@ -240,7 +244,7 @@
                             </div>
                             <template x-if="visited_in_10_years == 'Yes'">
                                 <div class="col-md-12 divListofcountriesvisited">
-                                    If Yes, please type the countries below (comma separated)
+                                    23a. If Yes, please type the countries below (comma separated)
                                     <textarea id="txtlist_of_countries_visited" name="visited_countries" cols="" rows="4" class="form-control col-12">{{ old('visited_countries') }}</textarea>
                                 </div>
                             </template>
@@ -248,7 +252,7 @@
                             <br>
                             <div id="showCountriesVistedlast10years" style="padding-bottom:30px;"></div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12">Do you or your spouse have blood relatives in Canada<span
+                            <div class="col-md-12">24. Do you or your spouse have blood relatives in Canada<span
                                     class="spanHighlight">*</span><br>
                                 <input class="radDo_you_or_your_spouse_have_Blood_relatives_in_Canada" x-model="spouse_have_relatives" name="spouse_have_relatives" type="radio" value="Yes" @if(old('spouse_have_relatives') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
                                 <input class="radDo_you_or_your_spouse_have_Blood_relatives_in_Canada" x-model="spouse_have_relatives" name="spouse_have_relatives" type="radio" value="No" @if(old('spouse_have_relatives') == 'No') checked @endif> No
@@ -256,7 +260,7 @@
                             <div class="clearfix"></div>
                             <br>
                             <template x-if="spouse_have_relatives == 'Yes'">
-                                <div class="col-md-12 divProvincerelativesReside">If yes, please state the province they reside in (you can select more than one)<span class="spanHighlight">*</span><br>
+                                <div class="col-md-12 divProvincerelativesReside">24a. If yes, please state the province they reside in (you can select more than one)<span class="spanHighlight">*</span><br>
                                     <input class="radIf_yes_State_the_province_they_reside"
                                            name="spouse_relative_state[]" type="checkbox"
                                            @if(in_array('British Columbia', old('spouse_relative_state',[]))) checked @endif
@@ -305,14 +309,14 @@
                             </template>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12">Have you ever visited Canada ?<span
+                            <div class="col-md-12">25. Have you ever visited Canada ?<span
                                     class="spanHighlight">*</span><br>
                                 <input class="txtHave_you_Visited_Canada" x-model="visited_canada" name="visited_canada" type="radio" value="Yes" @if(old('visited_canada') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
                                 <input class="txtHave_you_Visited_Canada" x-model="visited_canada" name="visited_canada" type="radio" value="No" @if(old('visited_canada') == 'No') checked @endif> No
                             </div>
                             <div class="clearfix"></div>
                             <template x-if="visited_canada == 'Yes'">
-                                <div class="col-md-12 divVisitedLast2years">Did you visit Canada in
+                                <div class="col-md-12 divVisitedLast2years">25a. Did you visit Canada in
                                     the last 2 years?<span class="spanHighlight">*</span><br>
                                     <input class="txtHave_you_Visited_Canada_in_last_2_years" x-model="visited_in_2" name="visited_in_2" type="radio" value="Yes" @if(old('visited_in_2') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
                                     <input class="txtHave_you_Visited_Canada_in_last_2_years" x-model="visited_in_2" name="visited_in_2" type="radio" value="No" @if(old('visited_in_2') == 'No') checked @endif> No
@@ -321,7 +325,7 @@
                             <div class="clearfix"></div>
                             <br>
                             <template x-if="visited_in_2 == 'Yes'">
-                                <div class="col-md-12 divProvincesVisitedlast2years">If yes, please
+                                <div class="col-md-12 divProvincesVisitedlast2years">25b. If yes, please
                                     state the provinces visited (you can select more than one)<br>
                                     <input class="chkif_yes_last_visted_Provinces" name="provinces_visited[]"
                                            @if(in_array('British Columbia', old('provinces_visited',[]))) checked @endif
@@ -358,7 +362,7 @@
                             <div class="clearfix"></div>
                             <br>
                             <template x-if="visited_in_2 != 'Yes'">
-                                <div class="col-md-12 divParentVisatoCanadarefusedDetail">Has your visa to Canada ever been refused?<span class="spanHighlight"></span><br>
+                                <div class="col-md-12 divParentVisatoCanadarefusedDetail">25a. Has your visa to Canada ever been refused?<span class="spanHighlight"></span><br>
                                     <input class="radHas_your_Visa_to_Canada_ever_been_refused"
                                            name="visa_refused" x-model="visa_refused" type="radio" value="Yes" @if(old('visa_refused') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
                                     <input class="radHas_your_Visa_to_Canada_ever_been_refused"
@@ -375,7 +379,7 @@
                             </template>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12">Between you and your spouse, please calculate the total value of your
+                            <div class="col-md-12">26. Between you and your spouse, please calculate the total value of your
                                 assets, including movable, immovable property/properties, cash in the bank, mutual
                                 funds, fixed deposits, etc. Please calculate in Canadian dollars. If you wish to convert
                                 from any currency to Canadian dollars, please visit www.xe.com. Please remember to
@@ -420,7 +424,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12">Have you taken English proficiency test (IELTS or CELPIP) ?<span
+                            <div class="col-md-12">27. Have you taken English proficiency test (IELTS or CELPIP) ?<span
                                     class="spanHighlight">*</span><br>
                                 <input class="radHave_you_taken_English_Proficiency_test" x-model="taken_english_test" name="taken_english_test" type="radio" value="Yes" @if(old('taken_english_test') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
                                 <input class="radHave_you_taken_English_Proficiency_test" x-model="taken_english_test" name="taken_english_test" type="radio" value="No" @if(old('taken_english_test') == 'No') checked @endif> No
@@ -430,24 +434,24 @@
                                 <div class="col-md-12 divEnglishproficiencyTesttaken">If yes, what is
                                     your score in <br>
                                     <div class="col-md-6">
-                                        Reading
+                                        27a. Reading
                                         <input type="text"
                                                id="txtIf_yes_what_is_your_score_in_Reading" class="form-control col-12"
                                                value="{{ old('reading') }}"
                                                name="reading">
-                                        Writing
+                                        27b. Writing
                                         <input type="text"
                                                id="txtIf_yes_what_is_your_score_in_Writing" class="form-control col-12"
                                                value="{{ old('writing') }}"
                                                name="writing">
                                     </div>
                                     <div class="col-md-6">
-                                        Speaking
+                                        27c. Speaking
                                         <input type="text"
                                                id="txtIf_yes_what_is_your_score_in_Speaking" class="form-control col-12"
                                                value="{{ old('speaking') }}"
                                                name="speaking">
-                                        Listening
+                                        27d. Listening
                                         <input type="text"
                                                id="txtIf_yes_what_is_your_score_in_Listening" class="form-control col-12"
                                                value="{{ old('listening') }}"
@@ -456,7 +460,7 @@
                                 </div>
                             </template>
                             <div class="clearfix"></div>
-                            <div class="col-md-12 divEnglishtestnotTaken">If you have not taken an English proficiency
+                            <div class="col-md-12 divEnglishtestnotTaken">28. If you have not taken an English proficiency
                                 test, how do you rate your English language proficiency?<br>
                                 <input class="radIf_not_taken_proficiency_test_rate_your_English_language_proficiency"
                                        name="language_proficiency" type="radio" value="Very Good / Fluent" @if(old('language_proficiency') == 'Very Good / Fluent') checked @endif> Very
@@ -470,14 +474,14 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12"><strong>Do you have any queries ?</strong><br>
+                            <div class="col-md-12"><strong>29. Do you have any queries ?</strong><br>
                                 <textarea id="texComments_and_Questions" name="queries" cols="" rows="4"
                                           class="form-control col-12">{{ old('queries') }}</textarea>
                             </div>
                             <div class="clearfix"></div>
                             <br>
 
-                            <div class="col-md-12"><strong>I am interested in the following Canada's business immigration / business work permit programs (you can select one or more options)<span class="spanHighlight">*</span></strong><br>
+                            <div class="col-md-12"><strong>30. I am interested in the following Canada's business immigration / business work permit programs (you can select one or more options)<span class="spanHighlight">*</span></strong><br>
                                 <!-- changes done 04-02-2022 -->
                                 <input class="chkCanada_business_immigration_Type" name="interests[]"
                                        @if(in_array('I operate my own business and would like to set up a branch / office in Canada and world like to be transferred to the Canadian Operation', old('interests',[]))) checked @endif

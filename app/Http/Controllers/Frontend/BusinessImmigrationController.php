@@ -31,6 +31,7 @@ class BusinessImmigrationController extends Controller
             'email' => 'required|email',
             'phone' => 'required',
             'country' => 'required',
+            'city_of_residence' => 'required',
             'nationality' => 'required',
             'in_canada' => 'required',
             'experience' => 'required',

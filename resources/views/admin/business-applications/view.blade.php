@@ -31,7 +31,7 @@
                             Email
                         </th>
                         <td class="{{ $valueClass }}">
-                            {{ $data->form_data['email'] }}
+                            <a href="mailto:{{ $data->form_data['email'] }}">{{ $data->form_data['email'] }}</a>
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
@@ -48,6 +48,14 @@
                         </th>
                         <td class="{{ $valueClass }}">
                             {{ $data->form_data['country'] }}
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <th scope="row" class="{{ $headingClass }}">
+                            City of residence
+                        </th>
+                        <td class="{{ $valueClass }}">
+                            {{ $data->form_data['city_of_residence'] }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
