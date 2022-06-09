@@ -11,15 +11,15 @@
 
             <div class="col-md-3">
 
-                <img src="images/logo2.png"><br>
+                <img src="{{ asset('images/logo2.png') }}"><br>
                 <br>
 
                 <p><a href="https://www.mbot.com/" target="_blank" rel="noopener"> <img
-                            class="mbot alignnone wp-image-2688 size-full" src="images/mbot.jpg" alt=""
+                            class="mbot alignnone wp-image-2688 size-full" src="{{asset('images/mbot.jpg')}}" alt=""
                             style="float:left; width:36.5%">
                     </a></p>
                 <p><a href="https://www.capic.ca/" target="_blank" rel="noopener">
-                        <img class="capic alignnone wp-image-2687 size-medium" src="images/capic-logo-300x75.jpg" alt=""
+                        <img class="capic alignnone wp-image-2687 size-medium" src="{{asset('images/capic-logo-300x75.jpg')}}" alt=""
                              style="float: left;
 width: 61%;
 margin: 0 0 2% 2%;" width="300" height="75"> </a></p>
@@ -27,44 +27,40 @@ margin: 0 0 2% 2%;" width="300" height="75"> </a></p>
                 <p><a href="https://iccrc-crcic.ca/" target="_blank" rel="noopener">
                         <img class="iccrc alignnone wp-image-1601 size-full" style="float: left;
 width: 61%;
-margin: 0 0 0 2%;" src="images/iccrc.png" alt="" width="300" height="61"></a></p>
+margin: 0 0 0 2%;" src="{{asset('images/iccrc.png')}}" alt="" width="300" height="61"></a></p>
                 <p><a href="study-university-canada.php"><img class="iccrc alignnone wp-image-1601 size-full" style="float: left;
 width: 100%;
-margin: 2% 0 0 0%;" src="images/UCW-logo.png" alt=""></a></p>
+margin: 2% 0 0 0%;" src="{{asset('images/UCW-logo.png')}}" alt=""></a></p>
                 <div class="clearfix"></div>
                 <br>
-
                 <!--<a href="https://just2canada.ca/product/make-payment/" target="_blank" class="btn">Make Payment</a> -->
             </div>
-
-
             <div class="col-md-3">
                 <h2>Navigation</h2>
                 <ul class="list inner clearfix">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="business-immigration.html">Business Immigration</a></li>
+                    <li><a href="{{ url('') }}">Home</a></li>
+                    <li><a href="{{url('about-us')}}">About Us</a></li>
+                    <li><a href="{{url('testimonials')}}">Testimonials</a></li>
+                    <li><a href="{{url('services')}}">Services</a></li>
+                    <li><a href="{{url('business-immigration')}}">Business Immigration</a></li>
 
                     <li><a href="business-exploratory-trip.php">Business Exploratory Trip</a></li>
                     <li>
-                        <ahref
-                        ="personal-immigration.html">Skilled Workers Immigration</ahref="personal-immigration.html">
+                        <a href="{{url('personal-immigration')}}">Skilled Workers Immigration</a>
                     </li>
-                    <li><a href="contact-us.php">Contact Us</a></li>
+                    <li><a href="{{url('contact-us')}}">Contact Us</a></li>
                 </ul>
             </div>
             <div class="col-md-3">
                 <h2>Immigration</h2>
                 <ul class="list inner clearfix">
-                    <li><a href="skilled-worker.html">Skilled Worker</a></li>
-                    <li><a href="business-immigration.html">Business Immigration</a></li>
+                    <li><a href="{{url('skilled-worker')}}">Skilled Worker</a></li>
+                    <li><a href="{{url('business-immigration')}}">Business Immigration</a></li>
 
                     <li><a href="business-exploratory-trip.php">Business Exploratory Trip</a></li>
-                    <li><a href="business-provincial-nominee-immigration.html">Senior Managers</a></li>
-                    <li><a href="immigration-consultants-in-NCR.php">Immigration Consultants NCR</a></li>
-                    <li><a href="contact-us.php">Contact Us</a></li>
+                    <li><a href="{{url('business-provincial-nominee-immigration')}}">Senior Managers</a></li>
+                    <li><a href="{{url('immigration-consultants-in-ncr')}}">Immigration Consultants NCR</a></li>
+                    <li><a href="{{url('contact-us')}}">Contact Us</a></li>
 
                 </ul>
             </div>
@@ -72,24 +68,18 @@ margin: 2% 0 0 0%;" src="images/UCW-logo.png" alt=""></a></p>
                 <h2>Useful Links</h2>
 
                 <ul class="list inner clearfix">
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="refund-policy.html">Refund Policy</a></li>
+                    <li><a href="{{url('privacy-policy')}}">Privacy Policy</a></li>
+                    <li><a href="{{url('refund-policy')}}">Refund Policy</a></li>
                     <li><a href="https://ca.jooble.org/jobs-canada-jobs-for-immigrants" target="_blank" rel="nofollow">Jobs
                             for Canadian Immigrants/Residents</a></li>
                     <li>
                         <a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/operational-bulletins-manuals/updates.html"
                            target="_blank" rel="nofollow">Latest Immigration Updates</a></li>
-
-                    <li><a href="existing-client-login.html" target="_blank" rel="nofollow">Existing Client Login</a>
+                    <li><a href="{{url('existing-client-login')}}" target="_blank" rel="nofollow">Existing Client Login</a>
                     </li>
-
                 </ul>
-
             </div>
-
-
             <div class="moto-cell col-sm-12" data-container="container">
-
                 <div id="wid_1578904989_x05fo5w3o" data-widget-id="wid_1578904989_x05fo5w3o"
                      class="moto-widget moto-widget-social-links-extended moto-preset-default moto-align-center moto-spacing-top-auto moto-spacing-right-auto moto-spacing-bottom-medium moto-spacing-left-auto  "
                      data-widget="social_links_extended" data-preset="default">
@@ -173,26 +163,9 @@ margin: 2% 0 0 0%;" src="images/UCW-logo.png" alt=""></a></p>
 
 </div>
 
-<!-- Mobile Icons -->
-
-
-<script src="https://plugin.aktok.com/aktokwsc-widget.js"></script>
-<aktokwsc-widget id="aktokwsc" uuid="736ca67b-e16b-41b9-9707-2d34d1075cce" _nghost-sqp-c17="" class="ng-tns-c17-0"
-                 ng-version="13.1.3"><!----><!----></aktokwsc-widget>
-
-
-<script src="https://plugin.aktok.com/aktokwsc-widget.js"></script>
-<aktokwsc-widget id="aktokwsc" uuid="736ca67b-e16b-41b9-9707-2d34d1075cce" _nghost-sqp-c17="" class="ng-tns-c17-1"
-                 ng-version="13.1.3"><!----><!----></aktokwsc-widget>
-
-
-<!--[if lt IE 9]-->
-<script src="js/html5shiv.min.js"></script>
-<script src="js/respond.min.js"></script>
-<!--[endif]---->
 
 <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-<script type="text/javascript" src="js/jquery.ripple.js"></script>
+<script type="text/javascript" src="{{asset('js/jquery.ripple.js')}}"></script>
 <script type="text/javascript">
     $(function () {
         $('#ripple').ripple();
@@ -210,7 +183,7 @@ margin: 2% 0 0 0%;" src="images/UCW-logo.png" alt=""></a></p>
 
 
 <!--<script src="js/jquery.min.js"></script> -->
-<script src="js/jquery.ripples.js"></script>
+<script src="{{asset('js/jquery.ripples.js')}}"></script>
 <script>
     $(document).ready(function () {
         try {
@@ -271,40 +244,24 @@ margin: 2% 0 0 0%;" src="images/UCW-logo.png" alt=""></a></p>
 
 
 <!-- Bootstrap JS -->
-<script src="js/bootstrap.min.js"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
 
 <!-- Animate JS -->
-<script src="vendors/animate/wow.min.js"></script>
+<script src="{{asset('vendors/animate/wow.min.js')}}"></script>
 <!-- Camera Slider -->
-<script src="vendors/camera-slider/jquery.easing.1.3.js"></script>
-<script src="vendors/camera-slider/camera.min.js"></script>
+<script src="{{asset('vendors/camera-slider/jquery.easing.1.3.js')}}"></script>
+<script src="{{asset('vendors/camera-slider/camera.min.js')}}"></script>
 <!-- Isotope JS -->
-<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-<script src="vendors/isotope/isotope.pkgd.min.js"></script>
+<script src="{{asset('vendors/isotope/imagesloaded.pkgd.min.js')}}"></script>
+<script src="{{asset('vendors/isotope/isotope.pkgd.min.js')}}"></script>
 <!-- Progress JS -->
-<script src="vendors/Counter-Up/jquery.counterup.min.js"></script>
-<script src="vendors/Counter-Up/waypoints.min.js"></script>
+<script src="{{asset('vendors/Counter-Up/jquery.counterup.min.js')}}"></script>
+<script src="{{asset('vendors/Counter-Up/waypoints.min.js')}}"></script>
 <!-- Owlcarousel JS -->
-<script src="vendors/owl_carousel/owl.carousel.min.js"></script>
+<script src="{{asset('vendors/owl_carousel/owl.carousel.min.js')}}"></script>
 <!-- Stellar JS -->
-<script src="vendors/stellar/jquery.stellar.js"></script>
+<script src="{{asset('vendors/stellar/jquery.stellar.js')}}"></script>
 <!-- Theme JS -->
-<script src="js/theme.js"></script>
-
-
-<!-- Start of LiveChat (www.livechatinc.com) code --
-<script>
-window.__lc = window.__lc || {};
-window.__lc.license = 13225764;
-;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
-</script>
-<noscript><a href="https://www.livechatinc.com/chat-with/13225764/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
-<!-- End of LiveChat code -->
-
-
-<iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none;"></iframe>
-<div id="GOOGLE_INPUT_CHEXT_FLAG" input=""
-     input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:true,&quot;ss&quot;:true}"
-     style="display: none;"></div>
+<script src="{{asset('js/theme.js')}}"></script>
 </body>
 </html>

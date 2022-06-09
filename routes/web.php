@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('business-immigration-assessment',[]);
-
+Route::view('immigration-consultants-in-ncr','frontend.immigration-consultants-in-ncr');
+Route::view('contact-us', 'frontend.contact-us');
+Route::get('business-immigration-assessment',[\App\Http\Controllers\Frontend\BusinessImmigrationController::class,'form'])->name('business-immigration.form');
+Route::post('business-immigration-assessment-store',[\App\Http\Controllers\Frontend\BusinessImmigrationController::class,'store'])->name('business-immigration.store');
 Route::get('/{any}', [PageController::class,'page'])->where('any', '.*');
 

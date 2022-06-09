@@ -132,6 +132,7 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        //
+        $page->delete();
+        return Response::redirectToRoute('admin.pages.index')->with('info','Page Deleted Successfully');
     }
 }
