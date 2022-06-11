@@ -16,13 +16,24 @@ class BusinessApplicationController extends Controller
      *
      * @return View
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        $data = FormSubmission::select('id','client_id','form_data->name as name')->where('form_type_id',2)->paginate(30);
+        $data = FormSubmission::select('id','client_id','form_data->name as name','form_data->email as email','form_data->country as country')->where('form_type_id',2);
+        $search = $request->input('search');
+        if($search)
+        {
+            $data->where('form_data->name','like','%'.$search.'%')
+                ->orWhere('form_data->email','like','%'.$search.'%')
+                ->orWhere('form_data->country','like','%'.$search.'%')
+                ->orWhere('client_id','like','%'.$search.'%');
+        }
+        $data = $data->paginate(30);
         $columns = [
             ['label' => 'ID', 'field' => 'id', 'align' => 'left', 'sortable' => true],
             ['label' => 'Client ID', 'field' => 'client_id', 'align' => 'left', 'sortable' => true,'link' => true],
             ['label' => 'Name', 'field' => 'name', 'align' => 'left', 'sortable' => true],
+            ['label' => 'Email', 'field' => 'email', 'align' => 'left', 'sortable' => true],
+            ['label' => 'Country', 'field' => 'country', 'align' => 'left', 'sortable' => true],
         ];
         return view('admin.business-applications.index',[
             'title' => 'Business Applications',
@@ -30,7 +41,8 @@ class BusinessApplicationController extends Controller
                 ['label' => 'Business Applications', 'route_name' => 'admin.business-applications.index']
             ],
             'data' => $data,
-            'columns' => $columns
+            'columns' => $columns,
+            'search' => $search
         ]);
     }
 
