@@ -18,7 +18,7 @@ class BusinessApplicationController extends Controller
      */
     public function index(Request $request): View
     {
-        $data = FormSubmission::select('id','client_id','form_data->name as name','form_data->email as email','form_data->country as country')->where('form_type_id',2);
+        $data = FormSubmission::select('id','client_id','form_data->name as name','form_data->email as email','form_data->country as country')->where('form_type_id',2)->orderBy('created_at','DESC');
         $search = $request->input('search');
         if($search)
         {

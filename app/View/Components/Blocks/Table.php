@@ -14,12 +14,13 @@ class Table extends Component
     public $rowKey;
     public $hasDelete;
     public $hasEdit;
+    public $noLinks;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($striped = FALSE, $hover = FALSE, $columns = [], $data = [], $hasEdit = FALSE, $rowKey = NULL, $hasDelete = FALSE, $route = NULL)
+    public function __construct($striped = FALSE, $hover = FALSE, $columns = [], $data = [], $hasEdit = FALSE, $rowKey = NULL, $hasDelete = FALSE, $route = NULL, $noLinks = FALSE)
     {
         $this->hover = $hover;
         $this->striped = $striped;
@@ -29,6 +30,7 @@ class Table extends Component
         $this->rowKey = $rowKey;
         $this->hasDelete = $hasDelete;
         $this->hasEdit = $hasEdit;
+        $this->noLinks = $noLinks;
     }
 
     /**

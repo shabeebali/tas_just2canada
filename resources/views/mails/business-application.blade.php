@@ -27,27 +27,25 @@
        style="background-color:#fff; font-family:Arial, Helvetica, sans-serif; font-size:12px; border:1px solid #006; color:#000;"
        width="650">
     <tbody>
-    <tr>
-        <td align="center" style="padding:10px;" valign="top">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tbody>
-                <tr>
-                    <td align="center"><img src="https://just2canada.ca/images/logo.png"/></td>
-                </tr>
-                </tbody>
-            </table>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<div style="padding:20px;">Thank you for completing this questionnaire. <br>It will help us to assess your Canadian
-    immigration qualifications as accurately as possible and we will be able to discuss your relocation options.
-</div>
-<div style="padding:20px;">A copy of your submission is being emailed to you for your records.</div>
-<table align="center" border="0" cellpadding="0" cellspacing="0"
-       style="background-color:#fff; font-family:Arial, Helvetica, sans-serif; font-size:12px; border:1px solid #006; color:#000;"
-       width="650">
-    <tbody>
+        <tr>
+            <td align="center" style="padding:10px;" valign="top">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                    <tr>
+                        <td align="center"><img src="https://just2canada.ca/images/logo.png"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div style="padding:20px;">Thank you for completing this questionnaire. <br>It will help us to assess your Canadian
+                    immigration qualifications as accurately as possible and we will be able to discuss your relocation options.
+                </div>
+                <div style="padding:20px;">A copy of your submission is being emailed to you for your records.</div>
+            </td>
+        </tr>
         <tr>
             <td align="center" bgcolor="#1c3e93" height="70"
                 style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#ffffff;font-weight:normal; "

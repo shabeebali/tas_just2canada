@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\BusinessApplicationMail;
 use App\Models\Country;
 use App\Models\FormSubmission;
 use App\Models\FormType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
@@ -107,6 +109,8 @@ class BusinessImmigrationController extends Controller
         $formSubmission->form_data = $formData;
 
         $formSubmission->save();
+
+        Mail::to($request->input('mail'))->send(new BusinessApplicationMail());
 
         return Response::redirectToRoute('business-immigration.form')->with('success','Your form has been submitted successfully. We will contact you soon');
     }

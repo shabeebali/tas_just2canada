@@ -1,6 +1,8 @@
 <x-blocks.card class="w-full">
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        {{ $data->links() }}
+        @if(!$noLinks)
+            {{ $data->links() }}
+        @endif
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -46,8 +48,11 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $data->links() }}
+        @if(!$noLinks)
+            {{ $data->links() }}
+        @endif
     </div>
+    @if($hasDelete)
     <script>
         function onDelete(id) {
             var confirm = window.confirm(' Do you want to delete this record?')
@@ -73,4 +78,5 @@
             }
         }
     </script>
+    @endif
 </x-blocks.card>
