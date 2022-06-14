@@ -14,6 +14,7 @@ Route::middleware(['guest'])->group(function() {
 });
 
 Route::middleware(['auth:web','role:admin|super_admin'])->name('admin.')->group(function() {
+    Route::post('form-remarks',[\App\Http\Controllers\FormRemarkController::class,'store'])->name('form-remarks.store');
     Route::get('dashboard',[AdminController::class,'dashboard'])->name('home');
     Route::resource('testimonials',TestimonialController::class);
     Route::resource('pages',PageController::class);

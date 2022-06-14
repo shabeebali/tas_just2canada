@@ -47,7 +47,7 @@ class BusinessApplicationController extends Controller
     }
 
     public function show($id) {
-        $model = FormSubmission::find($id);
+        $model = FormSubmission::with('remarks')->find($id);
         return view('admin.business-applications.view',[
             'data' => $model,
             'title' => 'Business Application: '.$model->client_id,

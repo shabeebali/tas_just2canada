@@ -79,7 +79,7 @@
             <a href="https://iccrc-crcic.ca/" target="_blank" rel="noopener">
                 <img class="iccrc alignnone wp-image-1601 size-full top-icc" src="{{asset('images/iccrc.png')}}" alt="" width="300"
                      height="50"></a>
-            <a href="skilled-worker-assessment.php" class="btn navbar-right" data-animation="animated fadeInUp">Skilled
+            <a href="{{ route('skilled-worker-assessment') }}" class="btn navbar-right" data-animation="animated fadeInUp">Skilled
                 Worker Assessment </a>
             <a href="{{ route('business-immigration.form') }}" class="btn navbar-right" data-animation="animated fadeInUp">Business
                 Assessment </a>

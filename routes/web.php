@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::view('skilled-worker-assessment','frontend.skilled-worker-assessment')->name('skilled-worker-assessment');
 Route::view('immigration-consultants-in-ncr','frontend.immigration-consultants-in-ncr');
 Route::view('contact-us', 'frontend.contact-us');
 Route::get('business-immigration-assessment',[\App\Http\Controllers\Frontend\BusinessImmigrationController::class,'form'])->name('business-immigration.form');

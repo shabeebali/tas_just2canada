@@ -18,6 +18,7 @@ class FormSubmission extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'client_id',
         'form_data',
         'form_type'
@@ -30,5 +31,10 @@ class FormSubmission extends Model
     public function form_type(): BelongsTo
     {
         return $this->belongsTo(FormType::class);
+    }
+
+    public function remarks()
+    {
+        return $this->hasMany(FormRemark::class);
     }
 }
