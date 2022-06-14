@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $client_id
  * @property array $form_data
  * @property int $form_type_id
+ * @property string $created_at
  * @mixin \Eloquent
  */
 class FormSubmission extends Model

@@ -41,6 +41,7 @@ class FormDataImporter extends Command
     public function handle()
     {
         $rows = DB::table('trn_form_submission')->where('formTypeid',1)->get();
+        FormSubmission::unguard();
         foreach ($rows as $row)
         {
             $formData = json_decode($row->formData, TRUE);
@@ -181,6 +182,7 @@ class FormDataImporter extends Command
 
             $formSubmission->form_type_id = $formType->id;
 
+            $formSubmission->created_at = $row->created_at;
 
             $formSubmission->form_data = $data;
 

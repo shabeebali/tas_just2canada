@@ -253,6 +253,9 @@
         <div class="grid grid-cols-1">
             @foreach($data->remarks as $remark)
             <x-blocks.card class="mt-2">
+                <div class="text-blue-700 mb-4">
+                    [Created At: {{$remark->created_at->toDateTimeString() }}]
+                </div>
                 <div class="text-semibold">
                     Remark: {{ $remark->remark }}
                 </div>
@@ -278,7 +281,7 @@
                     <input type="hidden" value="{{ $data->id }}" name="form_submission_id"/>
                     <x-blocks.card>
                         <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your Remark</label>
-                        <textarea id="message" rows="4" name="remark" class="mb-4 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your remark here..."></textarea>
+                        <textarea id="message" rows="4" name="remark" required class="mb-4 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your remark here..."></textarea>
                         <x-blocks.input-field type="text" class="mb-4" label="Quoted Fee?" name="quoted_fee"></x-blocks.input-field>
                         <x-blocks.input-field type="date" class="mb-4" label="Next Follow Up?" name="next_follow"></x-blocks.input-field>
                         <x-blocks.button type="submit" label="Save"></x-blocks.button>

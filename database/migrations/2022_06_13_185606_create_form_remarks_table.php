@@ -16,8 +16,8 @@ class CreateFormRemarksTable extends Migration
         Schema::create('form_remarks', function (Blueprint $table) {
             $table->id();
             $table->text('remark');
-            $table->string('quoted_fee');
-            $table->date('next_follow');
+            $table->string('quoted_fee')->nullable();
+            $table->date('next_follow')->nullable();
             $table->foreignId('form_submission_id')->constrained();
             $table->timestamps();
         });
