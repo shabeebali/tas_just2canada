@@ -35,12 +35,29 @@ class FormRemarkController extends Controller
      */
     public function store(Request $request)
     {
-        FormRemark::create($request->only([
+        $model = FormRemark::create($request->only([
             'remark',
             'next_follow',
             'quoted_fee',
             'form_submission_id'
         ]));
+        if($request->file('file_1')) {
+            $path = $request->file('file_1')->store('files','public');
+            $model->file_1 = $path;
+        }
+        if($request->file('file_2')) {
+            $path = $request->file('file_2')->store('files','public');
+            $model->file_1 = $path;
+        }
+        if($request->file('file_3')) {
+            $path = $request->file('file_3')->store('files','public');
+            $model->file_1 = $path;
+        }
+        if($request->file('file_4')) {
+            $path = $request->file('file_4')->store('files','public');
+            $model->file_1 = $path;
+        }
+        $model->save();
         return redirect(route('admin.business-applications.show',$request->input('form_submission_id')));
     }
 

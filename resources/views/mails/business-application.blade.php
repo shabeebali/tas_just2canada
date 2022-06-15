@@ -40,10 +40,14 @@
         </tr>
         <tr>
             <td>
-                <div style="padding:20px;">Thank you for completing this questionnaire. <br>It will help us to assess your Canadian
-                    immigration qualifications as accurately as possible and we will be able to discuss your relocation options.
+                <div style="padding:20px;">
+                    Dear (name).<br>
+                    Thank you for submitting the Business Immigration Assessment Questionnaire. Your assigned file number is : {{ $client_id  }}. You may quote this number in future correspondence with us.
+                    We will now assess your application and related immigration qualifications and will provide you with the best possible options that suit your profile.<br>
+                    Our licensed immigration practitioner will book a Zoom video discovery call with you so you can meet and understand the further course of action.<br>
+                    Thank you so much,<br>
+                    Just To Canada Team, Mississauga, Ontario, Canada
                 </div>
-                <div style="padding:20px;">A copy of your submission is being emailed to you for your records.</div>
             </td>
         </tr>
         <tr>

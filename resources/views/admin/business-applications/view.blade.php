@@ -51,59 +51,25 @@
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">2</span> <strong>Currently in canada ?:</strong> {{ $data->form_data['in_canada'] ?? '' }}
+                            <span class="bg-gray-900 text-white px-2">2</span> <strong>Date of Birth of the applicant:</strong> {{ \Carbon\Carbon::parse($data->form_data['dob'])->toDateString() }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">3</span> <strong>Experience that applies to the applicant:</strong> {{ $data->form_data['experience']  ?? ''}}
-                        </td>
-                    </tr>
-                    @if(isset($data->form_data['area_of_business']))
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}">
-                                <span class="bg-gray-900 text-white px-2">4</span> <strong>Area of business or management experience acquired in past 10 years:</strong>
-                                <ul>
-                                    @foreach($data->form_data['area_of_business'] as $item)
-                                        <li>{{ $item }}</li>
-                                    @endforeach
-                                </ul>
-                            </td>
-                            <td class="{{ $valueClass }}">
-                                <strong>Product / Commodity description that the applicant deals in/her business :</strong> {{ $data->form_data['product_description'] ?? '' }}
-                            </td>
-                        </tr>
-                    @endif
-                    <tr class="{{ $rowClass }}">
-                        <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">5</span> <strong>Funds Available to invest in canada:</strong> {{ isset($data->form_data['funds_available']) ? $data->form_data['funds_available'] : ''}}
-                        </td>
-                        <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">6</span> <strong>Will the applicant consider two applicants to apply under the entrepreneur stream in the same application?:</strong> {{ isset($data->form_data['apply_same']) ? $data->form_data['apply_same'] : '' }}
+                            <span class="bg-gray-900 text-white px-2">3</span> <strong>Marital Status:</strong> {{ $data->form_data['marital_status'] ?? '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
-                        <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">7</span> <strong>Educational Qualification:</strong> {{ $data->form_data['qualification'] ?? '' }}
-                        </td>
-                        <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">8</span> <strong>Date of Birth of the applicant:</strong> {{ \Carbon\Carbon::parse($data->form_data['dob'])->toDateString() }}
-                        </td>
-                    </tr>
-                    <tr class="{{ $rowClass }}">
-                        <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">9</span> <strong>Marital Status:</strong> {{ $data->form_data['marital_status'] ?? '' }}
-                        </td>
                         @if(isset($data->form_data['spouse_dob']))
                             <td class="{{ $valueClass }}">
                                 <strong>Spouse's Date of Birth ?:</strong> {{ \Carbon\Carbon::parse($data->form_data['spouse_dob'])->toDateString() }}
                             </td>
                         @endif
-                    </tr>
-                    <tr class="{{ $rowClass }}">
                         @if(isset($data->form_data['spouse_experience']))
                             <td class="{{ $valueClass }}">
                                 <strong>Spouse's Experience:</strong> {{ $data->form_data['spouse_experience'] ?? '' }}
                             </td>
                         @endif
+                    </tr>
+                    <tr class="{{ $rowClass }}">
                         @if(isset($data->form_data['no_of_children']))
                             <td class="{{ $valueClass }}">
                                 <strong>No. of children:</strong> {{ $data->form_data['no_of_children'] ?? '' }}
@@ -140,23 +106,56 @@
                     @endif
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">10</span> <strong>Ordered to leave Canada or any other country?:</strong> {{ $data->form_data['leave_canada'] ?? '' }}
+                            <span class="bg-gray-900 text-white px-2">4</span> <strong>Currently in canada ?:</strong> {{ $data->form_data['in_canada'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">11</span> <strong>Arrested for, or been charged with any offense in any country, including driving under the influence of alcohol or drugs?:</strong> {{ $data->form_data['arrested'] ?? '' }}
+                            <span class="bg-gray-900 text-white px-2">5</span> <strong>Experience that applies to the applicant:</strong> {{ $data->form_data['experience']  ?? ''}}
+                        </td>
+                    </tr>
+                    @if(isset($data->form_data['area_of_business']))
+                        <tr class="{{ $rowClass }}">
+                            <td class="{{ $valueClass }}">
+                                <span class="bg-gray-900 text-white px-2">6</span> <strong>Area of business or management experience acquired in past 10 years:</strong>
+                                <ul>
+                                    @foreach($data->form_data['area_of_business'] as $item)
+                                        <li>{{ $item }}</li>
+                                    @endforeach
+                                </ul>
+                            </td>
+                            <td class="{{ $valueClass }}">
+                                <strong>Product / Commodity description that the applicant deals in/her business :</strong> {{ $data->form_data['product_description'] ?? '' }}
+                            </td>
+                        </tr>
+                    @endif
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <span class="bg-gray-900 text-white px-2">7</span> <strong>Will the applicant consider two applicants to apply under the entrepreneur stream in the same application?:</strong> {{ isset($data->form_data['apply_same']) ? $data->form_data['apply_same'] : '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">12</span> <strong>Been in the military (including mandatory service), a militia, or a civil defense unit or the police?:</strong> {{ $data->form_data['in_military'] ?? '' }}
-                        </td>
-                        <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">13</span> <strong>Been employed by a government in a security-related capacity?:</strong> {{ $data->form_data['employed_in_security'] ?? '' }}
+                            <span class="bg-gray-900 text-white px-2">8</span> <strong>Educational Qualification:</strong> {{ $data->form_data['qualification'] ?? '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">14</span> <strong>Visited other countries within the last 10 years?:</strong> {{ $data->form_data['visited_in_10_years'] ?? '' }}
+                            <span class="bg-gray-900 text-white px-2">9</span> <strong>Ordered to leave Canada or any other country?:</strong> {{ $data->form_data['leave_canada'] ?? '' }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                            <span class="bg-gray-900 text-white px-2">10</span> <strong>Arrested for, or been charged with any offense in any country, including driving under the influence of alcohol or drugs?:</strong> {{ $data->form_data['arrested'] ?? '' }}
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <span class="bg-gray-900 text-white px-2">11</span> <strong>Been in the military (including mandatory service), a militia, or a civil defense unit or the police?:</strong> {{ $data->form_data['in_military'] ?? '' }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                            <span class="bg-gray-900 text-white px-2">12</span> <strong>Been employed by a government in a security-related capacity?:</strong> {{ $data->form_data['employed_in_security'] ?? '' }}
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <span class="bg-gray-900 text-white px-2">13</span> <strong>Visited other countries within the last 10 years?:</strong> {{ $data->form_data['visited_in_10_years'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
                             <strong>Visited Countries:</strong> {{ isset($data->form_data['visited_countries']) ? $data->form_data['visited_countries'] : ''}}
@@ -164,7 +163,7 @@
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">15</span> <strong> Applicant or spouse have blood relatives in Canada?:</strong> {{ $data->form_data['spouse_have_relatives'] ?? '' }}
+                            <span class="bg-gray-900 text-white px-2">14</span> <strong> Applicant or spouse have blood relatives in Canada?:</strong> {{ $data->form_data['spouse_have_relatives'] ?? '' }}
                         </td>
                         @if(isset($data->form_data['spouse_relative_state']))
                             <td class="{{ $valueClass }}">
@@ -179,13 +178,13 @@
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">16</span> <strong> Ever visited Canada?:</strong> {{ $data->form_data['visited_canada']  ?? ''}}
+                            <span class="bg-gray-900 text-white px-2">15</span> <strong> Ever visited Canada?:</strong> {{ $data->form_data['visited_canada']  ?? ''}}
                         </td>
                     </tr>
                     @if(isset($data->form_data['visited_in_2']) || isset($data->form_data['provinces_visited']))
                         <tr class="{{ $rowClass }}">
                             <td class="{{ $valueClass }}">
-                                <span class="bg-gray-900 text-white px-2">17</span> <strong> Visited Canada in last 2 years?:</strong> {{ isset($data->form_data['visited_in_2']) ? $data->form_data['visited_in_2'] : '' }}
+                                Visited Canada in last 2 years?:</strong> {{ isset($data->form_data['visited_in_2']) ? $data->form_data['visited_in_2'] : '' }}
                             </td>
                             @if(isset($data->form_data['provinces_visited']))
                                 <td class="{{ $valueClass }}">
@@ -202,11 +201,16 @@
                     <tr class="{{ $rowClass }}">
                         @if(isset($data->form_data['visa_refused']))
                             <td class="{{ $valueClass }}">
-                                <span class="bg-gray-900 text-white px-2">17</span> <strong> Visa to Canada ever been refused?:</strong> {{ $data->form_data['visa_refused'] ?? '' }}
+                                <span class="bg-gray-900 text-white px-2">16</span> <strong> Visa to Canada ever been refused?:</strong> {{ $data->form_data['visa_refused'] ?? '' }}
                             </td>
                         @endif
+                    </tr>
+                    <tr>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">18</span> <strong> Total assets between applicant and spouse:</strong> {{ $data->form_data['assets'] ?? '' }}
+                            <span class="bg-gray-900 text-white px-2">17</span> <strong> Total assets between applicant and spouse:</strong> {{ $data->form_data['assets'] ?? '' }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                            <span class="bg-gray-900 text-white px-2">18</span> <strong>Funds Available to invest in canada:</strong> {{ isset($data->form_data['funds_available']) ? $data->form_data['funds_available'] : ''}}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
@@ -228,7 +232,15 @@
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">19</span> <strong> Queries:</strong> {{ $data->form_data['queries'] ?? '' }}
+                            <strong> Planning to relocate / start the immigration process:</strong> {{ $data->form_data['planning_to_start'] ?? '' }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                             <strong> Intend to move to Canada in:</strong> {{ $data->form_data['intend_to_move'] ?? '' }}
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            Queries:</strong> {{ $data->form_data['queries'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
                             <span class="bg-gray-900 text-white px-2">20</span> <strong> Interests:</strong>
@@ -269,6 +281,26 @@
                         Quoted Fee: {{ $remark->quoted_fee }}
                     </div>
                 @endif
+                @if($remark->file_1)
+                    <div class="text-semibold">
+                       <a class="text-blue-700" href="{{url('storage/'.$remark->file_1)}}">File 1</a>
+                    </div>
+                @endif
+                @if($remark->file_2)
+                    <div class="text-semibold">
+                        <a class="text-blue-700" href="{{url('storage/'.$remark->file_2)}}">File 2</a>
+                    </div>
+                @endif
+                @if($remark->file_3)
+                    <div class="text-semibold">
+                        <a class="text-blue-700" href="{{url('storage/'.$remark->file_3)}}">File 3</a>
+                    </div>
+                @endif
+                @if($remark->file_4)
+                    <div class="text-semibold">
+                        <a class="text-blue-700" href="{{url('storage/'.$remark->file_4)}}">File 4</a>
+                    </div>
+                @endif
             </x-blocks.card>
             @endforeach
         </div>
@@ -276,7 +308,7 @@
     <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full">
         <div class="relative p-4 w-full max-w-4xl h-full md:h-auto">
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <form action="{{ route('admin.form-remarks.store') }}" method="POST">
+                <form action="{{ route('admin.form-remarks.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" value="{{ $data->id }}" name="form_submission_id"/>
                     <x-blocks.card>
@@ -284,6 +316,10 @@
                         <textarea id="message" rows="4" name="remark" required class="mb-4 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your remark here..."></textarea>
                         <x-blocks.input-field type="text" class="mb-4" label="Quoted Fee?" name="quoted_fee"></x-blocks.input-field>
                         <x-blocks.input-field type="date" class="mb-4" label="Next Follow Up?" name="next_follow"></x-blocks.input-field>
+                        <x-blocks.input-field type="file" class="mb-4" label="File 1" name="file_1"></x-blocks.input-field>
+                        <x-blocks.input-field type="file" class="mb-4" label="File 2" name="file_2"></x-blocks.input-field>
+                        <x-blocks.input-field type="file" class="mb-4" label="File 3" name="file_3"></x-blocks.input-field>
+                        <x-blocks.input-field type="file" class="mb-4" label="File 4" name="file_4"></x-blocks.input-field>
                         <x-blocks.button type="submit" label="Save"></x-blocks.button>
                         <button data-modal-toggle="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Cancel</button>
                     </x-blocks.card>

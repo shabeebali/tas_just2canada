@@ -70,69 +70,11 @@
                             <div class="col-md-6">How did you obtain our reference? (optional)<span class="spanHighlight"></span>
                                 <input id="txtReference" type="text" class="form-control col-12" maxlength="40"  name="reference" value="{{ old('reference') }}"></div>
                             <div class="clearfix"></div>
-                            <div class="col-md-6"><strong>2.</strong> Are you currently in Canada ?<span class="spanHighlight">*</span>
-                                <br>
-                                <input name="in_canada" class="radAre_you_Currently_In_Canada" type="radio" value="Yes" @if(old('in_canada') == 'Yes') checked @endif> Yes &nbsp;&nbsp
-                                <input class="radAre_you_Currently_In_Canada" name="in_canada" type="radio" value="No" @if(old('in_canada') == 'No') checked @endif> No &nbsp;&nbsp;
-                            </div>
-                            <div class="clearfix"></div>
-                            <br>
-                            <div class="col-md-8"><strong>3.</strong> Please select which experience pertains to you<span class="spanHighlight">*</span><br>
-                                <input class="chkExperience" name="experience" type="radio" value="Business Person" @if(old('experience') == 'Business Person') checked @endif> Business Person <br>
-                                <input name="experience" class="chkExperience" type="radio" value="Senior Manager" @if(old('experience') == 'Senior Manager') checked @endif> Senior Manager <br>
-                                <input name="experience" class="chkExperience" type="radio" value="Self Employed Artist" @if(old('experience') == 'Self Employed Artist') checked @endif> Self Employed Artist <br>
-                                <input name="experience" class="chkExperience" type="radio" value="I am a professional and am willing to invest in a business in Canada" @if(old('experience') == 'I am a professional and am willing to invest in a business in Canada') checked @endif> I am a professional and am willing to invest in a business in Canada <br>
-                            </div>
-                            <div class="clearfix"></div>
-                            <br>
-                            <div class="col-md-12"><strong>4.</strong> What area of business or management experience have you acquired in the past 10 years (you can select more than one option)<span class="spanHighlight">*</span><br>
-                                <input class="radArea_of_business" name="area_of_business[]" type="checkbox" value="Manufacturing / trading"  @if(in_array('Manufacturing / trading',old('area_of_business',[]))) checked @endif> Manufacturing / trading <br>
-                                <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Only trading / Import / Export" @if(in_array('Only trading / Import / Export',old('area_of_business',[]))) checked @endif> Only trading / Import / Export <br>
-                                <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Project work (builder / Construction etc)" @if(in_array('Project work (builder / Construction etc)',old('area_of_business',[]))) checked @endif> Project work (builder / Construction etc) <br>
-                                <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Wholesale / Retail establishment" @if(in_array('Wholesale / Retail establishment',old('area_of_business',[]))) checked @endif> Wholesale / Retail establishment <br>
-                                <input name="area_of_business[]" class="radArea_of_business" type="checkbox" value="Information Techlology" @if(in_array('Information Techlology',old('area_of_business',[]))) checked @endif> Information Techlology <br>
-                                <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Consulting" @if(in_array('Consulting',old('area_of_business',[]))) checked @endif> Consulting <br>
-                                <input name="area_of_business[]" class="radArea_of_business" type="checkbox" value="Other" @if(in_array('Other',old('area_of_business',[]))) checked @endif> Other <br>
-                            </div>
-                            <div class="clearfix"></div>
-                            <br>
-                            <div class="col-md-12">Briefly describe product/commodity you deal in your business<span class="spanHighlight">*</span>
-                                <textarea id="texProduct_Description" name="product_description" cols="" rows="4" class="form-control">{{ old('product_description') }}</textarea>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-md-12"><strong>5.</strong> Funds available to invest in Canada (will assist in sourcing or establishment of related business venture in Canada:<span class="spanHighlight">*</span><br>
-                                <input class="radEducational_Qualification" name="funds_available" type="radio" value="$150,000 - $250,000"> $150,000 - $250,000 <br>
-                                <input name="funds_available" class="radEducational_Qualification" type="radio" value="$250,000 - $300,000"> $250,000 - $300,000 <br>
-                                <input class="radEducational_Qualification" name="funds_available" type="radio" value="$300,000 - $350,000"> $300,000 - $350,000 <br>
-                                <input class="radEducational_Qualification" name="funds_available" type="radio" value="$500,000 to $1 million"> $500,000 to $1 million <br>
-                                <input name="funds_available" class="radEducational_Qualification" type="radio" value="Above $1 million"> Above $1 million <br>
-                            </div>
-                            <div class="clearfix"></div>
-                            <br>
-                            <div class="col-md-12"><strong>6.</strong> Certain business immigration programs allow two applicants to apply for permanent residence in Canada for the same project as long as both of the respective applicants meet the qualifying criteria of the program. Would you consider two applicants to apply under the entrepreneur stream in the same application?
-                                <br>
-                                <input class="" name="apply_same" type="radio" value="Yes"> Yes &nbsp;&nbsp;&nbsp;
-                                <input class="" name="apply_same" type="radio" value="No, not applicable to me"> No, not applicable to me
-                            </div>
-                            <div class="clearfix"></div>
-                            <br>
-                            <div class="col-md-12"><strong>7.</strong> What is your education qualification?<span class="spanHighlight">*</span><br>
-                                <input class="radEducational_Qualification" name="qualification" type="radio" value="Post graduate" @if(old('qualification') == 'Post graduate') checked @endif>Post graduate <br>
-                                <input name="qualification" class="radEducational_Qualification" type="radio" value="Bachelors degree (15 years of education)" @if(old('qualification') == 'Bachelors degree (15 years of education)') checked @endif> Bachelors degree (15 years of education) <br>
-                                <input class="radEducational_Qualification" name="qualification" type="radio" value="Did not complete Bachelors degree" @if(old('qualification') == 'Did not complete Bachelors degree') checked @endif> Did not complete Bachelors degree <br>
-                                <input class="radEducational_Qualification" name="qualification" type="radio" value="Grade 12 education with at least one year diploma / certificate" @if(old('qualification') == 'Grade 12 education with at least one year diploma / certificate') checked @endif> Grade 12 education with at least one year diploma / certificate <br>
-                                <input name="qualification" class="radEducational_Qualification" type="radio" value="Grade 12 (Secondary school) completed" @if(old('qualification') == 'Grade 12 (Secondary school) completed') checked @endif> Grade 12 (Secondary school) completed <br>
-                                <input class="radEducational_Qualification" name="qualification" type="radio" value="Grade 10 completed" @if(old('qualification') == 'Grade 10 completed') checked @endif> Grade 10 completed <br>
-                                <input class="radEducational_Qualification" name="qualification" type="radio" value="Grade 10 not completed" @if(old('qualification') == 'Grade 10 not completed') checked @endif> Grade 10 not completed <br>
-                                <input class="radEducational_Qualification" name="qualification" type="radio" value="Other" @if(old('qualification') == 'Other') checked @endif> Other &nbsp;&nbsp;
-                            </div>
-                            <div class="clearfix"></div>
-                            <br>
-                            <div class="col-md-4"><strong>8.</strong> Date of Birth of Principal Applicant<span class="spanHighlight">*</span>
+                            <div class="col-md-4"><strong>2.</strong> Date of Birth of Principal Applicant<span class="spanHighlight">*</span>
                                 <input id="txtDate_of_birth_of_Principal_Applicant" type="date" class="form-control col-12" maxlength="40" name="dob" value="{{ old('dob') }}">
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12"><strong>9.</strong> Marital Status<span class="spanHighlight">*</span><br>
+                            <div class="col-md-12"><strong>3.</strong> Marital Status<span class="spanHighlight">*</span><br>
                                 <input class="radMarital_status" name="marital_status" x-model="marital_status" type="radio" value="Married" @if(old('marital_status') == 'Married') checked @endif>Married <br>
                                 <input class="radMarital_status" name="marital_status" x-model="marital_status" type="radio" value="Divorced" @if(old('marital_status') == 'Divorced') checked @endif>Divorced <br>
                                 <input class="radMarital_status" name="marital_status" x-model="marital_status" type="radio" value="Legally Separated" @if(old('marital_status') == 'Legally Separated') checked @endif> Legally Separated <br>
@@ -192,11 +134,11 @@
                                 <div class="clearfix"></div>
                                 <div class="col-md-12 divIfmarried divChildren">Do you have any of your children who are Canadian citizens or permanent residents of Canada? <span class="spanHighlight">*</span><br>
                                     <input class="radDo_you_have_any_of_your_children_who_are_Canadian_citizens_or_permanent_residents_of_Canada"
-                                        name="children_canadian" type="radio"
-                                        value="Yes" @if(old('children_canadian') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
+                                           name="children_canadian" type="radio"
+                                           value="Yes" @if(old('children_canadian') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
                                     <input class="radDo_you_have_any_of_your_children_who_are_Canadian_citizens_or_permanent_residents_of_Canada"
-                                        name="children_canadian" type="radio"
-                                        value="No" @if(old('children_canadian') == 'No') checked @endif> No &nbsp;&nbsp; <br> <br></div>
+                                           name="children_canadian" type="radio"
+                                           value="No" @if(old('children_canadian') == 'No') checked @endif> No &nbsp;&nbsp; <br> <br></div>
                                 <div class="clearfix"></div>
                                 <div class="col-md-12 divIfmarried divChildren">Do you, your spouse
                                     or your children have a physical or mental disorder that requires medical
@@ -205,12 +147,64 @@
                                            name="spouse_children_mental"
                                            type="radio" value="Yes" @if(old('spouse_children_mental') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
                                     <input class="radDo_you_your_spouse_or_your_children_have_a_physical_or_mental_disorder"
-                                        name="spouse_children_mental"
-                                        type="radio" value="No" @if(old('spouse_children_mental') == 'No') checked @endif> No &nbsp;&nbsp; <br> <br>
+                                           name="spouse_children_mental"
+                                           type="radio" value="No" @if(old('spouse_children_mental') == 'No') checked @endif> No &nbsp;&nbsp; <br> <br>
                                 </div>
                             </template>
                             <div class="clearfix"></div>
-                            <div class="col-md-12"><strong>10.</strong> Have you been ordered to leave Canada or any other country?<span
+                            <br>
+                            <div class="col-md-6"><strong>4.</strong> Are you currently in Canada ?<span class="spanHighlight">*</span>
+                                <br>
+                                <input name="in_canada" class="radAre_you_Currently_In_Canada" type="radio" value="Yes" @if(old('in_canada') == 'Yes') checked @endif> Yes &nbsp;&nbsp
+                                <input class="radAre_you_Currently_In_Canada" name="in_canada" type="radio" value="No" @if(old('in_canada') == 'No') checked @endif> No &nbsp;&nbsp;
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
+                            <div class="col-md-8"><strong>5.</strong> Please select which experience pertains to you<span class="spanHighlight">*</span><br>
+                                <input class="chkExperience" name="experience" type="radio" value="Business Person" @if(old('experience') == 'Business Person') checked @endif> Business Person <br>
+                                <input name="experience" class="chkExperience" type="radio" value="Senior Manager" @if(old('experience') == 'Senior Manager') checked @endif> Senior Manager <br>
+                                <input name="experience" class="chkExperience" type="radio" value="Self Employed Artist" @if(old('experience') == 'Self Employed Artist') checked @endif> Self Employed Artist <br>
+                                <input name="experience" class="chkExperience" type="radio" value="I am a professional and am willing to invest in a business in Canada" @if(old('experience') == 'I am a professional and am willing to invest in a business in Canada') checked @endif> I am a professional and am willing to invest in a business in Canada <br>
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
+                            <div class="col-md-12"><strong>6.</strong> What area of business or management experience have you acquired in the past 10 years (you can select more than one option)<span class="spanHighlight">*</span><br>
+                                <input class="radArea_of_business" name="area_of_business[]" type="checkbox" value="Manufacturing / trading"  @if(in_array('Manufacturing / trading',old('area_of_business',[]))) checked @endif> Manufacturing / trading <br>
+                                <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Only trading / Import / Export" @if(in_array('Only trading / Import / Export',old('area_of_business',[]))) checked @endif> Only trading / Import / Export <br>
+                                <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Project work (builder / Construction etc)" @if(in_array('Project work (builder / Construction etc)',old('area_of_business',[]))) checked @endif> Project work (builder / Construction etc) <br>
+                                <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Wholesale / Retail establishment" @if(in_array('Wholesale / Retail establishment',old('area_of_business',[]))) checked @endif> Wholesale / Retail establishment <br>
+                                <input name="area_of_business[]" class="radArea_of_business" type="checkbox" value="Information Techlology" @if(in_array('Information Techlology',old('area_of_business',[]))) checked @endif> Information Techlology <br>
+                                <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Consulting" @if(in_array('Consulting',old('area_of_business',[]))) checked @endif> Consulting <br>
+                                <input name="area_of_business[]" class="radArea_of_business" type="checkbox" value="Other" @if(in_array('Other',old('area_of_business',[]))) checked @endif> Other <br>
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
+                            <div class="col-md-12">Briefly describe product/commodity you deal in your business<span class="spanHighlight">*</span>
+                                <textarea id="texProduct_Description" name="product_description" cols="" rows="4" class="form-control">{{ old('product_description') }}</textarea>
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <br>
+                            <div class="col-md-12"><strong>7.</strong> Certain business immigration programs allow two applicants to apply for permanent residence in Canada for the same project as long as both of the respective applicants meet the qualifying criteria of the program. Would you consider two applicants to apply under the entrepreneur stream in the same application?
+                                <br>
+                                <input class="" name="apply_same" type="radio" value="Yes"> Yes &nbsp;&nbsp;&nbsp;
+                                <input class="" name="apply_same" type="radio" value="No, not applicable to me"> No, not applicable to me
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
+                            <div class="col-md-12"><strong>8.</strong> What is your education qualification?<span class="spanHighlight">*</span><br>
+                                <input class="radEducational_Qualification" name="qualification" type="radio" value="Post graduate" @if(old('qualification') == 'Post graduate') checked @endif>Post graduate <br>
+                                <input name="qualification" class="radEducational_Qualification" type="radio" value="Bachelors degree (15 years of education)" @if(old('qualification') == 'Bachelors degree (15 years of education)') checked @endif> Bachelors degree (15 years of education) <br>
+                                <input class="radEducational_Qualification" name="qualification" type="radio" value="Did not complete Bachelors degree" @if(old('qualification') == 'Did not complete Bachelors degree') checked @endif> Did not complete Bachelors degree <br>
+                                <input class="radEducational_Qualification" name="qualification" type="radio" value="Grade 12 education with at least one year diploma / certificate" @if(old('qualification') == 'Grade 12 education with at least one year diploma / certificate') checked @endif> Grade 12 education with at least one year diploma / certificate <br>
+                                <input name="qualification" class="radEducational_Qualification" type="radio" value="Grade 12 (Secondary school) completed" @if(old('qualification') == 'Grade 12 (Secondary school) completed') checked @endif> Grade 12 (Secondary school) completed <br>
+                                <input class="radEducational_Qualification" name="qualification" type="radio" value="Grade 10 completed" @if(old('qualification') == 'Grade 10 completed') checked @endif> Grade 10 completed <br>
+                                <input class="radEducational_Qualification" name="qualification" type="radio" value="Grade 10 not completed" @if(old('qualification') == 'Grade 10 not completed') checked @endif> Grade 10 not completed <br>
+                                <input class="radEducational_Qualification" name="qualification" type="radio" value="Other" @if(old('qualification') == 'Other') checked @endif> Other &nbsp;&nbsp;
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
+                            <div class="col-md-12"><strong>9.</strong> Have you been ordered to leave Canada or any other country?<span
                                     class="spanHighlight">*</span><br>
                                 <input class="radHave_you_been_ordered_to_leave_Canada_or_any_other_country"
                                        name="leave_canada" type="radio" value="Yes" @if(old('leave_canada') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
@@ -219,7 +213,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12"><strong>11.</strong> Have you ever committed, been arrested for, or been charged with any
+                            <div class="col-md-12"><strong>10.</strong> Have you ever committed, been arrested for, or been charged with any
                                 offense in any country, including driving under the influence of alcohol or drugs?<span
                                     class="spanHighlight">*</span><br>
                                 <input
@@ -231,7 +225,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12"><strong>12.</strong> Have you ever been in the military (including mandatory service), a
+                            <div class="col-md-12"><strong>11.</strong> Have you ever been in the military (including mandatory service), a
                                 militia, or a civil defense unit or the police?<span class="spanHighlight">*</span><br>
                                 <input class="radHave_you_ever_been_in_the_military_including_mandatory_service_a_militia_or_a_civil_defense_unit_or_the_police"
                                     name="in_military"
@@ -242,7 +236,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12"><strong>13.</strong> Have you ever been employed by a government in a security-related
+                            <div class="col-md-12"><strong>12.</strong> Have you ever been employed by a government in a security-related
                                 capacity?<span class="spanHighlight">*</span><br>
                                 <input class="radHave_you_ever_been_employed_by_a_government_in_a_security_related_capacity"
                                     name="employed_in_security" type="radio" value="Yes" @if(old('employed_in_security') == 'Yes') checked @endif> Yes
@@ -253,7 +247,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12"><strong>14.</strong> Have you visited other countries within the last 10 years?<span
+                            <div class="col-md-12"><strong>13.</strong> Have you visited other countries within the last 10 years?<span
                                     class="spanHighlight">*</span><br>
                                 <input class="radHave_you_visited_other_countries_within_the_last_10_years"
                                        name="visited_in_10_years" type="radio" x-model="visited_in_10_years" value="Yes" @if(old('visited_in_10_years') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
@@ -268,7 +262,7 @@
                             </template>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12"><strong>15.</strong> Do you or your spouse have blood relatives in Canada<span
+                            <div class="col-md-12"><strong>14.</strong> Do you or your spouse have blood relatives in Canada<span
                                     class="spanHighlight">*</span><br>
                                 <input class="radDo_you_or_your_spouse_have_Blood_relatives_in_Canada" x-model="spouse_have_relatives" name="spouse_have_relatives" type="radio" value="Yes" @if(old('spouse_have_relatives') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
                                 <input class="radDo_you_or_your_spouse_have_Blood_relatives_in_Canada" x-model="spouse_have_relatives" name="spouse_have_relatives" type="radio" value="No" @if(old('spouse_have_relatives') == 'No') checked @endif> No
@@ -325,7 +319,7 @@
                             </template>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12"><strong>16.</strong> Have you ever visited Canada ?<span
+                            <div class="col-md-12"><strong>15.</strong> Have you ever visited Canada ?<span
                                     class="spanHighlight">*</span><br>
                                 <input class="txtHave_you_Visited_Canada" x-model="visited_canada" name="visited_canada" type="radio" value="Yes" @if(old('visited_canada') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
                                 <input class="txtHave_you_Visited_Canada" x-model="visited_canada" name="visited_canada" type="radio" value="No" @if(old('visited_canada') == 'No') checked @endif> No
@@ -378,7 +372,7 @@
                             <div class="clearfix"></div>
                             <br>
                             <template x-if="visited_in_2 != 'Yes'">
-                                <div class="col-md-12 divParentVisatoCanadarefusedDetail"><strong>17.</strong> Has your visa to Canada ever been refused?<span class="spanHighlight"></span><br>
+                                <div class="col-md-12 divParentVisatoCanadarefusedDetail"><strong>16.</strong> Has your visa to Canada ever been refused?<span class="spanHighlight"></span><br>
                                     <input class="radHas_your_Visa_to_Canada_ever_been_refused"
                                            name="visa_refused" x-model="visa_refused" type="radio" value="Yes" @if(old('visa_refused') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
                                     <input class="radHas_your_Visa_to_Canada_ever_been_refused"
@@ -395,7 +389,7 @@
                             </template>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12"><strong>18.</strong> Between you and your spouse, please calculate the total value of your
+                            <div class="col-md-12"><strong>17.</strong> Between you and your spouse, please calculate the total value of your
                                 assets, including movable, immovable property/properties, cash in the bank, mutual
                                 funds, fixed deposits, etc. Please calculate in Canadian dollars. If you wish to convert
                                 from any currency to Canadian dollars, please visit www.xe.com. Please remember to
@@ -403,32 +397,72 @@
                                 <span class="spanHighlight">*</span><br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        name="assets" type="radio"
-                                       @if(old('assets') == '$100,000 to $199,000') checked @endif
-                                       value="$100,000 to $199,000"> $100,000 to $199,000 <br>
+                                       @if(old('assets') == '$100,000 to $150,000') checked @endif
+                                       value="$100,000 to $150,000"> $100,000 to $150,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
-                                       @if(old('assets') == '$200,000 to $299,000') checked @endif
+                                       @if(old('assets') == '$150,000 to $200,000') checked @endif
                                        name="assets" type="radio"
-                                       value="$200,000 to $299,000"> $200,000 to $299,000 <br>
+                                       value="$150,000 to $200,000"> $150,000 to $200,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
-                                       @if(old('assets') == '300,000 to $399,000') checked @endif
+                                       @if(old('assets') == '$200,000 to $250,000') checked @endif
                                        name="assets" type="radio"
-                                       value="$300,000 to $399,000"> $300,000 to $399,000 <br>
+                                       value="$200,000 to $250,000"> $200,000 to $250,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
-                                       @if(old('assets') == '$400,000 to $499,000') checked @endif
+                                       @if(old('assets') == '$250,000 to $300,000') checked @endif
                                        name="Bassets" type="radio"
-                                       value="$400,000 to $499,000"> $400,000 to $499,000 <br>
+                                       value="$250,000 to $300,000"> $250,000 to $300,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
-                                       @if(old('assets') == '$500,000 to $599,000') checked @endif
+                                       @if(old('assets') == '$300,000 to $350,000') checked @endif
                                        name="assets" type="radio"
-                                       value="$500,000 to $599,000"> $500,000 to $599,000 <br>
+                                       value="$300,000 to $350,000"> $300,000 to $350,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
-                                       @if(old('assets') == '$600,000 to $799,000') checked @endif
+                                       @if(old('assets') == '$350,000 to $400,000') checked @endif
                                        name="assets" type="radio"
-                                       value="$600,000 to $799,000"> $600,000 to $799,000 <br>
+                                       value="$350,000 to $400,000"> $350,000 to $400,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
-                                       @if(old('assets') == '$800,000 to $999,000') checked @endif
+                                       @if(old('assets') == '$400,000 to $450,000') checked @endif
                                        name="Bassets" type="radio"
-                                       value="$800,000 to $999,000"> $800,000 to $999,000 <br>
+                                       value="$400,000 to $450,000"> $400,000 to $450,000 <br>
+                                <input class="radTotal_value_of_you_and_your_spouse_assets"
+                                       @if(old('assets') == '$450,000 to $500,000') checked @endif
+                                       name="Bassets" type="radio"
+                                       value="$450,000 to $500,000"> $450,000 to $500,000 <br>
+                                <input class="radTotal_value_of_you_and_your_spouse_assets"
+                                       @if(old('assets') == '$500,000 to $550,000') checked @endif
+                                       name="Bassets" type="radio"
+                                       value="$500,000 to $550,000"> $500,000 to $550,000 <br>
+                                <input class="radTotal_value_of_you_and_your_spouse_assets"
+                                       @if(old('assets') == '$550,000 to $600,000') checked @endif
+                                       name="Bassets" type="radio"
+                                       value="$550,000 to $600,000"> $550,000 to $600,000 <br>
+                                <input class="radTotal_value_of_you_and_your_spouse_assets"
+                                       @if(old('assets') == '$650,000 to $700,000') checked @endif
+                                       name="Bassets" type="radio"
+                                       value="$650,000 to $700,000"> $650,000 to $700,000 <br>
+                                <input class="radTotal_value_of_you_and_your_spouse_assets"
+                                       @if(old('assets') == '$700,000 to $750,000') checked @endif
+                                       name="Bassets" type="radio"
+                                       value="$700,000 to $750,000"> $700,000 to $750,000 <br>
+                                <input class="radTotal_value_of_you_and_your_spouse_assets"
+                                       @if(old('assets') == '$750,000 to $800,000') checked @endif
+                                       name="Bassets" type="radio"
+                                       value="$750,000 to $800,000"> $750,000 to $800,000 <br>
+                                <input class="radTotal_value_of_you_and_your_spouse_assets"
+                                       @if(old('assets') == '$800,000 to $850,000') checked @endif
+                                       name="Bassets" type="radio"
+                                       value="$800,000 to $850,000"> $800,000 to $850,000 <br>
+                                <input class="radTotal_value_of_you_and_your_spouse_assets"
+                                       @if(old('assets') == '$850,000 to $900,000') checked @endif
+                                       name="Bassets" type="radio"
+                                       value="$850,000 to $900,000"> $850,000 to $900,000 <br>
+                                <input class="radTotal_value_of_you_and_your_spouse_assets"
+                                       @if(old('assets') == '$900,000 to $950,000') checked @endif
+                                       name="Bassets" type="radio"
+                                       value="$900,000 to $950,000"> $900,000 to $950,000 <br>
+                                <input class="radTotal_value_of_you_and_your_spouse_assets"
+                                       @if(old('assets') == '$950,000 to $1 million') checked @endif
+                                       name="Bassets" type="radio"
+                                       value="$950,000 to $1 million"> $950,000 to $1 million <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$1 million to $2 million') checked @endif
                                        name="assets" type="radio"
@@ -437,6 +471,14 @@
                                        @if(old('assets') == '$2 million and up') checked @endif
                                        name="assets" type="radio"
                                        value="$2 million and up">$2 million and up
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-md-12"><strong>18.</strong> Funds available to invest in Canada from the total net-worth you reported above.:<span class="spanHighlight">*</span><br>
+                                <input class="radEducational_Qualification" name="funds_available" type="radio" value="$150,000 - $250,000"> $150,000 - $250,000 <br>
+                                <input name="funds_available" class="radEducational_Qualification" type="radio" value="$250,000 - $300,000"> $250,000 - $300,000 <br>
+                                <input class="radEducational_Qualification" name="funds_available" type="radio" value="$300,000 - $350,000"> $300,000 - $350,000 <br>
+                                <input class="radEducational_Qualification" name="funds_available" type="radio" value="$500,000 to $1 million"> $500,000 to $1 million <br>
+                                <input name="funds_available" class="radEducational_Qualification" type="radio" value="Above $1 million"> Above $1 million <br>
                             </div>
                             <div class="clearfix"></div>
                             <br>
@@ -496,7 +538,22 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-
+                            <div class="col-md-12">I am planning to relocate / start the immigration process:<span class="spanHighlight">*</span><br>
+                                <input name="planning_to_start" class="radEducational_Qualification" type="radio" value="Immediately" @if(old('planning_to_start') == 'Immediately') checked @endif> Immediately <br>
+                                <input class="radEducational_Qualification" name="planning_to_start" type="radio" value="In 6 months" @if(old('planning_to_start') == 'In 6 months') checked @endif> In 6 months <br>
+                                <input class="radEducational_Qualification" name="planning_to_start" type="radio" value="Not decided yet" @if(old('planning_to_start') == 'Not decided yet') checked @endif> Not decided yet <br>
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
+                            <div class="col-md-12">I intend to move to Canada in:<span class="spanHighlight">*</span><br>
+                                <input name="intend_to_move" class="radEducational_Qualification" type="radio" value="Immediately" @if(old('intend_to_move') == 'Immediately') checked @endif> Immediately <br>
+                                <input class="radEducational_Qualification" name="intend_to_move" type="radio" value="6 months from now" @if(old('intend_to_move') == '6 months from now') checked @endif> 6 months from now <br>
+                                <input class="radEducational_Qualification" name="intend_to_move" type="radio" value="1 year from now" @if(old('intend_to_move') == '1 year from now') checked @endif> 1 year from now <br>
+                                <input class="radEducational_Qualification" name="intend_to_move" type="radio" value="2 years from now" @if(old('intend_to_move') == '2 years from now') checked @endif> 2 years from now <br>
+                                <input class="radEducational_Qualification" name="intend_to_move" type="radio" value="Not decided yet" @if(old('intend_to_move') == 'Not decided yet') checked @endif> Not decided yet <br>
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
                             <div class="col-md-12"><strong>20. I am interested in the following Canada's business immigration / business work permit programs (you can select one or more options)<span class="spanHighlight">*</span></strong><br>
                                 <!-- changes done 04-02-2022 -->
                                 <input class="chkCanada_business_immigration_Type" name="interests[]"
