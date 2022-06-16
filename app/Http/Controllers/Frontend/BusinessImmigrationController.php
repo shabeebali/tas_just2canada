@@ -51,8 +51,6 @@ class BusinessImmigrationController extends Controller
             'visited_in_10_years' => 'required',
             'spouse_have_relatives' => 'required',
             'visited_canada' => 'required',
-            'provinces_visited' => 'required_if:visited_in_2,Yes',
-            'visa_refused' => 'required_if,visited_in_2,No',
             'assets' => 'required',
             'taken_english_test' => 'required',
             'interests' => 'required',
