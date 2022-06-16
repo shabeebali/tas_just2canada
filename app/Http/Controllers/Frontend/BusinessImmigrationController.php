@@ -110,7 +110,7 @@ class BusinessImmigrationController extends Controller
 
         $formSubmission->save();
 
-        Mail::to($request->input('mail'))->send(new BusinessApplicationMail());
+        Mail::to($request->input('mail'))->send(new BusinessApplicationMail($formSubmission));
 
         return Response::redirectToRoute('business-immigration.form')->with('success','Your form has been submitted successfully. We will contact you soon');
     }

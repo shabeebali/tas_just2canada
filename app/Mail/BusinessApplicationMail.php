@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\FormSubmission;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -11,14 +12,15 @@ class BusinessApplicationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $formSubmission;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(FormSubmission $formSubmission)
     {
-        //
+        $this->$formSubmission = $formSubmission;
     }
 
     /**
@@ -30,6 +32,8 @@ class BusinessApplicationMail extends Mailable
     {
         return $this->from([
             'info@just2canada.ca',
-        ])->view('mails.business-application');
+        ])->view('mails.business-application',[
+            'client_id' => $this->formSubmission->client_id
+        ]);
     }
 }
