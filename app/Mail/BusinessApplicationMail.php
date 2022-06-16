@@ -20,7 +20,7 @@ class BusinessApplicationMail extends Mailable
      */
     public function __construct(FormSubmission $formSubmission)
     {
-        $this->$formSubmission = $formSubmission;
+        $this->formSubmission = $formSubmission;
     }
 
     /**
