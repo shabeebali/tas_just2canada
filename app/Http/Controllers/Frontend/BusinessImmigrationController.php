@@ -53,7 +53,7 @@ class BusinessImmigrationController extends Controller
             'visited_canada' => 'required',
             'visited_in_2' => 'required_if:visited_canada,Yes',
             'provinces_visited' => 'required_if:visited_in_2,Yes',
-            'visa_refused' => 'required_if,visited_in_2,No',
+            'visa_refused' => 'required',
             'assets' => 'required',
             'taken_english_test' => 'required',
             'interests' => 'required',
