@@ -33,6 +33,7 @@ class BusinessApplicationMail extends Mailable
         return $this->from([
             'info@just2canada.ca',
         ])->view('mails.business-application',[
+            'name' => $this->formSubmission->form_data['name'],
             'client_id' => $this->formSubmission->client_id
         ]);
     }

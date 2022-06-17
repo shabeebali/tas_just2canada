@@ -41,7 +41,7 @@
         <tr>
             <td>
                 <div style="padding:20px;">
-                    Dear (name).<br>
+                    Dear {{ $name }}.<br>
                     Thank you for submitting the Business Immigration Assessment Questionnaire. Your assigned file number is : {{ $client_id  }}. You may quote this number in future correspondence with us.
                     We will now assess your application and related immigration qualifications and will provide you with the best possible options that suit your profile.<br>
                     Our licensed immigration practitioner will book a Zoom video discovery call with you so you can meet and understand the further course of action.<br>
