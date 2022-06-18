@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('test/mail', function () {
     $model = \App\Models\FormSubmission::orderBy('id','DESC')->first();
     \Illuminate\Support\Facades\Mail::to('shabeeboali@gmail.com')->bcc(['shabeeboali@outlook.com'])->send(new \App\Mail\BusinessApplicationMail($model));
+    \Illuminate\Support\Facades\Mail::to('shabeeboali@gmail.com')->bcc(['shabeeboali@outlook.com'])->send(new \App\Mail\BusinessApplicationCopyMail($model));
 });
 Route::view('skilled-worker-assessment','frontend.skilled-worker-assessment')->name('skilled-worker-assessment');
 Route::view('immigration-consultants-in-ncr','frontend.immigration-consultants-in-ncr');
