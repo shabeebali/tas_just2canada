@@ -32,7 +32,7 @@ class BusinessApplicationCopyMail extends Mailable
     {
         return $this->from([
             'info@just2canada.ca',
-        ])->view('mails.business-application',[
+        ])->view('mails.ba-copy',[
             'data' => $this->formSubmission
         ]);
     }
