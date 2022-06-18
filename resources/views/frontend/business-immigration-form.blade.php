@@ -407,7 +407,7 @@
                                        value="$200,000 to $250,000"> $200,000 to $250,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$250,000 to $300,000') checked @endif
-                                       name="Bassets" type="radio"
+                                       name="assets" type="radio"
                                        value="$250,000 to $300,000"> $250,000 to $300,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$300,000 to $350,000') checked @endif
@@ -423,43 +423,43 @@
                                        value="$400,000 to $450,000"> $400,000 to $450,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$450,000 to $500,000') checked @endif
-                                       name="Bassets" type="radio"
+                                       name="assets" type="radio"
                                        value="$450,000 to $500,000"> $450,000 to $500,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$500,000 to $550,000') checked @endif
-                                       name="Bassets" type="radio"
+                                       name="assets" type="radio"
                                        value="$500,000 to $550,000"> $500,000 to $550,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$550,000 to $600,000') checked @endif
-                                       name="Bassets" type="radio"
+                                       name="assets" type="radio"
                                        value="$550,000 to $600,000"> $550,000 to $600,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$650,000 to $700,000') checked @endif
-                                       name="Bassets" type="radio"
+                                       name="assets" type="radio"
                                        value="$650,000 to $700,000"> $650,000 to $700,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$700,000 to $750,000') checked @endif
-                                       name="Bassets" type="radio"
+                                       name="assets" type="radio"
                                        value="$700,000 to $750,000"> $700,000 to $750,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$750,000 to $800,000') checked @endif
-                                       name="Bassets" type="radio"
+                                       name="assets" type="radio"
                                        value="$750,000 to $800,000"> $750,000 to $800,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$800,000 to $850,000') checked @endif
-                                       name="Bassets" type="radio"
+                                       name="assets" type="radio"
                                        value="$800,000 to $850,000"> $800,000 to $850,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$850,000 to $900,000') checked @endif
-                                       name="Bassets" type="radio"
+                                       name="assets" type="radio"
                                        value="$850,000 to $900,000"> $850,000 to $900,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$900,000 to $950,000') checked @endif
-                                       name="Bassets" type="radio"
+                                       name="assets" type="radio"
                                        value="$900,000 to $950,000"> $900,000 to $950,000 <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$950,000 to $1 million') checked @endif
-                                       name="Bassets" type="radio"
+                                       name="assets" type="radio"
                                        value="$950,000 to $1 million"> $950,000 to $1 million <br>
                                 <input class="radTotal_value_of_you_and_your_spouse_assets"
                                        @if(old('assets') == '$1 million to $2 million') checked @endif
