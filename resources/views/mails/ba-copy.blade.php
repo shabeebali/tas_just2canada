@@ -141,7 +141,7 @@
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>Spouse's Experience</b></td>
                                                 <td width="5%">:</td>
-                                                <td width="65%">{{ \Carbon\Carbon::parse($data->form_data['spouse_experience'])->toDateString() }}</td>
+                                                <td width="65%">{{ $data->form_data['spouse_experience'] }}</td>
                                             </tr>
                                         @endif
                                         <tr>
@@ -153,28 +153,28 @@
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>Have children less than 22 years of age?</b></td>
                                                 <td width="5%">:</td>
-                                                <td width="65%">{{ \Carbon\Carbon::parse($data->form_data['children_lt_20'])->toDateString() }}</td>
+                                                <td width="65%">{{ $data->form_data['children_lt_20'] }}</td>
                                             </tr>
                                         @endif
                                         @if(isset($data->form_data['children_enrolled']))
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>Have children enrolled in accredited Canadian education institution/s and are actively pursuing academic, professional or vocational training on a full-time basis?</b></td>
                                                 <td width="5%">:</td>
-                                                <td width="65%">{{ \Carbon\Carbon::parse($data->form_data['children_enrolled'])->toDateString() }}</td>
+                                                <td width="65%">{{ $data->form_data['children_enrolled'] }}</td>
                                             </tr>
                                         @endif
                                         @if(isset($data->form_data['children_canadian']))
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>Have any of the applicant's children who are Canadian citizens or permanent residents of Canada?</b></td>
                                                 <td width="5%">:</td>
-                                                <td width="65%">{{ \Carbon\Carbon::parse($data->form_data['children_canadian'])->toDateString() }}</td>
+                                                <td width="65%">{{ $data->form_data['children_canadian'] }}</td>
                                             </tr>
                                         @endif
                                         @if(isset($data->form_data['spouse_children_mental']))
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>Do the applicant's spouse or their children have a physical or mental disorder that requires medical attention?</b></td>
                                                 <td width="5%">:</td>
-                                                <td width="65%">{{ \Carbon\Carbon::parse($data->form_data['spouse_children_mental'])->toDateString() }}</td>
+                                                <td width="65%">{{ $data->form_data['spouse_children_mental'] }}</td>
                                             </tr>
                                         @endif
                                         <tr>
