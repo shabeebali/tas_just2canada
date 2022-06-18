@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1">
             <div class="font-bold pb-2.5 text-white bg-slate-700 flex justify-between px-4 py-2">
                 <div class="text-xl">Client ID: {{$data->client_id}}</div>
-                <div class="">Created At: {{ \Carbon\Carbon::parse($data->created_at)->toDateTimeString() }}</div>
+                <div class="">Created At: {{ $data->created_at->setTimezone('Canada/Eastern')->toDayDateTimeString() }}</div>
             </div>
             <table class="w-full text-sm text-left text-gray-800 dark:text-gray-400">
                 @php
@@ -129,7 +129,7 @@
                     @endif
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">7</span> <strong>Will the applicant consider two applicants to apply under the entrepreneur stream in the same application?:</strong> {{ isset($data->form_data['apply_same']) ? $data->form_data['apply_same'] : '' }}
+                            <span class="bg-gray-900 text-white px-2">7</span> <strong>Will the applicant consider two applicants to apply under the entrepreneur stream in the same application?:</strong> {{ $data->form_data['apply_same'] ?? '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
@@ -158,7 +158,7 @@
                             <span class="bg-gray-900 text-white px-2">13</span> <strong>Visited other countries within the last 10 years?:</strong> {{ $data->form_data['visited_in_10_years'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <strong>Visited Countries:</strong> {{ isset($data->form_data['visited_countries']) ? $data->form_data['visited_countries'] : ''}}
+                            <strong>Visited Countries:</strong> {{ $data->form_data['visited_countries'] ?? ''}}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
@@ -184,7 +184,7 @@
                     @if(isset($data->form_data['visited_in_2']) || isset($data->form_data['provinces_visited']))
                         <tr class="{{ $rowClass }}">
                             <td class="{{ $valueClass }}">
-                                Visited Canada in last 2 years?:</strong> {{ isset($data->form_data['visited_in_2']) ? $data->form_data['visited_in_2'] : '' }}
+                                Visited Canada in last 2 years?:</strong> {{ $data->form_data['visited_in_2'] ?? '' }}
                             </td>
                             @if(isset($data->form_data['provinces_visited']))
                                 <td class="{{ $valueClass }}">
@@ -199,18 +199,19 @@
                         </tr>
                     @endif
                     <tr class="{{ $rowClass }}">
-                        @if(isset($data->form_data['visa_refused']))
-                            <td class="{{ $valueClass }}">
-                                <span class="bg-gray-900 text-white px-2">16</span> <strong> Visa to Canada ever been refused?:</strong> {{ $data->form_data['visa_refused'] ?? '' }}
-                            </td>
-                        @endif
+                        <td class="{{ $valueClass }}">
+                            <span class="bg-gray-900 text-white px-2">16</span> <strong> Visa to Canada ever been refused?:</strong> {{ $data->form_data['visa_refused'] ?? '' }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                            Visa refused details:</strong> {{ $data->form_data['visa_refused_details'] ?? '' }}
+                        </td>
                     </tr>
                     <tr>
                         <td class="{{ $valueClass }}">
                             <span class="bg-gray-900 text-white px-2">17</span> <strong> Total assets between applicant and spouse:</strong> {{ $data->form_data['assets'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">18</span> <strong>Funds Available to invest in canada:</strong> {{ isset($data->form_data['funds_available']) ? $data->form_data['funds_available'] : ''}}
+                            <span class="bg-gray-900 text-white px-2">18</span> <strong>Funds Available to invest in canada:</strong> {{ $data->form_data['funds_available'] ?? ''}}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
@@ -219,15 +220,15 @@
                             @if($data->form_data['taken_english_test'] == 'Yes')
                                 <p>Scores:</p>
                                 <ul>
-                                    <li>Reading: {{isset($data->form_data['reading']) ? $data->form_data['reading'] : ''}}</li>
-                                    <li>Speaking: {{isset($data->form_data['speaking']) ? $data->form_data['speaking'] : ''}}</li>
-                                    <li>Writing: {{isset($data->form_data['writing']) ? $data->form_data['writing'] : ''}}</li>
-                                    <li>Listening: {{isset($data->form_data['listening']) ? $data->form_data['listening'] : ''}}</li>
+                                    <li>Reading: {{ $data->form_data['reading'] ?? ''}}</li>
+                                    <li>Speaking: {{ $data->form_data['speaking'] ?? '' }}</li>
+                                    <li>Writing: {{ $data->form_data['writing'] ?? '' }}</li>
+                                    <li>Listening: {{ $data->form_data['listening'] ?? ''}}</li>
                                 </ul>
                             @endif
                         </td>
                         <td class="{{ $valueClass }}">
-                            <strong> English Language Proficiency:</strong> {{ isset($data->form_data['language_proficiency']) ? $data->form_data['language_proficiency'] : ''}}
+                            <strong> English Language Proficiency:</strong> {{ $data->form_data['language_proficiency'] ?? '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">

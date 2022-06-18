@@ -5,7 +5,7 @@
                 Business Forms Submitted Today <span class="p-2 rounded-md bg-white text-gray-900"><strong>{{$business_form_today_count}}</strong></span>
             </x-blocks.card>
             <x-blocks.card class="bg-green-800 text-white">
-                Toal Business Forms <span class="p-2 rounded-md bg-white text-gray-900"><strong>{{$business_form_count}}</strong></span>
+                Total Business Forms <span class="p-2 rounded-md bg-white text-gray-900"><strong>{{$business_form_count}}</strong></span>
             </x-blocks.card>
         </div>
         @php

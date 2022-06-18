@@ -187,8 +187,8 @@
                             <br>
                             <div class="col-md-12"><strong>7.</strong> Certain business immigration programs allow two applicants to apply for permanent residence in Canada for the same project as long as both of the respective applicants meet the qualifying criteria of the program. Would you consider two applicants to apply under the entrepreneur stream in the same application?
                                 <br>
-                                <input class="" name="apply_same" type="radio" value="Yes"> Yes &nbsp;&nbsp;&nbsp;
-                                <input class="" name="apply_same" type="radio" value="No, not applicable to me"> No, not applicable to me
+                                <input class="" name="apply_same" type="radio" value="Yes" @if(old('apply_same') == 'Yes') checked @endif> Yes &nbsp;&nbsp;&nbsp;
+                                <input class="" name="apply_same" type="radio" value="No, not applicable to me" @if(old('apply_same') == 'No, not applicable to me') checked @endif> No, not applicable to me
                             </div>
                             <div class="clearfix"></div>
                             <br>
@@ -371,22 +371,20 @@
                             </template>
                             <div class="clearfix"></div>
                             <br>
-                            <template x-if="visited_in_2 != 'Yes'">
-                                <div class="col-md-12 divParentVisatoCanadarefusedDetail"><strong>16.</strong> Has your visa to Canada ever been refused?<span class="spanHighlight"></span><br>
-                                    <input class="radHas_your_Visa_to_Canada_ever_been_refused"
-                                           name="visa_refused" x-model="visa_refused" type="radio" value="Yes" @if(old('visa_refused') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
-                                    <input class="radHas_your_Visa_to_Canada_ever_been_refused"
-                                           name="visa_refused" x-model="visa_refused" type="radio" value="No" @if(old('visa_refused') == 'No') checked @endif> No <br>
-                                    <template x-if="visa_refused == 'Yes">
-                                        <div class="divVisatoCanadarefusedDetail">
-                                            If Yes, please provide when and related detail
-                                            <input id="txtVisa_to_Canada_ever_been_refused_detail"
-                                                   name="visa_refused_details" type="text"
-                                                   class="form-control" value="{{ old('visa_refused_details') }}">
-                                        </div>
-                                    </template>
-                                </div>
-                            </template>
+                            <div class="col-md-12 divParentVisatoCanadarefusedDetail"><strong>16.</strong> Has your visa to Canada ever been refused?<span class="spanHighlight"></span><br>
+                                <input class="radHas_your_Visa_to_Canada_ever_been_refused"
+                                       name="visa_refused" x-model="visa_refused" type="radio" value="Yes" @if(old('visa_refused') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
+                                <input class="radHas_your_Visa_to_Canada_ever_been_refused"
+                                       name="visa_refused" x-model="visa_refused" type="radio" value="No" @if(old('visa_refused') == 'No') checked @endif> No <br>
+                                <template x-if="visa_refused == 'Yes'">
+                                    <div class="divVisatoCanadarefusedDetail">
+                                        If Yes, please provide when and related details
+                                        <input id="txtVisa_to_Canada_ever_been_refused_detail"
+                                               name="visa_refused_details" type="text"
+                                               class="form-control" value="{{ old('visa_refused_details') }}">
+                                    </div>
+                                </template>
+                            </div>
                             <div class="clearfix"></div>
                             <br>
                             <div class="col-md-12"><strong>17.</strong> Between you and your spouse, please calculate the total value of your
@@ -474,11 +472,11 @@
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-md-12"><strong>18.</strong> Funds available to invest in Canada from the total net-worth you reported above.:<span class="spanHighlight">*</span><br>
-                                <input class="radEducational_Qualification" name="funds_available" type="radio" value="$150,000 - $250,000"> $150,000 - $250,000 <br>
-                                <input name="funds_available" class="radEducational_Qualification" type="radio" value="$250,000 - $300,000"> $250,000 - $300,000 <br>
-                                <input class="radEducational_Qualification" name="funds_available" type="radio" value="$300,000 - $350,000"> $300,000 - $350,000 <br>
-                                <input class="radEducational_Qualification" name="funds_available" type="radio" value="$500,000 to $1 million"> $500,000 to $1 million <br>
-                                <input name="funds_available" class="radEducational_Qualification" type="radio" value="Above $1 million"> Above $1 million <br>
+                                <input class="radEducational_Qualification" name="funds_available" type="radio" value="$150,000 - $250,000" @if(old('funds_available') == '$150,000 - $250,000') checked @endif> $150,000 - $250,000 <br>
+                                <input name="funds_available" class="radEducational_Qualification" type="radio" value="$250,000 - $300,000" @if(old('funds_available') == '$250,000 - $300,000') checked @endif> $250,000 - $300,000 <br>
+                                <input class="radEducational_Qualification" name="funds_available" type="radio" value="$300,000 - $350,000" @if(old('funds_available') == '$300,000 - $350,000') checked @endif> $300,000 - $350,000 <br>
+                                <input class="radEducational_Qualification" name="funds_available" type="radio" value="$500,000 to $1 million" @if(old('funds_available') == '$500,000 to $1 million') checked @endif> $500,000 to $1 million <br>
+                                <input name="funds_available" class="radEducational_Qualification" type="radio" value="Above $1 million" @if(old('funds_available') == 'Above $1 million') checked @endif> Above $1 million <br>
                             </div>
                             <div class="clearfix"></div>
                             <br>
@@ -525,7 +523,7 @@
                                 Good / Fluent <br>
                                 <input name="language_proficiency"
                                        class="radIf_not_taken_proficiency_test_rate_your_English_language_proficiency"
-                                       type="radio" value="Moderate to Good" @if(old('taken_english_test') == 'Moderate to Good') checked @endif> Moderate to Good <br>
+                                       type="radio" value="Moderate to Good" @if(old('language_proficiency') == 'Moderate to Good') checked @endif> Moderate to Good <br>
                                 <input class="radIf_not_taken_proficiency_test_rate_your_English_language_proficiency"
                                        name="language_proficiency" type="radio" value="With difficulty" @if(old('language_proficiency') == 'With difficulty') checked @endif> With
                                 difficulty

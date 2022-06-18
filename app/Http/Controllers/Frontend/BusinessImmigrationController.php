@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\BusinessApplicationCopyMail;
 use App\Mail\BusinessApplicationMail;
 use App\Models\Country;
 use App\Models\FormSubmission;
@@ -50,6 +51,7 @@ class BusinessImmigrationController extends Controller
             'employed_in_security' => 'required',
             'visited_in_10_years' => 'required',
             'spouse_have_relatives' => 'required',
+            'spouse_relative_state' => 'required_if:spouse_have_relatives,Yes',
             'visited_canada' => 'required',
             'visited_in_2' => 'required_if:visited_canada,Yes',
             'provinces_visited' => 'required_if:visited_in_2,Yes',
@@ -57,7 +59,8 @@ class BusinessImmigrationController extends Controller
             'assets' => 'required',
             'taken_english_test' => 'required',
             'interests' => 'required',
-            'g-recaptcha-response' => 'required'
+            'g-recaptcha-response' => 'required',
+            'apply_same' => 'required',
         ],[
             'in_canada.required' => 'Please specify whether you are in canada or not',
             'experience.required' => 'Please state your experience',
@@ -81,7 +84,9 @@ class BusinessImmigrationController extends Controller
             'assets.required' => 'Please specify total value of assets between you and your spouse',
             'taken_english_test.required' => 'Please specify whether you have taken English proficiency test or not',
             'interests.required' => 'Please select at least one of interests mentioned in the bottom of this form',
-            'g-recaptcha-response.required' => 'Please check I\'m not robot box'
+            'g-recaptcha-response.required' => 'Please check I\'m not robot box',
+            'apply_same.required' => 'Please specify whether you consider two applicants to apply under the entrepreneur stream in the same application or not',
+            'spouse_relative_state.required_if' => 'Please select the provinces(s) where your or your spouse\'s relatives reside in'
         ]);
         $validator->validate();
 
@@ -116,6 +121,13 @@ class BusinessImmigrationController extends Controller
                 'info@tastechnologies.com'
             ])
             ->send(new BusinessApplicationMail($formSubmission));
+
+        Mail::to($request->input('mail'))
+            ->bcc([
+                'businessclient@just2canada.ca',
+                'info@tastechnologies.com'
+            ])
+            ->send(new BusinessApplicationCopyMail($formSubmission));
 
         return Response::redirectToRoute('business-immigration.form')->with('success','Your form has been submitted successfully. We will contact you soon');
     }
