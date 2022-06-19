@@ -21,6 +21,7 @@ Route::get('test/mail', function () {
 Route::view('skilled-worker-assessment','frontend.skilled-worker-assessment')->name('skilled-worker-assessment');
 Route::view('immigration-consultants-in-ncr','frontend.immigration-consultants-in-ncr');
 Route::view('contact-us', 'frontend.contact-us');
+Route::redirect('business-immigration-assessment.php','business-immigration-assessment');
 Route::get('business-immigration-assessment',[\App\Http\Controllers\Frontend\BusinessImmigrationController::class,'form'])->name('business-immigration.form');
 Route::post('business-immigration-assessment-store',[\App\Http\Controllers\Frontend\BusinessImmigrationController::class,'store'])->name('business-immigration.store');
 Route::get('/{any}', [PageController::class,'page'])->where('any', '.*');
