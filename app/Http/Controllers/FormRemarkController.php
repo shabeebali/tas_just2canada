@@ -35,13 +35,16 @@ class FormRemarkController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'remark' => 'required'
+        ]);
         $model = FormRemark::create($request->only([
             'remark',
             'next_follow',
             'quoted_fee',
             'form_submission_id'
         ]));
-        dd($request->toArray());
+        // dd($request->toArray());
         if($request->file('file_1')) {
             $path = $request->file('file_1')->store('files','public');
             $model->file_1 = $path;
