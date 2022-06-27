@@ -22,7 +22,7 @@
         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="header-dropdown-btn">
             <li class="lg:hidden block px-4 py-2 bg-gray-400 text-center text-white">{{Auth::user()->name}}</li>
             <li>
-                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profle</a>
+                <a href="{{route('admin.profile')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profle</a>
             </li>
             <li>
                 <form method="POST" action="{{ route('admin.auth.logout' )}}">

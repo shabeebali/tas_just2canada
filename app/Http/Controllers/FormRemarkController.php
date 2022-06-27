@@ -36,13 +36,22 @@ class FormRemarkController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'remark' => 'required'
+            'remark' => 'required',
+            'file_1' => 'nullable|file|max:5000',
+            'file_2' => 'nullable|file|max:5000',
+            'file_3' => 'nullable|file|max:5000',
+            'file_4' => 'nullable|file|max:5000',
+            'link_1' => 'nullable|max:2048|url',
+            'link_2' => 'nullable|url|max:2048',
+            'link_3' => 'nullable|url|max:2048',
+            'link_4' => 'nullable|url|max:2048',
         ]);
         $model = FormRemark::create($request->only([
             'remark',
             'next_follow',
             'quoted_fee',
-            'form_submission_id'
+            'form_submission_id',
+            'link_1','link_2','link_3','link_4'
         ]));
         // dd($request->toArray());
         if($request->file('file_1')) {
