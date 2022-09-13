@@ -11,22 +11,22 @@
           href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAXJJREFUOE9jZMAJQpk17fSUrh+qvQ1S8p+BgfGDg6k+iC1w4PRFRrAQAwMjsn5956b9MP7//wzMjIz/lRkYGG8FM9wXT/5/Q5WL4S8LVP49E+P/XP69p5eiGwA2FRnMvjRZUlVX8RoDA4MgmtR7gX2nhAkaMO/OggdKyiIKWH36778hQQPm3lnAoKwsgj2kiDFg6pU5DBoaYgzMzEzohhDnBZABAgIcDJKS/H+ZmBiZiQ7EX7//MDhYqjNEL6gE62H7zaDzRkyszVKCsR5fNMJj4fefPwz2FlAD/v//B4nz/0yM/xgcrN48OQjzD8FABHkBGfz//3+H7avHnmQb8O/PXxe7t0/3km7Av/8R8+SdEpIe7C6wefPsJvEGXJ4VzMDA1MbA8P99tk7qjYv76hKRvUQwDLr2TuURFP3HK/j69fsQp6YZeA0Amazn1DSbkZFBBWqLOgMDA9y5ILGLe+sccboAPanpOTarX9pfi2IAuhoAtpOeOf02YIAAAAAASUVORK5CYII="
           type="image/x-icon" hrefbak="images/favicon.png">
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Animate CSS -->
-    <link href="vendors/animate/animate.css" rel="stylesheet">
+    <link href="{{asset('vendors/animate/animate.css')}}" rel="stylesheet">
     <!-- Icon CSS-->
-    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('vendors/font-awesome/css/font-awesome.min.css')}}">
     <!-- Camera Slider -->
-    <link rel="stylesheet" href="vendors/camera-slider/camera.css">
+    <link rel="stylesheet" href="{{asset('vendors/camera-slider/camera.css')}}">
     <!-- Owlcarousel CSS-->
-    <link rel="stylesheet" type="text/css" href="vendors/owl_carousel/owl.carousel.min.css" media="all">
-    <link rel="stylesheet" href="vendors/owl_carousel/owl.theme.min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{asset('vendors/owl_carousel/owl.carousel.min.css')}}" media="all">
+    <link rel="stylesheet" href="{{asset('vendors/owl_carousel/owl.theme.min.css')}}" media="all">
 
     <!--Theme Styles CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" media="all">
 
-    <link rel="stylesheet" href="mt-includes/css/assets.min513c.css?_build=1633339793">
-    <link rel="stylesheet" href="mt-demo/93200/93283/mt-content/assets/stylesdd7d.css?_build=1632936756"
+    <link rel="stylesheet" href="{{asset('mt-includes/css/assets.min513c.css?_build=1633339793')}}">
+    <link rel="stylesheet" href="{{asset('mt-demo/93200/93283/mt-content/assets/stylesdd7d.css?_build=1632936756')}}"
           id="moto-website-style">
     <script type="text/javascript" async=""
             src="https://www.gstatic.com/recaptcha/releases/81cz2KigKZoE-gRplogO8692/recaptcha__en.js"
@@ -83,6 +83,12 @@
                 Worker Assessment </a>
             <a href="{{ route('business-immigration.form') }}" class="btn navbar-right" data-animation="animated fadeInUp">Business
                 Assessment </a>
+            @auth('employer')
+                <a href="{{ route('employer.dashboard') }}" class="btn navbar-right">My Account</a>
+            @endauth
+            @guest('employer')
+                <a href="{{ route('employer.login') }}" class="btn navbar-right">Employer Login</a>
+            @endguest
         </div>
     </div>
     <!-- End Top Header_Area -->

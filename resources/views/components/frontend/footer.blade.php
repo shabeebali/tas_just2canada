@@ -1,7 +1,7 @@
 <div
     class="moto-widget moto-widget-block footer row-fixed moto-bg-color2_3 moto-spacing-top-large moto-spacing-right-auto moto-spacing-bottom-large moto-spacing-left-auto"
     data-widget="block" data-visible-on="" data-spacing="lala"
-    style="background-image:url(mt-demo/93200/93283/mt-content/uploads/2020/01/mt-1952-contrent-bg07.jpg);background-position:center;background-repeat:no-repeat;background-size:cover;"
+    style="background-image:url({{asset('mt-demo/93200/93283/mt-content/uploads/2020/01/mt-1952-contrent-bg07.jpg')}});background-position:center;background-repeat:no-repeat;background-size:cover;"
     data-bg-position="center" data-bg-image="2020/01/mt-1952-contrent-bg07.jpg/index.html">
 
 

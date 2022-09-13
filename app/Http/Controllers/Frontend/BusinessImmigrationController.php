@@ -90,7 +90,7 @@ class BusinessImmigrationController extends Controller
         ]);
         $validator->validate();
 
-        $lastModel = FormSubmission::orderBy('id','DESC')->first();
+        $lastModel = FormSubmission::where('form_type_id',2)->orderBy('id','DESC')->first();
 
         $formType = FormType::where('id',2)->first();
 

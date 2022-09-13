@@ -28,6 +28,9 @@ class RedirectIfAuthenticated
                 if(in_array('admin',$segments)) {
                     return redirect(route('admin.home'));
                 }
+                if(in_array('employer',$segments)) {
+                    return redirect(route('employer.dashboard'));
+                }
                 return redirect(RouteServiceProvider::HOME);
             }
         }

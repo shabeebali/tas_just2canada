@@ -3,7 +3,7 @@
         <div id="first-slider">
             <div id="carousel-example-generic" class="carousel slide carousel-fade">
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active slide1"><img src="images/banner/form2.jpg" alt=""></div>
+                    <div class="item active slide1"><img src="{{asset('images/banner/form2.jpg')}}" alt=""></div>
                 </div>
             </div>
         </div>

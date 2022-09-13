@@ -21,6 +21,9 @@ class Authenticate extends Middleware
             if(in_array('admin',$segments)) {
                 return route('admin.auth.login');
             }
+            if(in_array('employer',$segments)) {
+                return route('employer.login');
+            }
             return route('login');
         }
     }
