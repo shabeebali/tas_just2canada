@@ -84,6 +84,20 @@
                             </td>
                         @endif
                     </tr>
+                    <tr class="{{ $rowClass }}">
+                        @if(isset($data->form_data['children_age']))
+                            <td class="{{ $valueClass }}">
+                                <strong>How old are your children?:</strong> {{ $data->form_data['children_age'] ?? '' }}
+                                </td>
+                            @endif
+                        </tr>
+                    <tr class="{{ $rowClass }}">
+                        @if(isset($data->form_data['is_children_on_study_permit']))
+                        <td class="{{ $valueClass }}">
+                            <strong>Are any of your children studying in Canada at this time on a study permit?:</strong> {{ $data->form_data['is_children_on_study_permit'] ?? '' }}
+                            </td>
+                        @endif
+                    </tr>
                     @if(isset($data->form_data['children_lt_20']) || isset($data->form_data['children_enrolled']))
                         <tr class="{{ $rowClass }}">
                             @if(isset($data->form_data['children_lt_20']))
@@ -124,6 +138,25 @@
                                 ?:</strong> {{ $data->form_data['in_canada'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
+                            <strong>Did you ever visit Canada?
+                                ?:</strong> {{ $data->form_data['Did_you_ever_visit_Canada'] ?? '' }}
+                        </td>
+
+                        <td class="{{ $valueClass }}">
+                            <strong>If Yes, when
+                                ?:</strong> {{ $data->form_data['if_yes_visited_canada_when'] ?? '' }}
+                        </td>
+
+                        <td class="{{ $valueClass }}">
+                            <strong>Is your Canadian Temporary Residence Visa or any other visa currently valid?
+                                ?:</strong> {{ $data->form_data['is_currently_have_valid_visa'] ?? '' }}
+                        </td>
+
+                        <td class="{{ $valueClass }}">
+                            <strong>If yes, till when
+                                ?:</strong> {{ $data->form_data['your_current_visa_validity'] ?? '' }}
+                        </td>
+                        <td class="{{ $valueClass }}">
                             <span class="bg-gray-900 text-white px-2">5</span> <strong>Experience that applies to the
                                 applicant:</strong> {{ $data->form_data['experience']  ?? ''}}
                         </td>
@@ -156,6 +189,10 @@
                         <td class="{{ $valueClass }}">
                             <span class="bg-gray-900 text-white px-2">8</span> <strong>Educational
                                 Qualification:</strong> {{ $data->form_data['qualification'] ?? '' }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                            <span class="bg-gray-900 text-white px-2">8</span> <strong>Do you have your educational documents to prove your education identified above?
+                                :</strong> {{ $data->form_data['have_your_educational_documents_to_prove'] ?? '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
@@ -275,6 +312,10 @@
                         <td class="{{ $valueClass }}">
                             <strong> Intend to move to Canada
                                 in:</strong> {{ $data->form_data['intend_to_move'] ?? '' }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                            <strong> Have you obtained an official assessment of your education by applying for an Education Credentials Assessment (ECA)?
+                                :</strong> {{ $data->form_data['have_you_obtained_educational_credentials_assessment'] ?? '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">

@@ -43,6 +43,10 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Sweet Alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--ACCORDIAN MENU -->
+    <!--<script src="{{ asset('js/jquery-1.10.2.min.js') }}" ></script>  -->
+    <link href="{{ asset('css/accordian.css') }}" rel="stylesheet" type="text/css" />
+    <!--<script type="text/javascript" language="javascript" src="js/jquery.js"></script> -->
 </head>
 <body id="home">
 
@@ -79,7 +83,9 @@
             <a href="https://iccrc-crcic.ca/" target="_blank" rel="noopener">
                 <img class="iccrc alignnone wp-image-1601 size-full top-icc" src="{{asset('images/iccrc.png')}}" alt="" width="300"
                      height="50"></a>
-            <a href="{{ route('skilled-worker-assessment') }}" class="btn navbar-right" data-animation="animated fadeInUp">Skilled
+            <!-- <a href="{{ route('skilled-worker-assessment') }}" class="btn navbar-right" data-animation="animated fadeInUp">Skilled
+                Worker Assessment </a> -->
+            <a href="https://secure.officio.ca/qnr?id=444&hash=47bed91fa2b13689fe43b986e75566b3" class="btn navbar-right" data-animation="animated fadeInUp">Skilled
                 Worker Assessment </a>
             <a href="{{ route('business-immigration.form') }}" class="btn navbar-right" data-animation="animated fadeInUp">Business
                 Assessment </a>

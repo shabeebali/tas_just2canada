@@ -49,6 +49,57 @@
                                 </div>
                                 <br>
                                 <br>
+
+
+                                <h4>Just To Canada – India Office</h4>
+                                <div class="address-item">
+
+                                    <div class="address-icon">
+                                        <i class="fa fa-map-marker"></i>                                    </div>
+                                    <div class="address-text">
+                                        <strong>Address </strong><br>
+
+                                        Level 10, Plot No. 18-20,
+
+                                        HT House
+
+                                        Kasturba Gandhi Marg<br>
+                                        New Delhi-110001, India                           </div>
+                                </div>
+
+
+
+
+                                <div class="address-item">
+                                    <div class="address-icon">
+                                        <i class="fa fa-phone"></i>                                    </div>
+                                    <div class="address-text">
+                                        <strong>Phone:</strong> <br>
+                                        +91 11 68137776                           </div>
+                                </div>
+
+
+                                <div class="address-item">
+                                    <div class="address-icon">
+                                        <i class="fa fa-phone"></i>                                    </div>
+                                    <div class="address-text">
+                                        <strong>Cell / Text / Whatsapp – Mr. Manas Sareen, Regional Manager</strong> <br>
+                                        India Operations: +91-70114-94977                         </div>
+                                </div>
+
+                                <div class="address-item">
+                                    <div class="address-icon">
+                                        <i class="fa fa-envelope-open-o"></i>                                    </div>
+                                    <div class="address-text">
+                                        <strong>E-mail:</strong> <br>
+                                        Manas@just2canada.ca                           </div>
+                                </div>
+
+
+                                <br>
+                                <br>
+
+
                                 <h4>British Columbia (Burnaby Office)</h4>
                                 <div class="address-item">
                                     <div class="address-icon">

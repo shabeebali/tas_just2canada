@@ -174,7 +174,7 @@ margin: 2% 0 0 0%;" src="{{asset('images/UCW-logo.png')}}" alt=""></a></p>
 
 
 <!-- jquery latest version -->
-<!-- <script src="js/jquery.min.js"></script> -->
+<script src="js/jquery.min.js"></script>
 <!-- bootstrap js -->
 
 
@@ -263,5 +263,66 @@ margin: 2% 0 0 0%;" src="{{asset('images/UCW-logo.png')}}" alt=""></a></p>
 <script src="{{asset('vendors/stellar/jquery.stellar.js')}}"></script>
 <!-- Theme JS -->
 <script src="{{asset('js/theme.js')}}"></script>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#firstpane p.menu_head").click(function()
+        {
+            $(this).css({backgroundImage:"url(down.png)"}).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+            $(this).siblings().css({backgroundImage:"url(left.png)"});
+
+        });
+
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+
+        var vValueinCanada=$('.radDid_you_ever_visit_Canada:checked').val();
+
+        if(vValueinCanada=='Yes')
+            $('#divIfyesVisitinCanada').show();
+        else
+            $('#divIfyesVisitinCanada').hide();
+
+
+        var vValueVisa=$('.Txtis_currently_have_valid_visa:checked').val();
+
+        if(vValueVisa=='Yes')
+            $('#divIfyesis_currently_have_valid_visa').show();
+        else
+            $('#divIfyesis_currently_have_valid_visa').hide();
+
+
+
+        $('.radDid_you_ever_visit_Canada').on('click',function(){
+
+            var vValue=$('.radDid_you_ever_visit_Canada:checked').val();
+
+            //console.log(vValue);
+            if(vValue=='Yes')
+                $('#divIfyesVisitinCanada').show();
+            else
+                $('#divIfyesVisitinCanada').hide();
+            //divIfyesCurrentlyinCanada
+        });
+
+
+        $('.Txtis_currently_have_valid_visa').on('click',function(){
+
+            var vValue=$('.Txtis_currently_have_valid_visa:checked').val();
+
+            //console.log(vValue);
+            if(vValue=='Yes')
+                $('#divIfyesis_currently_have_valid_visa').show();
+            else
+                $('#divIfyesis_currently_have_valid_visa').hide();
+            //divIfyesCurrentlyinCanada
+        });
+
+    });
+
+</script>
 </body>
 </html>

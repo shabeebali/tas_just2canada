@@ -149,6 +149,25 @@
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['no_of_children'] ?? '' }}</td>
                                         </tr>
+
+                                        @if(isset($data->form_data['children_age']))
+                                            <tr>
+                                                <td style="padding-left:10px" width="40%" height="20"><b>How old are your children?</b></td>
+                                                <td width="5%">:</td>
+                                                <td width="65%">{{ $data->form_data['children_age'] }}</td>
+                                            </tr>
+                                        @endif
+
+
+                                        @if(isset($data->form_data['is_children_on_study_permit']))
+                                            <tr>
+                                                <td style="padding-left:10px" width="40%" height="20"><b>Are any of your children studying in Canada at this time on a study permit?</b></td>
+                                                <td width="5%">:</td>
+                                                <td width="65%">{{ $data->form_data['is_children_on_study_permit'] }}</td>
+                                            </tr>
+                                        @endif
+
+
                                         @if(isset($data->form_data['children_lt_20']))
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>Have children less than 22 years of age?</b></td>
@@ -183,6 +202,39 @@
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['in_canada'] ?? '' }}</td>
                                         </tr>
+
+                                        <tr>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>
+                                                    Did you ever visit Canada?</b></td>
+                                            <td width="5%">:</td>
+                                            <td width="65%">{{ $data->form_data['Did_you_ever_visit_Canada'] ?? '' }}</td>
+                                        </tr>
+
+                                        @if(isset($data->form_data['if_yes_visited_canada_when']))
+                                            <tr>
+                                                <td style="padding-left:10px" width="40%" height="20"><b>If Yes, when?</b></td>
+                                                <td width="5%">:</td>
+                                                <td width="65%">{{ $data->form_data['if_yes_visited_canada_when'] }}</td>
+                                            </tr>
+                                        @endif
+
+                                        <tr>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>Currently
+                                                    Is your Canadian Temporary Residence Visa or any other visa currently valid?</b></td>
+                                            <td width="5%">:</td>
+                                            <td width="65%">{{ $data->form_data['is_currently_have_valid_visa'] ?? '' }}</td>
+                                        </tr>
+
+
+                                        @if(isset($data->form_data['your_current_visa_validity']))
+                                            <tr>
+                                                <td style="padding-left:10px" width="40%" height="20"><b>If yes, till when?</b></td>
+                                                <td width="5%">:</td>
+                                                <td width="65%">{{ $data->form_data['your_current_visa_validity'] }}</td>
+                                            </tr>
+                                        @endif
+
+
                                         <tr>
                                             <td style="padding-left:10px" width="40%" height="20"><b>Experience that applies to the applicant</b></td>
                                             <td width="5%">:</td>
@@ -211,6 +263,14 @@
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['qualification'] ?? '' }}</td>
                                         </tr>
+
+                                        <tr>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>Do you have your educational documents to prove your education identified above?</b></td>
+                                            <td width="5%">:</td>
+                                            <td width="65%">{{ $data->form_data['have_your_educational_documents_to_prove'] ?? '' }}</td>
+                                        </tr>
+
+
                                         <tr>
                                             <td style="padding-left:10px" width="40%" height="20"><b>Have ever ordered to leave Canada or any other country?</b></td>
                                             <td width="5%">:</td>
@@ -346,6 +406,16 @@
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['intend_to_move'] ?? '' }}</td>
                                         </tr>
+
+                                        <tr>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>Have you obtained an official assessment of your education by applying for an Education Credentials Assessment (ECA)?</b></td>
+                                            <td width="5%">:</td>
+                                            <td width="65%">{{ $data->form_data['have_you_obtained_educational_credentials_assessment'] ?? '' }}</td>
+                                        </tr>
+
+
+
+
                                         <tr>
                                             <td style="padding-left:10px" width="40%" height="20"><b>Queries</b></td>
                                             <td width="5%">:</td>

@@ -37,14 +37,21 @@ class BusinessImmigrationController extends Controller
             'city_of_residence' => 'required',
             'nationality' => 'required',
             'in_canada' => 'required',
+            'Did_you_ever_visit_Canada'=>'required',
+            'if_yes_visited_canada_when' => 'required_if:Did_you_ever_visit_Canada,Yes',
+            'is_currently_have_valid_visa' => 'required_if:in_canada,Yes',
+            'your_current_visa_validity'=>'required_if:is_currently_have_valid_visa,Yes',
             'experience' => 'required',
             'area_of_business' => 'required',
             'product_description' => 'required',
             'qualification' => 'required',
+            'have_your_educational_documents_to_prove'=>'required',
             'dob' => 'required',
             'marital_status' => 'required',
             'spouse_dob' => 'required_if:marital_status,Married',
             'no_of_children' => 'required_unless:marital_status,Never Married',
+            'children_age' =>'required_if:no_of_children,>=,1',
+            'is_children_on_study_permit' => 'required_if:no_of_children,>=,1',
             'leave_canada' => 'required',
             'arrested' => 'required',
             'in_military' => 'required',
@@ -58,19 +65,27 @@ class BusinessImmigrationController extends Controller
             'visa_refused' => 'required',
             'assets' => 'required',
             'taken_english_test' => 'required',
+            'have_you_obtained_educational_credentials_assessment'=>'required',
             'interests' => 'required',
             'g-recaptcha-response' => 'required',
             'apply_same' => 'required',
         ],[
             'in_canada.required' => 'Please specify whether you are in canada or not',
+            'Did_you_ever_visit_Canada.required' => 'Did you ever visited Canada?',
+            'if_yes_visited_canada_when.required_if' => 'When you visited Canada?',
+            'is_currently_have_valid_visa.required_if' => 'Do you have valid visa currently?',
+            'your_current_visa_validity.required_if'=>'You Current visa Validity',
             'experience.required' => 'Please state your experience',
             'area_of_business.required' => 'Please select at least one of area of business or management experience',
             'product_description.required' => 'Please describe your product / commodity',
             'qualification.required' => 'Please select your educational qualification',
+            'have_your_educational_documents_to_prove.required'=>'Do you have your Educational Documents to prove',
             'dob.required' => 'Please enter your date of birth',
             'marital_status.required' => 'Please specify your marital status',
             'spouse_dob.required_if' => 'Please enter your spouse\'s date of birth',
             'no_of_children.required_unless' => 'Please select how many children you have.',
+            'children_age.required_if' => 'Please enter your children age',
+            'is_children_on_study_permit.required_if' =>'Please select whether your children studying on permit',
             'leave_canada.required' => 'Please specify whether you have been ordered to leave Canada or any other country or not',
             'arrested.required' => 'Please specify whether you have been arrested or charged with any offence or not',
             'in_military.required' => 'Please specify whether you have ever been in the military (including mandatory service), a militia, or a civil defense unit or the police or not',
@@ -83,6 +98,7 @@ class BusinessImmigrationController extends Controller
             'visa_refused.required_if' => 'Please specify whether your visa to Canada has ever been refused or not',
             'assets.required' => 'Please specify total value of assets between you and your spouse',
             'taken_english_test.required' => 'Please specify whether you have taken English proficiency test or not',
+            'have_you_obtained_educational_credentials_assessment.required'=>'Have you Obtained Educational Credentials Assessment?',
             'interests.required' => 'Please select at least one of interests mentioned in the bottom of this form',
             'g-recaptcha-response.required' => 'Please check I\'m not robot box',
             'apply_same.required' => 'Please specify whether you consider two applicants to apply under the entrepreneur stream in the same application or not',
@@ -118,14 +134,16 @@ class BusinessImmigrationController extends Controller
         Mail::to($request->input('mail'))
             ->bcc([
                 'businessclient@just2canada.ca',
-                'info@tastechnologies.com'
+                'info@tastechnologies.com',
+                'testing0415048@gmail.com'
             ])
             ->send(new BusinessApplicationMail($formSubmission));
 
         Mail::to($request->input('mail'))
             ->bcc([
                 'businessclient@just2canada.ca',
-                'info@tastechnologies.com'
+                'info@tastechnologies.com',
+                'testing0415048@gmail.com'
             ])
             ->send(new BusinessApplicationCopyMail($formSubmission));
 
