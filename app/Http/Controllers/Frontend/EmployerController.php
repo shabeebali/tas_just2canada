@@ -61,7 +61,7 @@ class EmployerController extends Controller
 
         Auth::loginUsingId($employer->id);
 
-        // event(new Registered($employer));
+        event(new Registered($employer));
 
         return redirect(route('employer.dashboard'))->with('success','A validation email has been sent to your email id. Please validate by clicking the link in your email.');
     }
