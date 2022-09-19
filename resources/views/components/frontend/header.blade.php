@@ -89,12 +89,6 @@
                 Worker Assessment </a>
             <a href="{{ route('business-immigration.form') }}" class="btn navbar-right" data-animation="animated fadeInUp">Business
                 Assessment </a>
-            @auth('employer')
-                <a href="{{ route('employer.dashboard') }}" class="btn navbar-right">My Account</a>
-            @endauth
-            <!--@guest('employer')-->
-            <!--    <a href="{{ route('employer.login') }}" class="btn navbar-right">Employer Login</a>-->
-            <!--@endguest-->
         </div>
     </div>
     <!-- End Top Header_Area -->

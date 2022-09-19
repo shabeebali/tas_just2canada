@@ -31,5 +31,11 @@ class FormTypeSeeder extends Seeder
         ],[
             'shortname' => 'JS'
         ]);
+
+        FormType::firstOrCreate([
+            'name' => 'Employer Document',
+        ],[
+            'shortname' => 'ED'
+        ]);
     }
 }

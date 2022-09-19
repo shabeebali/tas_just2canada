@@ -22,101 +22,68 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}">
-                                <strong>Full Name:</strong> {{ $data->form_data['full_name'] }}
-                            </td>
-                            <td class="{{ $valueClass }}">
-                                <strong>Short Name:</strong> {{ $data->form_data['short_name'] }}
-                            </td>
-                        </tr>
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}">
-                                <strong>Citizen Of:</strong> {{ $data->form_data['citizen'] }}
-                            </td>
-                            <td class="{{ $valueClass }}">
-                                <strong>Currently Residing In:</strong> {{ $data->form_data['current_residence'] }}
-                            </td>
-                        </tr>
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}">
-                                <strong>Email:</strong> {{ $data->form_data['email'] }}
-                            </td>
-                            <td class="{{ $valueClass }}">
-                                <strong>Tel:</strong> {{ $data->form_data['phone'] }}
-                            </td>
-                        </tr>
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}">
-                                <strong>Current Occupation:</strong> {{ $data->form_data['current_occupation'] }}
-                            </td>
-                            <td class="{{ $valueClass }}">
-                                <strong>Years of Experience:</strong> {{ $data->form_data['current_years_of_experience'] }}
-                            </td>
-                        </tr>
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}">
-                                <strong>In Country:</strong> {{ $data->form_data['country'] }}
-                            </td>
-                            <td class="{{ $valueClass }}">
-                            </td>
-                        </tr>
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}">
-                                <strong>Previous Occupation:</strong> {{ $data->form_data['previous_occupation'] }}
-                            </td>
-                            <td class="{{ $valueClass }}">
-                                <strong>Previous Years of Experience:</strong> {{ $data->form_data['previous_years_of_experience'] }}
-                            </td>
-                        </tr>
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}">
-                                <strong>Taken IELTS / CELPIP English proficiency test?:</strong> {{ $data->form_data['taken_proficiency_test'] }}
-                            </td>
-                            <td class="{{ $valueClass }}">
-                                @if($data->form_data['taken_proficiency_test'] == 'Yes')
-                                    <strong>Score Card:</strong> <a class="text-blue-600" href="{{ Storage::url($data->form_data['score_card']) }}" target="_blank">Download</a>
-                                @else
-                                    <strong>English language proficiency:</strong> {{ $data->form_data['rate_english'] }}
-                                @endif
-                            </td>
-                        </tr>
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}">
-                                <strong>Obtained Education Credentials Assessment (ECA) for Canada?:</strong> {{ $data->form_data['obtained_eca'] }}
-                            </td>
-                            <td class="{{ $valueClass }}">
-                                @if($data->form_data['obtained_eca'] == 'Yes')
-                                    <strong>ECA Report:</strong> <a class="text-blue-600" href="{{ Storage::url($data->form_data['eca_report']) }}" target="_blank">Download</a>
-                                @endif
-                            </td>
-                        </tr>
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}">
-                                <strong>Countries Served:</strong> {{ $data->form_data['countries_served'] }}
-                            </td>
-                            <td class="{{ $valueClass }}">
-                                <strong>Reference:</strong> {{ $data->form_data['reference'] }}
-                            </td>
-                        </tr>
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}" colspan="2">
-                                <strong>Describe in 100 words:</strong> {{ $data->form_data['describe'] }}
-                            </td>
-                        </tr>
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}">
-                                <strong>Resume:</strong> <a class="text-blue-600" href="{{ Storage::url($data->form_data['resume']) }}" target="_blank">Download</a>
-                            </td>
-                            <td class="{{ $valueClass }}">
-                                <strong>Introduction Video:</strong> <a class="text-blue-600" href="{{ Storage::url($data->form_data['intro_video']) }}" target="_blank">Download</a>
-                            </td>
-                        </tr>
-                        <tr class="{{ $rowClass }}">
-                            <td class="{{ $valueClass }}" colspan="2">
-                                <strong>Picture:</strong> <img src="{{ Storage::url($data->form_data['profile_pic']) }}"/>
-                            </td>
-                        </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <strong>Canada Revenue Agency Payroll deductions program account number:</strong> {{ $data->form_data['crapdpan'] }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                            <strong>Business Legal Name:</strong> {{ $data->form_data['business_legal_name'] }}
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <strong>Business Address:</strong> {{ $data->form_data['business_address'] }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <strong>Principle Employer Contact Information:</strong> {{ $data->form_data['principle_contact_info'] }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                            <strong>Name:</strong> {{ $data->form_data['name'] }}
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <strong>Job Title:</strong> {{ $data->form_data['job_title'] }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                            <strong>Telephone Number:</strong> {{ $data->form_data['phone'] }}
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <strong>Email:</strong> {{ $data->form_data['email'] }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <strong>How many employees are employed nationally under the employer’s 9-digit CRA business number?:</strong> {{ $data->form_data['no_of_employees'] }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                            <strong>Did the business report more than $5 million (CAD) in annual gross revenue to CRA during its last tax year?:</strong> {{ $data->form_data['more_than_5_million'] }}
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <strong>In the last 12 months, did the employer lay off any employees working in the position(s) being requested in this application?:</strong> {{ $data->form_data['lay_off_last_12'] }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                            <strong>If yes, how many Canadians/permanent residents? How many TFWs? Provide reason(s) for the layoff(s):</strong> {{ $data->form_data['no_of_canadians'] }}
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <strong>I have received a positive LMIA decision in the past two years:</strong> {{ $data->form_data['positive_lmia_past_2'] }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                            <strong>My most recent LMIA decision was positive:</strong> {{ $data->form_data['last_limia_positive'] }}
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>

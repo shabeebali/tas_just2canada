@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Mail\BusinessApplicationCopyMail;
-use App\Mail\BusinessApplicationMail;
+use App\Mail\JobSeekerCopyMail;
+use App\Mail\JobSeekerMail;
 use App\Models\FormSubmission;
 use App\Models\FormType;
 use Illuminate\Http\Request;
@@ -103,21 +103,21 @@ class JobSeekerController extends Controller
 
         $formSubmission->save();
 
-        /*
         Mail::to($request->input('mail'))
             ->bcc([
                 'businessclient@just2canada.ca',
-                'info@tastechnologies.com'
+                'info@tastechnologies.com',
+                'testing0415048@gmail.com'
             ])
-            ->send(new BusinessApplicationMail($formSubmission));
+            ->send(new JobSeekerMail($formSubmission));
 
         Mail::to($request->input('mail'))
             ->bcc([
                 'businessclient@just2canada.ca',
-                'info@tastechnologies.com'
+                'info@tastechnologies.com',
+                'testing0415048@gmail.com'
             ])
-            ->send(new BusinessApplicationCopyMail($formSubmission));
-        */
+            ->send(new JobSeekerCopyMail($formSubmission));
         return Response::redirectToRoute('job-seeker')->with('success','Your form has been submitted successfully. We will contact you soon');
     }
 }

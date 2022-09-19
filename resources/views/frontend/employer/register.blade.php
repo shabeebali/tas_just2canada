@@ -24,8 +24,8 @@
                             <div class="form-inner">
                                 <div class="col-md-12">Email id    <input id=" " type="text" class="form-control col-12" maxlength="40" name="email" value="{{old('email')}}"></div>
 
-                                <div class="col-md-12">Password:  <input id=" " type="text" class="form-control col-12" maxlength="40" name="password" value="{{old('password')}}"></div>
-                                <div class="col-md-12">Re-Enter Password:  <input id=" " type="text" class="form-control col-12" maxlength="40" name="password_confirmation"></div>
+                                <div class="col-md-12">Password:  <input id=" " type="password" class="form-control col-12" maxlength="40" name="password" value="{{old('password')}}"></div>
+                                <div class="col-md-12">Re-Enter Password:  <input id=" " type="password" class="form-control col-12" maxlength="40" name="password_confirmation"></div>
 
                                 <center>
                                     <input type="submit" value="Submit" class="btn">

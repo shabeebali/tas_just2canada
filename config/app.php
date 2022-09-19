@@ -15,6 +15,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'recaptcha_key' => env('GOOGLE_RECAPTCHA_KEY',''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

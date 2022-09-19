@@ -49,12 +49,14 @@ margin: 2% 0 0 0%;" src="{{asset('images/UCW-logo.png')}}" alt=""></a></p>
                         <a href="{{url('personal-immigration')}}">Skilled Workers Immigration</a>
                     </li>
                     <!--<li><a href="{{url('contact-us')}}">Contact Us</a></li>-->
-                    
+                    @auth('employer')
+                        <li><a href="{{ route('employer.dashboard') }}">My Account</a></li>
+                    @endauth
                     @guest('employer')
                         <li><a href="{{ route('employer.login') }}">Employer Login</a></li>
                     @endguest
-                    
-                    
+
+
                 </ul>
             </div>
             <div class="col-md-3">

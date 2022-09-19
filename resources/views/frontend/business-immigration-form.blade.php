@@ -710,7 +710,7 @@ IT IS ILLEGAL TO HIRE SERVICES OF A NON-LICENSED REPRESENTATIVE WHO POSES TO REP
                             <div class="clearfix"></div>
                             <br>
                             <center>
-                                <div class="g-recaptcha" data-sitekey="6LdsV6wdAAAAAKDXPJl1NPRQmOhCzuGMWMEt50v7"></div>
+                                <div class="g-recaptcha" data-sitekey="{{config('app.recaptcha_key')}}"></div>
                                 <br>
                                 <input type="submit" value="Submit" class="btn">
                             </center>

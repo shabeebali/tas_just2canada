@@ -18,7 +18,7 @@ class CreateEmployersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->dateTime('email_verified_at')->nullable();
-            $table->json('form_data')->nullable();
+            $table->foreignId('form_submission_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

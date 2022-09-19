@@ -40,6 +40,7 @@ Route::prefix('employer')->name('employer.')->group(function(){
     Route::post('register', [EmployerController::class,'register'])->name('register.post');
     Route::middleware(['auth:employer','verified'])->group(function(){
         Route::view('document-form','frontend.employer.document-form')->name('document-form');
+        Route::post('document-form',[EmployerController::class,'store'])->name('document-form.post');
         Route::middleware('complete_registration')->group(function () {
             Route::get('dashboard',[EmployerController::class,'dashboard'] )->name('dashboard');
         });

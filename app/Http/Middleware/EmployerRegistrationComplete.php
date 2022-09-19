@@ -22,7 +22,7 @@ class EmployerRegistrationComplete
          * @var Employer $user
          */
         $user = Auth::user();
-        if($user->form_data){
+        if($user->form_submission){
             return $next($request);
         }
         return redirect(route('employer.document-form'));
