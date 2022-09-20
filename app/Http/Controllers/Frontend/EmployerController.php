@@ -63,7 +63,7 @@ class EmployerController extends Controller
         $employer->password = Hash::make($request->input('password'));
         $employer->save();
 
-        Auth::loginUsingId($employer->id);
+        Auth::guard('employer')->loginUsingId($employer->id);
 
         event(new Registered($employer));
 
