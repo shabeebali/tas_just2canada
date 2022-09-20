@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\JobSeekerController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\SkilledWorkerApplicationController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function() {
@@ -19,6 +20,7 @@ Route::middleware(['auth:web','role:admin|super_admin'])->name('admin.')->group(
     Route::post('form-remarks',[\App\Http\Controllers\FormRemarkController::class,'store'])->name('form-remarks.store');
     Route::get('dashboard',[AdminController::class,'dashboard'])->name('home');
     Route::resource('testimonials',TestimonialController::class);
+    Route::resource('users', UserController::class);
     Route::resource('pages',PageController::class);
     Route::resource('business-applications', BusinessApplicationController::class);
     Route::resource('job-seekers', JobSeekerController::class);
