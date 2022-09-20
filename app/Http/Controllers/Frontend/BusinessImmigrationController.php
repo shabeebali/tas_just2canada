@@ -132,19 +132,19 @@ class BusinessImmigrationController extends Controller
         $formSubmission->save();
 
         Mail::to($request->input('mail'))
-            ->bcc([
+            /*->bcc([
                 'businessclient@just2canada.ca',
                 'info@tastechnologies.com',
                 'testing0415048@gmail.com'
-            ])
+            ])*/
             ->send(new BusinessApplicationMail($formSubmission));
 
         Mail::to($request->input('mail'))
-            ->bcc([
+            /*->bcc([
                 'businessclient@just2canada.ca',
                 'info@tastechnologies.com',
                 'testing0415048@gmail.com'
-            ])
+            ])*/
             ->send(new BusinessApplicationCopyMail($formSubmission));
 
         return Response::redirectToRoute('business-immigration.form')->with('success','Your form has been submitted successfully. We will contact you soon');

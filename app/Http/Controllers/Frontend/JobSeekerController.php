@@ -104,19 +104,21 @@ class JobSeekerController extends Controller
         $formSubmission->save();
 
         Mail::to($request->input('mail'))
+            /*
             ->bcc([
                 'businessclient@just2canada.ca',
                 'info@tastechnologies.com',
                 'testing0415048@gmail.com'
-            ])
+            ])*/
             ->send(new JobSeekerMail($formSubmission));
 
         Mail::to($request->input('mail'))
+            /*
             ->bcc([
                 'businessclient@just2canada.ca',
                 'info@tastechnologies.com',
                 'testing0415048@gmail.com'
-            ])
+            ])*/
             ->send(new JobSeekerCopyMail($formSubmission));
         return Response::redirectToRoute('job-seeker')->with('success','Your form has been submitted successfully. We will contact you soon');
     }
