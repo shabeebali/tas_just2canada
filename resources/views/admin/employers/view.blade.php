@@ -78,10 +78,10 @@
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <strong>I have received a positive LMIA decision in the past two years:</strong> {{ $data->form_data['positive_lmia_past_2'] }}
+                            <strong>I have received a positive LMIA decision in the past two years:</strong> {{ isset($data->form_data['positive_lmia_past_2']) ? $data->form_data['positive_lmia_past_2'] : '-'}}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <strong>My most recent LMIA decision was positive:</strong> {{ $data->form_data['last_limia_positive'] }}
+                            <strong>My most recent LMIA decision was positive:</strong> {{ isset($data->form_data['last_limia_positive']) ? $data->form_data['last_limia_positive'] : '-'}}
                         </td>
                     </tr>
                     </tbody>
