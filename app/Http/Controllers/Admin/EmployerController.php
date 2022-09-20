@@ -54,7 +54,7 @@ class EmployerController extends Controller
 
     public function destroy($id): RedirectResponse
     {
-        $model = Employer::find($id);
+        $model = FormSubmission::find($id);
         $model->delete();
         return Response::redirectToRoute('admin.employers.index')->with('info','Form Deleted Successfully');
     }
