@@ -58,6 +58,7 @@
                         <td class="{{ $valueClass }}">
                             <span class="bg-gray-900 text-white px-2">2</span> <strong>Date of Birth of the
                                 applicant:</strong> {{ \Carbon\Carbon::parse($data->form_data['dob'])->toDateString() }}
+                             ({{\Carbon\Carbon::parse($data->form_data['dob'])->diff(\Carbon\Carbon::now())->format('Age: %y')}})
                         </td>
                         <td class="{{ $valueClass }}">
                             <span class="bg-gray-900 text-white px-2">3</span> <strong>Marital
