@@ -18,6 +18,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string $email
  * @property string $client_id
  * @property FormSubmission $form_submission
+ * @property int $form_submission_id
  * @mixin Eloquent
  */
 class Employer extends Authenticatable implements MustVerifyEmail
