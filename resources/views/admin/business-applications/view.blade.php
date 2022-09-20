@@ -142,7 +142,8 @@
                             <strong>Did you ever visit Canada?
                                 ?:</strong> {{ $data->form_data['Did_you_ever_visit_Canada'] ?? '' }}
                         </td>
-
+                    </tr>
+                    <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
                             <strong>If Yes, when
                                 ?:</strong> {{ $data->form_data['if_yes_visited_canada_when'] ?? '' }}
@@ -152,7 +153,8 @@
                             <strong>Is your Canadian Temporary Residence Visa or any other visa currently valid?
                                 ?:</strong> {{ $data->form_data['is_currently_have_valid_visa'] ?? '' }}
                         </td>
-
+                    </tr>
+                    <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
                             <strong>If yes, till when
                                 ?:</strong> {{ $data->form_data['your_current_visa_validity'] ?? '' }}
