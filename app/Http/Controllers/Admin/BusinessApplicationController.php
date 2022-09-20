@@ -22,9 +22,9 @@ class BusinessApplicationController extends Controller
         $search = $request->input('search');
         if($search)
         {
-            $data->where('form_data->name','like','%'.$search.'%')
-                ->orWhere('form_data->email','like','%'.$search.'%')
-                ->orWhere('form_data->country','like','%'.$search.'%')
+            $data->whereRaw("LOWER(JSON_EXTRACT(form_data, '$.name')) LIKE '%".strtolower($search)."%'")
+                ->orWhereRaw("LOWER(JSON_EXTRACT(form_data, '$.email')) LIKE '%".strtolower($search)."%'")
+                ->orWhereRaw("LOWER(JSON_EXTRACT(form_data, '$.country')) LIKE '%".strtolower($search)."%'")
                 ->orWhere('client_id','like','%'.$search.'%');
         }
         $data = $data->paginate(30);
