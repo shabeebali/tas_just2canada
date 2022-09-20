@@ -143,16 +143,20 @@
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['no_of_canadians'] }}</td>
                                         </tr>
+                                        @if(isset($data->form_data['positive_lmia_past_2']))
                                         <tr>
                                             <td style="padding-left:10px" width="40%" height="20"><b>I have received a positive LMIA decision in the past two years</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['positive_lmia_past_2'] }}</td>
                                         </tr>
+                                        @endif
+                                        @if(isset($data->form_data['last_limia_positive']))
                                         <tr>
                                             <td style="padding-left:10px" width="40%" height="20"><b>My most recent LMIA decision was positive</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['last_limia_positive'] }}</td>
                                         </tr>
+                                        @endif
                                         </tbody>
                                     </table>
                                 </td>
