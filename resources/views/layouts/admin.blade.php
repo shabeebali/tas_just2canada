@@ -17,19 +17,18 @@
         </style>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         @livewireStyles
-        <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
     </head>
     <body class="antialiased h-full">
         <div class="wrapper h-auto min-h-full w-full relative" x-data="{showSidebar: false}">
             <x-admin.header/>
             <x-admin.sidebar/>
-            <div class="content-wrapper ml-0 lg:ml-60 relative">
+            <div class="content-wrapper ml-0 lg:ml-64 relative">
                 @if($title)
                     <x-blocks.page-header :title="$title" :breadcrumbs="$breadcrumbs" :no-breadcrumbs="!$breadcrumbs">
                         @if($afterTitleButton)
                             <x-slot name="afterTitle">
-                                <x-blocks.button variant="primary" :label="$afterTitleButtonLabel" class="ml-4 mr-0 mb-0" :type="$afterTitleButtonType" href="{{ $afterTitleButtonRoute ? route($afterTitleButtonRoute) : NULL }}" :formId="$afterTitleButtonForm"/>
+                                <x-blocks.button variant="primary" id="{{$afterTitleButtonId}}" :label="$afterTitleButtonLabel" class="ml-4 mr-0 mb-0" :type="$afterTitleButtonType" href="{{ $afterTitleButtonRoute ? route($afterTitleButtonRoute) : NULL }}" :formId="$afterTitleButtonForm"/>
                             </x-slot>
                         @endif
                     </x-blocks.page-header>
@@ -46,7 +45,7 @@
                     @elseif(session('info'))
                         <x-blocks.alert type="info">
                             {{ session('info') }}
-                        </x-blocks.alert>\
+                        </x-blocks.alert>
                     @elseif(session('warning'))
                         <x-blocks.alert type="warning">
                             {{ session('warning') }}
@@ -57,6 +56,8 @@
             </div>
         </div>
         @livewireScripts
+        <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js" defer></script>
     </body>
+
 </html>

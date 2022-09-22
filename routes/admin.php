@@ -20,6 +20,7 @@ Route::middleware(['auth:web','role:admin|super_admin'])->name('admin.')->group(
     Route::post('form-remarks',[\App\Http\Controllers\FormRemarkController::class,'store'])->name('form-remarks.store');
     Route::get('dashboard',[AdminController::class,'dashboard'])->name('home');
     Route::resource('testimonials',TestimonialController::class);
+    Route::post('users/{id}/change-password',[UserController::class,'changePassword'])->name('users.change-password');
     Route::resource('users', UserController::class);
     Route::resource('pages',PageController::class);
     Route::resource('business-applications', BusinessApplicationController::class);

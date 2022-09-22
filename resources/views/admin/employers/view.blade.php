@@ -89,6 +89,22 @@
             </div>
         </div>
     </div>
+    <x-blocks.card>
+        <form action="{{route('admin.employers.update',$data->id)}}" method="POST">
+            <div class="flex items-center">
+                @csrf
+                @method('PUT')
+                <label for="assessed_as" class="block font-bold mb-2 text-sm  text-gray-900 dark:text-gray-400">Assessed As</label>
+                <select id="assessed_as" name="assessed_as" class="mx-2 mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-72 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                    <option>--Please Select--</option>
+                    <option value="ICT" @if($data->assessed_as == 'ICT') selected @endif>ICT</option>
+                    <option value="CSUV" @if($data->assessed_as == 'CSUV') selected @endif>CSUV</option>
+                    <option value="PNP" @if($data->assessed_as == 'PNP') selected @endif>PNP</option>
+                </select>
+                <x-blocks.button class="" label="Submit" type="submit"></x-blocks.button>
+            </div>
+        </form>
+    </x-blocks.card>
     <div>
         <div class="grid grid-cols-1">
             @if($data->remarks->count() > 0)

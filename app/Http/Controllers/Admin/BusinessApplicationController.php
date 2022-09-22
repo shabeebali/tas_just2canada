@@ -18,7 +18,7 @@ class BusinessApplicationController extends Controller
      */
     public function index(Request $request): View
     {
-        $data = FormSubmission::select('id','client_id','form_data->name as name','form_data->email as email','form_data->country as country')->where('form_type_id',2)->orderBy('created_at','DESC');
+        $data = FormSubmission::select('id','client_id','form_data->name as name','form_data->email as email','form_data->country as country','assessed_as')->where('form_type_id',2)->orderBy('created_at','DESC');
         $search = $request->input('search');
         if($search)
         {
@@ -27,6 +27,10 @@ class BusinessApplicationController extends Controller
                 ->orWhereRaw("LOWER(JSON_EXTRACT(form_data, '$.country')) LIKE '%".strtolower($search)."%'")
                 ->orWhere('client_id','like','%'.$search.'%');
         }
+        $assessed_as = $request->input('assessed_as','clear');
+        if($assessed_as != 'clear') {
+            $data->where('assessed_as',$assessed_as);
+        }
         $data = $data->paginate(30);
         $columns = [
             ['label' => 'ID', 'field' => 'id', 'align' => 'left', 'sortable' => true],
@@ -34,6 +38,7 @@ class BusinessApplicationController extends Controller
             ['label' => 'Name', 'field' => 'name', 'align' => 'left', 'sortable' => true],
             ['label' => 'Email', 'field' => 'email', 'align' => 'left', 'sortable' => true],
             ['label' => 'Country', 'field' => 'country', 'align' => 'left', 'sortable' => true],
+            ['label' => 'Assessed As', 'field' => 'assessed_as', 'align' => 'left', 'sortable' => false],
         ];
         return view('admin.business-applications.index',[
             'title' => 'Business Applications',
@@ -42,7 +47,8 @@ class BusinessApplicationController extends Controller
             ],
             'data' => $data,
             'columns' => $columns,
-            'search' => $search
+            'search' => $search,
+            'assessed_as' => $assessed_as
         ]);
     }
 
@@ -56,6 +62,16 @@ class BusinessApplicationController extends Controller
                 ['label' => $model->client_id, 'route_name' => 'admin.business-applications.index']
             ],
         ]);
+    }
+
+    public function update(Request $request,$id)
+    {
+        $formSubmission = FormSubmission::find($id);
+        if($request->input('assessed_as')){
+            $formSubmission->assessed_as = $request->input('assessed_as');
+            $formSubmission->save();
+        }
+        return Response::redirectToRoute('admin.business-applications.index')->with('success','Form Updated Successfully');
     }
 
     public function destroy($id)

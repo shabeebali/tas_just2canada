@@ -1,4 +1,11 @@
-<x-layouts.admin :title="$title" :breadcrumbs="$breadcrumbs">
+<x-layouts.admin
+    :title="$title"
+    :breadcrumbs="$breadcrumbs"
+    after-title-button
+    after-title-button-type="button"
+    after-title-button-label="Create"
+    after-title-button-route="admin.users.create"
+>
     <x-blocks.card class="py-2">
         <form action="{{ route('admin.users.index') }}" method="GET">
             <div class="flex justify-center items-center">
@@ -26,6 +33,7 @@
                     <th scope="col" class="px-6 py-3 text-left">Name</th>
                     <th scope="col" class="px-6 py-3 text-left">Email</th>
                     <th scope="col" class="px-6 py-3 text-left">Role</th>
+                    <th scope="col" class="px-6 py-3 text-left">Last Logged At</th>
                     <th scope="col" class="px-6 py-3 text-right"></th>
                 </tr>
                 </thead>
@@ -43,6 +51,9 @@
                         </td>
                         <td class="px-6 py-4 text-left">
                             {{$row['roles'][0]['name']}}
+                        </td>
+                        <td class="px-6 py-4 text-left">
+                            {{$row['last_logged_in'] ? \Carbon\Carbon::parse($row['last_logged_in'])->setTimezone('Canada/Eastern')->toDayDateTimeString():'-'}}
                         </td>
                         <td class="px-6 py-3 text-right">
                             <x-blocks.icon-button round :href="route('admin.users.edit',$row['id'])">
@@ -67,7 +78,7 @@
                     var element2 = document.createElement("input");
 
                     form.method = "POST";
-                    form.action = "/admin/users" + id.toString();
+                    form.action = "/admin/users/" + id.toString();
 
                     element1.value="{{ csrf_token() }}";
                     element1.name="_token";
@@ -84,4 +95,12 @@
             }
         </script>
     </x-blocks.card>
+
+    <!-- Main modal -->
+    <div id="createModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+        <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+            <!-- Modal content -->
+
+        </div>
+    </div>
 </x-layouts.admin>

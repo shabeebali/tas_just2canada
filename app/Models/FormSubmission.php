@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property array $form_data
  * @property int $form_type_id
  * @property string $created_at
+ * @property string $assessed_as
  * @mixin \Eloquent
  */
 class FormSubmission extends Model
@@ -23,7 +24,8 @@ class FormSubmission extends Model
         'id',
         'client_id',
         'form_data',
-        'form_type'
+        'form_type',
+        'assessed_as'
     ];
 
     protected $casts = [

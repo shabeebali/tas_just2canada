@@ -13,6 +13,7 @@ class Admin extends Component
     public $afterTitleButtonType;
     public $afterTitleButtonForm;
     public $breadcrumbs;
+    public $afterTitleButtonId;
     /**
      * Create a new component instance.
      *
@@ -25,7 +26,8 @@ class Admin extends Component
         $afterTitleButtonRoute = NULL,
         $afterTitleButtonLabel = NULL,
         $afterTitleButtonType = 'button',
-        $afterTitleButtonForm = NULL
+        $afterTitleButtonForm = NULL,
+        $afterTitleButtonId = ''
     )
     {
         $this->title = $title;
@@ -35,6 +37,7 @@ class Admin extends Component
         $this->afterTitleButtonLabel = $afterTitleButtonLabel;
         $this->afterTitleButtonType = $afterTitleButtonType;
         $this->afterTitleButtonForm = $afterTitleButtonForm;
+        $this->afterTitleButtonId = $afterTitleButtonId;
     }
 
     /**
