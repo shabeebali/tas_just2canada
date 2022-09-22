@@ -70,6 +70,7 @@
                             <td class="{{ $valueClass }}">
                                 <strong>Spouse's Date of Birth
                                     ?:</strong> {{ \Carbon\Carbon::parse($data->form_data['spouse_dob'])->toDateString() }}
+                                ({{\Carbon\Carbon::parse($data->form_data['spouse_dob'])->diff(\Carbon\Carbon::now())->format('Age: %y')}})
                             </td>
                         @endif
                         @if(isset($data->form_data['spouse_experience']))

@@ -34,7 +34,15 @@
                                 </ul>
                             </div>
                         @endif
-
+                        <p>
+                            Upon reviewing your Business Immigration form and assessing your eligibility under one of Canada’s business immigration programs, if we feel that you qualify under one of them,  our office will invite you for a ‘No-charge’ detailed one-to-one Zoom video discussion with Mr. Anoo Lal, RCIC, a Certified Canadian Immigration Practitioner. This meeting may last between 30 to 60 minutes.
+                        </p>
+                        <p>
+                            If you would like to proceed further with your application after the discussion, you will be required to pay a File Admin fee of Cad$150. This fee will be fully adjusted in your first installment if you decide to retain services of Just To Canada Immigration Services Group within 30 days from the date of consultation. Please tick the box below that you acknowledge and understand these obligations
+                        </p>
+                        <p>
+                            <input type="checkbox" name="agree"/> By clicking this box, I acknowledge that a fee of Cad $150 or equivalent towards the File Administration fee shall apply to me if I wish to proceed with my application based on my assessment and interaction with Mr. Lal.
+                        </p>
                         <h4>CONFIDENTIAL WHEN COMPLETED.</h4>
                         Just To Canada case assessment specialists will use the collected information from this form to
                         assess all Canadian immigration possibilities. None of the information will be shared with any

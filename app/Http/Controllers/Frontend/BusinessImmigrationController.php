@@ -69,6 +69,7 @@ class BusinessImmigrationController extends Controller
             'interests' => 'required',
             'g-recaptcha-response' => 'required',
             'apply_same' => 'required',
+            'agree' => 'required',
         ],[
             'in_canada.required' => 'Please specify whether you are in canada or not',
             'Did_you_ever_visit_Canada.required' => 'Did you ever visited Canada?',
@@ -102,7 +103,8 @@ class BusinessImmigrationController extends Controller
             'interests.required' => 'Please select at least one of interests mentioned in the bottom of this form',
             'g-recaptcha-response.required' => 'Please check I\'m not robot box',
             'apply_same.required' => 'Please specify whether you consider two applicants to apply under the entrepreneur stream in the same application or not',
-            'spouse_relative_state.required_if' => 'Please select the provinces(s) where your or your spouse\'s relatives reside in'
+            'spouse_relative_state.required_if' => 'Please select the provinces(s) where your or your spouse\'s relatives reside in',
+            'agree.required' => 'Please check the agreement at the top of questionnaire'
         ]);
         $validator->validate();
 
