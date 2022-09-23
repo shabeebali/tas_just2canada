@@ -104,7 +104,7 @@ class BusinessImmigrationController extends Controller
             'g-recaptcha-response.required' => 'Please check I\'m not robot box',
             'apply_same.required' => 'Please specify whether you consider two applicants to apply under the entrepreneur stream in the same application or not',
             'spouse_relative_state.required_if' => 'Please select the provinces(s) where your or your spouse\'s relatives reside in',
-            'agree.required' => 'Please check the agreement at the top of questionnaire'
+            'agree.required' => 'Please check the agreement at the bottom of questionnaire'
         ]);
         $validator->validate();
 

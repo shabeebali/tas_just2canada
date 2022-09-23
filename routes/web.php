@@ -28,7 +28,7 @@ Route::get('/employer/email/verify/{id}/{hash}', function (EmailVerificationRequ
     $request->fulfill();
     return redirect(route('employer.dashboard'));
 })->middleware(['auth:employer','signed'])->name('verification.verify');
-Route::post('/employer/email/verification-notification', function (\Illuminate\Http\Request $request) {
+Route::get('/employer/email/verification-notification', function (\Illuminate\Http\Request $request) {
     $request->user()->sendEmailVerificationNotification();
     return back()->with('success', 'Verification link sent!');
 })->middleware(['auth:employer', 'throttle:6,1'])->name('verification.send');
@@ -38,8 +38,18 @@ Route::prefix('employer')->name('employer.')->group(function(){
     Route::post('login', [EmployerController::class,'login'])->name('login.post');
     Route::view('register','frontend.employer.register')->name('register')->middleware('guest:employer');
     Route::post('register', [EmployerController::class,'register'])->name('register.post');
+    Route::post('logout',[EmployerController::class,'logout'])->middleware(['auth:employer'])->name('logout');
     Route::middleware(['auth:employer','verified'])->group(function(){
-        Route::view('document-form','frontend.employer.document-form')->name('document-form');
+        Route::get('document-form',function(){
+            /**
+             * @var Employer $user
+             */
+            $user = Auth::user();
+            if($user->form_submission){
+               return Redirect::route('employer.dashboard');
+            }
+            return view('frontend.employer.document-form');
+        })->name('document-form');
         Route::post('document-form',[EmployerController::class,'store'])->name('document-form.post');
         Route::middleware('complete_registration')->group(function () {
             Route::get('dashboard',[EmployerController::class,'dashboard'] )->name('dashboard');

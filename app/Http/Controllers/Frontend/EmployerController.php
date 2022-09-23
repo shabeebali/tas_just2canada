@@ -52,6 +52,13 @@ class EmployerController extends Controller
         }
     }
 
+    public function logout()
+    {
+        Auth::guard('employer')->logout();
+        request()->session()->regenerate();
+        return redirect(route('employer.login'));
+    }
+
     public function register(Request $request)
     {
         $request->validate([
@@ -99,6 +106,14 @@ class EmployerController extends Controller
             'g-recaptcha-response.required' => 'Please check I\'m not robot box',
         ]);
         $validator->validate();
+
+        /**
+         * @var Employer $user
+         */
+        $user = Auth::user();
+        if($user->form_submission){
+            return Redirect::route('employer.dashboard');
+        }
 
         $employer = Employer::find(Auth::user()->id);
         $formData = $request->except([
