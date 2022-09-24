@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\SkilledWorkerApplicationController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\UserController;
+use App\Models\FormSubmission;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function() {
@@ -23,8 +24,38 @@ Route::middleware(['auth:web','role:admin|super_admin'])->name('admin.')->group(
     Route::post('users/{id}/change-password',[UserController::class,'changePassword'])->name('users.change-password');
     Route::resource('users', UserController::class);
     Route::resource('pages',PageController::class);
+    Route::get('business-applications/{id}/download', function ($id) {
+        /**
+         * @var $model FormSubmission
+         */
+        $model = FormSubmission::find($id);
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pdfs.ba-copy',[
+            'data' => $model
+        ]);
+        return $pdf->download($model->client_id.'.pdf');
+    })->name('business-applications.download');
     Route::resource('business-applications', BusinessApplicationController::class);
+    Route::get('job-seekers/{id}/download', function ($id) {
+        /**
+         * @var $model FormSubmission
+         */
+        $model = FormSubmission::find($id);
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pdfs.js-copy',[
+            'data' => $model
+        ]);
+        return $pdf->download($model->client_id.'.pdf');
+    })->name('job-seekers.download');
     Route::resource('job-seekers', JobSeekerController::class);
+    Route::get('employers/{id}/download', function ($id) {
+        /**
+         * @var $model FormSubmission
+         */
+        $model = FormSubmission::find($id);
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pdfs.ed-copy',[
+            'data' => $model
+        ]);
+        return $pdf->download($model->client_id.'.pdf');
+    })->name('employers.download');
     Route::resource('employers', EmployerController::class);
     Route::resource('skilled-worker-applications', SkilledWorkerApplicationController::class);
     Route::get('settings', [AdminController::class, 'settings'])->name('settings');
