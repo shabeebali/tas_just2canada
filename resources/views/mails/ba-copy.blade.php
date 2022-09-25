@@ -7,7 +7,6 @@
         body, .label, .value {
             font-family: Arial, Verdana;
         }
-
         .label {
             font-weight: bold;
             margin-top: 5px;
