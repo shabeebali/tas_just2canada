@@ -5,7 +5,7 @@
     <ul class="sidebar-menu overflow-hidden whitespace-nowrap">
         @foreach ($menuItems as $item)
         <li class="{{ $item['class'] }}">
-            <a href="{{ route($item['route_name']) }}" class="block px-3 py-4">
+            <a href="{{ route($item['route_name']) }}" class="block px-3 py-4" @if($item['route_name'] == 'job-seeker') target="_blank" @endif>
                 @if(isset($item['icon']))
                     <span class="float-left">{!! $item['icon'] !!}</span>
                 @endif

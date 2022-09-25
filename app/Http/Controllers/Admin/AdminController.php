@@ -14,7 +14,7 @@ class AdminController extends Controller
         $reminders = FormRemark::whereBetween('next_follow',[now()->startOfDay()->toDateTimeString(),now()->endOfDay()->toDateTimeString()])->with('form_submission')->get();
         $businessFormCount = FormSubmission::where('form_type_id',2)->count();
         $businessFormTodayCount = FormSubmission::whereBetween('created_at',[now()->startOfDay()->toDateTimeString(),now()->endOfDay()->toDateTimeString()])->where('form_type_id',2)->count();
-        $latestBusinessForms = FormSubmission::select('id','client_id','form_data->name as name','form_data->email as email','form_data->country as country')->orderBy('created_at','DESC')->limit(10)->get();
+        $latestBusinessForms = FormSubmission::select('id','client_id','form_data->name as name','form_data->email as email','form_data->country as country')->where('form_type_id',2)->orderBy('created_at','DESC')->limit(10)->get();
         return view('admin.home',[
             'title' => 'Dashboard',
             'reminders' => $reminders,
