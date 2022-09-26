@@ -96,6 +96,7 @@
                                         <input class="radSpouse_Experience" name="spouse_experience" type="radio" value="Work Experience as a Skilled Worker" @if(old('spouse_experience') == 'Work Experience as a Skilled Worker') checked @endif> Work Experience as a Skilled Worker
                                         <input class="radSpouse_Experience" name="spouse_experience" type="radio" value="Not employed currently" @if(old('spouse_experience') == 'Not employed currently') checked @endif> Not employed currently <br>
                                         <input class="radSpouse_Experience" name="spouse_experience" type="radio" value="Never employed" @if(old('spouse_experience') == 'Never employed') checked @endif> Never employed <br>
+                                        <input class="radSpouse_Experience" name="spouse_experience" type="radio" value="Never employed" @if(old('spouse_experience') == 'Homemaker') checked @endif> Homemaker <br>
                                         <input name="spouse_experience" class="radSpouse_Experience" type="radio" value="NA" @if(old('spouse_experience') == 'NA') checked @endif> NA
                                     </div>
                                     <div class="clearfix"></div>
@@ -212,7 +213,7 @@
 
 
                             <br>
-                            <div class="col-md-8"><strong>7.</strong> Please select which experience pertains to you<span class="spanHighlight">*</span><br>
+                            <div class="col-md-8"><strong>7.</strong> PPlease select which experience pertains to you? You may select more than one selection if it pertains to you<span class="spanHighlight">*</span><br>
                                 <input class="chkExperience" name="experience" type="radio" value="Business Person" @if(old('experience') == 'Business Person') checked @endif> Business Person <br>
                                 <input name="experience" class="chkExperience" type="radio" value="Senior Manager" @if(old('experience') == 'Senior Manager') checked @endif> Senior Manager <br>
                                 <input name="experience" class="chkExperience" type="radio" value="Self Employed Artist" @if(old('experience') == 'Self Employed Artist') checked @endif> Self Employed Artist <br>
@@ -533,7 +534,7 @@
                                        value="$2 million and up">$2 million and up
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12"><strong>21.</strong> Funds available to invest in Canada from the total net-worth you reported above.:<span class="spanHighlight">*</span><br>
+                            <div class="col-md-12"><strong>21.</strong> Funds available to invest in Canada from the total net-worth you reported above. Generally, your total net worth between your spouse and yourself must exceed the funds you will make available to invest in a business in Canada. However, please note that your net worth does not count under the Canada Startup Visa or under the C11 Entrepreneur visa. It is generally required under all provincial nominee programs for entrepreneurs.:<span class="spanHighlight">*</span><br>
                                 <input class="radEducational_Qualification" name="funds_available" type="radio" value="$150,000 - $250,000" @if(old('funds_available') == '$150,000 - $250,000') checked @endif> $150,000 - $250,000 <br>
                                 <input name="funds_available" class="radEducational_Qualification" type="radio" value="$250,000 - $300,000" @if(old('funds_available') == '$250,000 - $300,000') checked @endif> $250,000 - $300,000 <br>
                                 <input class="radEducational_Qualification" name="funds_available" type="radio" value="$300,000 - $350,000" @if(old('funds_available') == '$300,000 - $350,000') checked @endif> $300,000 - $350,000 <br>
@@ -598,19 +599,9 @@
                             </div>
                             <div class="clearfix"></div>
                             <br>
-                            <div class="col-md-12">I am planning to relocate / start the immigration process:<span class="spanHighlight">*</span><br>
-                                <input name="planning_to_start" class="radEducational_Qualification" type="radio" value="Immediately" @if(old('planning_to_start') == 'Immediately') checked @endif> Immediately <br>
-                                <input class="radEducational_Qualification" name="planning_to_start" type="radio" value="In 6 months" @if(old('planning_to_start') == 'In 6 months') checked @endif> In 6 months <br>
-                                <input class="radEducational_Qualification" name="planning_to_start" type="radio" value="Not decided yet" @if(old('planning_to_start') == 'Not decided yet') checked @endif> Not decided yet <br>
-                            </div>
-                            <div class="clearfix"></div>
-                            <br>
-                            <div class="col-md-12">I intend to move to Canada in:<span class="spanHighlight">*</span><br>
-                                <input name="intend_to_move" class="radEducational_Qualification" type="radio" value="Immediately" @if(old('intend_to_move') == 'Immediately') checked @endif> Immediately <br>
-                                <input class="radEducational_Qualification" name="intend_to_move" type="radio" value="6 months from now" @if(old('intend_to_move') == '6 months from now') checked @endif> 6 months from now <br>
-                                <input class="radEducational_Qualification" name="intend_to_move" type="radio" value="1 year from now" @if(old('intend_to_move') == '1 year from now') checked @endif> 1 year from now <br>
-                                <input class="radEducational_Qualification" name="intend_to_move" type="radio" value="2 years from now" @if(old('intend_to_move') == '2 years from now') checked @endif> 2 years from now <br>
-                                <input class="radEducational_Qualification" name="intend_to_move" type="radio" value="Not decided yet" @if(old('intend_to_move') == 'Not decided yet') checked @endif> Not decided yet <br>
+                            <div class="col-md-12">I understand that immigration regulations may change at any time. My assessment by the licensed immigration professional will be based on current and prevailing immigration regulations. I wish to start the process of my immigration file:<span class="spanHighlight">*</span><br>
+                                <input name="planning_to_start" class="radEducational_Qualification" type="radio" value="Immediately" @if(old('planning_to_start') == 'Immediately') checked @endif> Immediately after my consultation with the licensed immigration practitioner, if I meet the criteria <br>
+                                <input class="radEducational_Qualification" name="planning_to_start" type="radio" value="Not decided yet" @if(old('planning_to_start') == 'Not decided yet') checked @endif> I have not decided yet and may decide later. <br>
                             </div>
                             <div class="clearfix"></div>
 

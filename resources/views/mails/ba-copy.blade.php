@@ -83,7 +83,7 @@
                                             <td width="65%">{{ $data->client_id}}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Name</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>1. Name</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['name'] }}</td>
                                         </tr>
@@ -120,12 +120,12 @@
                                             <td width="65%">{{ $data->form_data['reference'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Date of Birth</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>2. Date of Birth</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['dob'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Marital Status</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>3. Marital Status</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['marital_status'] ?? '' }}</td>
                                         </tr>
@@ -196,15 +196,13 @@
                                             </tr>
                                         @endif
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Currently
-                                                    in Canada</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>4. Currently in Canada?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['in_canada'] ?? '' }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>
-                                                    Did you ever visit Canada?</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>5. Did you ever visit Canada?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['Did_you_ever_visit_Canada'] ?? '' }}</td>
                                         </tr>
@@ -218,7 +216,7 @@
                                         @endif
 
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Currently
+                                            <td style="padding-left:10px" width="40%" height="20"><b>6. Currently
                                                     Is your Canadian Temporary Residence Visa or any other visa currently valid?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['is_currently_have_valid_visa'] ?? '' }}</td>
@@ -235,13 +233,13 @@
 
 
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Experience that applies to the applicant</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>7. Experience that applies to the applicant</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['experience']  ?? ''}}</td>
                                         </tr>
                                         @if(isset($data->form_data['area_of_business']))
                                             <tr>
-                                                <td style="padding-left:10px" width="40%" height="20"><b>Area of business or management experience acquired in past 10 years</b></td>
+                                                <td style="padding-left:10px" width="40%" height="20"><b>8. Area of business or management experience acquired in past 10 years</b></td>
                                                 <td width="5%">:</td>
                                                 <td width="65%">
                                                     <ul>
@@ -253,45 +251,50 @@
                                             </tr>
                                         @endif
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Will the applicant consider two applicants to apply under the entrepreneur stream in the same application?</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>Briefly describe product/commodity you deal in your business</b></td>
+                                            <td width="5%">:</td>
+                                            <td width="65%">{{ $data->form_data['product_description']  ?? ''}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>9. Will the applicant consider two applicants to apply under the entrepreneur stream in the same application?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['apply_same'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Educational Qualification</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>10. Educational Qualification</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['qualification'] ?? '' }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Do you have your educational documents to prove your education identified above?</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>11. Do you have your educational documents to prove your education identified above?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['have_your_educational_documents_to_prove'] ?? '' }}</td>
                                         </tr>
 
 
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Have ever ordered to leave Canada or any other country?</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>12. Have ever ordered to leave Canada or any other country?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['leave_canada'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Have ever arrested for, or been charged with any offense in any country, including driving under the influence of alcohol or drugs?</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>13. Have ever arrested for, or been charged with any offense in any country, including driving under the influence of alcohol or drugs?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['arrested'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Have ever been in the military including mandatory service a militia or a civil defense unit or the police</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>14. Have ever been in the military including mandatory service a militia or a civil defense unit or the police</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['in_military'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Have ever been employed by a government</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>15. Have ever been employed by a government</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['employed_in_security'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Visited other countries within the last 10 years?</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>16. Visited other countries within the last 10 years?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['visited_in_10_years'] ?? '' }}</td>
                                         </tr>
@@ -301,7 +304,7 @@
                                             <td width="65%">{{ $data->form_data['visited_countries'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Blood relatives in Canada</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>17. Blood relatives in Canada</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['spouse_have_relatives'] ?? '' }}</td>
                                         </tr>
@@ -319,7 +322,7 @@
                                             </tr>
                                         @endif
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Ever visited Canada?</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>18. Ever visited Canada?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['visited_canada']  ?? ''}}</td>
                                         </tr>
@@ -344,7 +347,7 @@
                                             </tr>
                                         @endif
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Visa to Canada ever been refused</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>19. Visa to Canada ever been refused</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['visa_refused'] ?? '' }}</td>
                                         </tr>
@@ -354,17 +357,17 @@
                                             <td width="65%">{{ $data->form_data['visa_refused_details'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Between you and your spouse Assets</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>20. Between you and your spouse Assets</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['assets'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Funds Available to invest in canada</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>21. Funds Available to invest in canada</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['funds_available'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Taken english proficiency test?</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>22. Taken english proficiency test?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['taken_english_test']  ?? ''}}</td>
                                         </tr>
@@ -407,21 +410,17 @@
                                         </tr>
 
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Have you obtained an official assessment of your education by applying for an Education Credentials Assessment (ECA)?</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>23. Have you obtained an official assessment of your education by applying for an Education Credentials Assessment (ECA)?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['have_you_obtained_educational_credentials_assessment'] ?? '' }}</td>
                                         </tr>
-
-
-
-
                                         <tr>
                                             <td style="padding-left:10px" width="40%" height="20"><b>Queries</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['queries'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>Interested in</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>24. Interested in</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">
                                                 <ul>
@@ -429,6 +428,15 @@
                                                         <li>{{ $item }}</li>
                                                     @endforeach
                                                 </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:10px" width="100%" height="20" colspan="100%"><b>Declaration</b></br>
+                                                Upon reviewing your Business Immigration form and assessing your eligibility under one of Canada’s business immigration programs, if we feel that you qualify under one of them, our office will invite you for a ‘No-charge’ detailed one-to-one Zoom video discussion with Mr. Anoo Lal, RCIC, a Certified Canadian Immigration Practitioner. This meeting may last between 30 to 60 minutes.
+                                                </br>
+                                                If you would like to proceed further with your application after the discussion, you will be required to pay a File Admin fee of Cad$150. This fee will be fully adjusted in your first installment if you decide to retain services of Just To Canada Immigration Services Group within 30 days from the date of consultation. Please tick the box below that you acknowledge and understand these obligations
+                                                </br>
+                                                I acknowledge that a fee of Cad $150 or equivalent towards the File Administration fee shall apply to me if I wish to proceed with my application based on my assessment and interaction with Mr. Lal.
                                             </td>
                                         </tr>
                                         </tbody>

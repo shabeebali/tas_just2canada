@@ -148,7 +148,7 @@
                                 ?:</strong> {{ $data->form_data['in_canada'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <strong>Did you ever visit Canada?
+                            <span class="bg-gray-900 text-white px-2">5</span> <strong>Did you ever visit Canada?
                                 ?:</strong> {{ $data->form_data['Did_you_ever_visit_Canada'] ?? '' }}
                         </td>
                     </tr>
@@ -159,7 +159,7 @@
                         </td>
 
                         <td class="{{ $valueClass }}">
-                            <strong>Is your Canadian Temporary Residence Visa or any other visa currently valid?
+                            <span class="bg-gray-900 text-white px-2">6</span> <strong>Is your Canadian Temporary Residence Visa or any other visa currently valid?
                                 ?:</strong> {{ $data->form_data['is_currently_have_valid_visa'] ?? '' }}
                         </td>
                     </tr>
@@ -169,14 +169,14 @@
                                 ?:</strong> {{ $data->form_data['your_current_visa_validity'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">5</span> <strong>Experience that applies to the
+                            <span class="bg-gray-900 text-white px-2">7</span> <strong>Experience that applies to the
                                 applicant:</strong> {{ $data->form_data['experience']  ?? ''}}
                         </td>
                     </tr>
                     @if(isset($data->form_data['area_of_business']))
                         <tr class="{{ $rowClass }}">
                             <td class="{{ $valueClass }}">
-                                <span class="bg-gray-900 text-white px-2">6</span> <strong>Area of business or
+                                <span class="bg-gray-900 text-white px-2">8</span> <strong>Area of business or
                                     management experience acquired in past 10 years:</strong>
                                 <ul>
                                     @foreach($data->form_data['area_of_business'] as $item)
@@ -192,47 +192,47 @@
                     @endif
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">7</span> <strong>Will the applicant consider two
+                            <span class="bg-gray-900 text-white px-2">9</span> <strong>Will the applicant consider two
                                 applicants to apply under the entrepreneur stream in the same
                                 application?:</strong> {{ $data->form_data['apply_same'] ?? '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">8</span> <strong>Educational
+                            <span class="bg-gray-900 text-white px-2">10</span> <strong>Educational
                                 Qualification:</strong> {{ $data->form_data['qualification'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">8</span> <strong>Do you have your educational documents to prove your education identified above?
+                            <span class="bg-gray-900 text-white px-2">11</span> <strong>Do you have your educational documents to prove your education identified above?
                                 :</strong> {{ $data->form_data['have_your_educational_documents_to_prove'] ?? '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">9</span> <strong>Ordered to leave Canada or any
+                            <span class="bg-gray-900 text-white px-2">12</span> <strong>Ordered to leave Canada or any
                                 other country?:</strong> {{ $data->form_data['leave_canada'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">10</span> <strong>Arrested for, or been charged
+                            <span class="bg-gray-900 text-white px-2">13</span> <strong>Arrested for, or been charged
                                 with any offense in any country, including driving under the influence of alcohol or
                                 drugs?:</strong> {{ $data->form_data['arrested'] ?? '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">11</span> <strong>Been in the military (including
+                            <span class="bg-gray-900 text-white px-2">14</span> <strong>Been in the military (including
                                 mandatory service), a militia, or a civil defense unit or the
                                 police?:</strong> {{ $data->form_data['in_military'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">12</span> <strong>Been employed by a government in
+                            <span class="bg-gray-900 text-white px-2">15</span> <strong>Been employed by a government in
                                 a security-related
                                 capacity?:</strong> {{ $data->form_data['employed_in_security'] ?? '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">13</span> <strong>Visited other countries within
+                            <span class="bg-gray-900 text-white px-2">16</span> <strong>Visited other countries within
                                 the last 10 years?:</strong> {{ $data->form_data['visited_in_10_years'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
@@ -241,7 +241,7 @@
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">14</span> <strong> Applicant or spouse have blood
+                            <span class="bg-gray-900 text-white px-2">17</span> <strong> Applicant or spouse have blood
                                 relatives in Canada?:</strong> {{ $data->form_data['spouse_have_relatives'] ?? '' }}
                         </td>
                         @if(isset($data->form_data['spouse_relative_state']))
@@ -257,7 +257,7 @@
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">15</span> <strong> Ever visited
+                            <span class="bg-gray-900 text-white px-2">18</span> <strong> Ever visited
                                 Canada?:</strong> {{ $data->form_data['visited_canada']  ?? ''}}
                         </td>
                     </tr>
@@ -280,7 +280,7 @@
                     @endif
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">16</span> <strong> Visa to Canada ever been
+                            <span class="bg-gray-900 text-white px-2">19</span> <strong> Visa to Canada ever been
                                 refused?:</strong> {{ $data->form_data['visa_refused'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
@@ -289,17 +289,17 @@
                     </tr>
                     <tr>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">17</span> <strong> Total assets between applicant
+                            <span class="bg-gray-900 text-white px-2">20</span> <strong> Total assets between applicant
                                 and spouse:</strong> {{ $data->form_data['assets'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">18</span> <strong>Funds Available to invest in
+                            <span class="bg-gray-900 text-white px-2">21</span> <strong>Funds Available to invest in
                                 canada:</strong> {{ $data->form_data['funds_available'] ?? ''}}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">19</span> <strong> Taken English proficiency test
+                            <span class="bg-gray-900 text-white px-2">22</span> <strong> Taken English proficiency test
                                 (IELTS or CELPIP) ?:</strong> {{ $data->form_data['taken_english_test']  ?? ''}}
                             @if($data->form_data['taken_english_test'] == 'Yes')
                                 <p>Scores:</p>
@@ -328,7 +328,7 @@
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <strong> Have you obtained an official assessment of your education by applying for an Education Credentials Assessment (ECA)?
+                            <span class="bg-gray-900 text-white px-2">23</span> <strong> Have you obtained an official assessment of your education by applying for an Education Credentials Assessment (ECA)?
                                 :</strong> {{ $data->form_data['have_you_obtained_educational_credentials_assessment'] ?? '' }}
                         </td>
                     </tr>
@@ -337,7 +337,7 @@
                             Queries:</strong> {{ $data->form_data['queries'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">20</span> <strong> Interests:</strong>
+                            <span class="bg-gray-900 text-white px-2">24</span> <strong> Interests:</strong>
                             <ul>
                                 @foreach($data->form_data['interests'] as $item)
                                     <li>{{ $item }}</li>
