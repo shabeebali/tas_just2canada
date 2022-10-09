@@ -1,4 +1,11 @@
-<x-layouts.admin :title="$title" :breadcrumbs="$breadcrumbs">
+<x-layouts.admin
+    :title="$title"
+    :breadcrumbs="$breadcrumbs"
+    after-title-button
+    after-title-button-type="button"
+    after-title-button-label="Edit"
+    after-title-button-route="admin.business-applications.edit"
+    after-title-button-route-param="{{$data->id}}">
     <div>
         <div class="grid grid-cols-1">
             <div class="font-bold pb-2.5 text-white bg-slate-700 flex justify-between px-4 py-2">
@@ -36,7 +43,7 @@
                                 passport):</strong> {{ $data->form_data['name'] }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <strong>Email:</strong> {{ $data->form_data['email'] ?? '' }}
+                            <strong>Email:</strong> <a class="text-blue-600" href="mailto:{{ $data->form_data['email'] ?? '' }}">{{ $data->form_data['email'] ?? '' }}</a/>
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
@@ -361,10 +368,24 @@
                     <option value="ICT" @if($data->assessed_as == 'ICT') selected @endif>ICT</option>
                     <option value="CSUV" @if($data->assessed_as == 'CSUV') selected @endif>CSUV</option>
                     <option value="PNP" @if($data->assessed_as == 'PNP') selected @endif>PNP</option>
+                    <option value="C11" @if($data->assessed_as == 'C11') selected @endif>C11</option>
                 </select>
                 <x-blocks.button class="" label="Submit" type="submit"></x-blocks.button>
             </div>
         </form>
+        @role('super_admin')
+        <form method="POST" action="{{route('admin.ba.agreement.download',$data->id)}}">
+            <div class="flex items-center">
+                @csrf
+                <label for="agreement" class="block font-bold mb-2 text-sm  text-gray-900 dark:text-gray-400">Agreement</label>
+                <select id="agreement" name="agreement" class="mx-2 mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-72 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                    <option value="0">--Please Select--</option>
+                    <option value="C11">C11</option>
+                </select>
+                <x-blocks.button class="" label="Download" type="submit"></x-blocks.button>
+            </div>
+        </form>
+        @endrole
     </x-blocks.card>
     <div>
         <div class="grid grid-cols-1">

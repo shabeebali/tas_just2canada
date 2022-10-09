@@ -28,7 +28,7 @@
                     <x-blocks.page-header :title="$title" :breadcrumbs="$breadcrumbs" :no-breadcrumbs="!$breadcrumbs">
                         @if($afterTitleButton)
                             <x-slot name="afterTitle">
-                                <x-blocks.button variant="primary" id="{{$afterTitleButtonId}}" :label="$afterTitleButtonLabel" class="ml-4 mr-0 mb-0" :type="$afterTitleButtonType" href="{{ $afterTitleButtonRoute ? route($afterTitleButtonRoute) : NULL }}" :formId="$afterTitleButtonForm"/>
+                                <x-blocks.button variant="primary" id="{{$afterTitleButtonId}}" :label="$afterTitleButtonLabel" class="ml-4 mr-0 mb-0" :type="$afterTitleButtonType" href="{{ $afterTitleButtonRoute ? route($afterTitleButtonRoute,$afterTitleButtonRouteParam) : NULL }}" :formId="$afterTitleButtonForm"/>
                             </x-slot>
                         @endif
                     </x-blocks.page-header>

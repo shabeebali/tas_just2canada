@@ -141,6 +141,7 @@
                     <option value="ICT" @if($data->assessed_as == 'ICT') selected @endif>ICT</option>
                     <option value="CSUV" @if($data->assessed_as == 'CSUV') selected @endif>CSUV</option>
                     <option value="PNP" @if($data->assessed_as == 'PNP') selected @endif>PNP</option>
+                    <option value="C11" @if($data->assessed_as == 'C11') selected @endif>C11</option>
                 </select>
                 <x-blocks.button class="" label="Submit" type="submit"></x-blocks.button>
             </div>

@@ -96,7 +96,7 @@
                                         <input class="radSpouse_Experience" name="spouse_experience" type="radio" value="Work Experience as a Skilled Worker" @if(old('spouse_experience') == 'Work Experience as a Skilled Worker') checked @endif> Work Experience as a Skilled Worker
                                         <input class="radSpouse_Experience" name="spouse_experience" type="radio" value="Not employed currently" @if(old('spouse_experience') == 'Not employed currently') checked @endif> Not employed currently <br>
                                         <input class="radSpouse_Experience" name="spouse_experience" type="radio" value="Never employed" @if(old('spouse_experience') == 'Never employed') checked @endif> Never employed <br>
-                                        <input class="radSpouse_Experience" name="spouse_experience" type="radio" value="Never employed" @if(old('spouse_experience') == 'Homemaker') checked @endif> Homemaker <br>
+                                        <input class="radSpouse_Experience" name="spouse_experience" type="radio" value="Homemaker" @if(old('spouse_experience') == 'Homemaker') checked @endif> Homemaker <br>
                                         <input name="spouse_experience" class="radSpouse_Experience" type="radio" value="NA" @if(old('spouse_experience') == 'NA') checked @endif> NA
                                     </div>
                                     <div class="clearfix"></div>
@@ -226,7 +226,7 @@
                                 <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Only trading / Import / Export" @if(in_array('Only trading / Import / Export',old('area_of_business',[]))) checked @endif> Only trading / Import / Export <br>
                                 <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Project work (builder / Construction etc)" @if(in_array('Project work (builder / Construction etc)',old('area_of_business',[]))) checked @endif> Project work (builder / Construction etc) <br>
                                 <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Wholesale / Retail establishment" @if(in_array('Wholesale / Retail establishment',old('area_of_business',[]))) checked @endif> Wholesale / Retail establishment <br>
-                                <input name="area_of_business[]" class="radArea_of_business" type="checkbox" value="Information Techlology" @if(in_array('Information Techlology',old('area_of_business',[]))) checked @endif> Information Techlology <br>
+                                <input name="area_of_business[]" class="radArea_of_business" type="checkbox" value="Information Technology" @if(in_array('Information Technology',old('area_of_business',[]))) checked @endif> Information Techlology <br>
                                 <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Consulting" @if(in_array('Consulting',old('area_of_business',[]))) checked @endif> Consulting <br>
                                 <input name="area_of_business[]" class="radArea_of_business" type="checkbox" value="Other" @if(in_array('Other',old('area_of_business',[]))) checked @endif> Other <br>
                             </div>

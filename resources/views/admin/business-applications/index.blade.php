@@ -11,6 +11,7 @@
                         <option value="ICT" @if($assessed_as == 'ICT') selected @endif>ICT</option>
                         <option value="CSUV" @if($assessed_as == 'CSUV') selected @endif>CSUV</option>
                         <option value="PNP" @if($assessed_as == 'PNP') selected @endif>PNP</option>
+                        <option value="C11" @if($assessed_as == 'C11') selected @endif>C11</option>
                     </select>
                     <x-blocks.button class="" label="Filter" type="submit"></x-blocks.button>
                 </div>
