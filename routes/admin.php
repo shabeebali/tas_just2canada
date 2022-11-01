@@ -18,8 +18,8 @@ Route::middleware(['guest'])->group(function() {
 });
 
 Route::middleware(['auth:web','role:admin|super_admin'])->name('admin.')->group(function() {
+    Route::resource('form-remarks',\App\Http\Controllers\FormRemarkController::class)->only('edit','update','store');
     Route::post('business-applications/{id}/agreement-download', [BusinessApplicationController::class,'agreementDownload'])->name('ba.agreement.download');
-    Route::post('form-remarks',[\App\Http\Controllers\FormRemarkController::class,'store'])->name('form-remarks.store');
     Route::get('dashboard',[AdminController::class,'dashboard'])->name('home');
     Route::resource('testimonials',TestimonialController::class);
     Route::post('users/{id}/change-password',[UserController::class,'changePassword'])->name('users.change-password');

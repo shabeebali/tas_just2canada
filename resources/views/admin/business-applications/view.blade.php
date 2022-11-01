@@ -43,7 +43,7 @@
                                 passport):</strong> {{ $data->form_data['name'] }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <strong>Email:</strong> <a class="text-blue-600" href="mailto:{{ $data->form_data['email'] ?? '' }}">{{ $data->form_data['email'] ?? '' }}</a/>
+                            <strong>Email:</strong> <a class="text-blue-600" href="mailto:{{ $data->form_data['email'] ?? '' }}">{{ $data->form_data['email'] ?? '' }}</a>
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
@@ -473,6 +473,7 @@
                         <x-blocks.card class="mt-2">
                             <div class="text-blue-700 mb-4">
                                 [Created At: {{$remark->created_at->setTimezone('Canada/Eastern')->toDayDateTimeString() }}]
+                                <x-blocks.button label="Edit" :href="route('admin.form-remarks.edit',$remark->id)"></x-blocks.button>
                             </div>
                             <div class="text-semibold">
                                 Remark: {{ $remark->remark }}
@@ -485,6 +486,31 @@
                             @if($remark->quoted_fee)
                                 <div class="text-semibold">
                                     Quoted Fee: {{ $remark->quoted_fee }}
+                                </div>
+                            @endif
+                            @if($remark->total_fee)
+                                <div class="text-semibold">
+                                    Total Fee: {{ $remark->total_fee }}
+                                </div>
+                            @endif
+                            @if($remark->services)
+                                <div class="text-semibold">
+                                    The above fee includes following services: {{ $remark->services }}
+                                </div>
+                            @endif
+                            @if($remark->first_installment)
+                                <div class="text-semibold">
+                                    Quoted Fee: {{ $remark->first_installment }} | Payable on {{ $remark->first_payable_on ?? '' }}
+                                </div>
+                            @endif
+                            @if($remark->second_installment)
+                                <div class="text-semibold">
+                                    Quoted Fee: {{ $remark->second_installment }} | Payable on {{ $remark->second_payable_on ?? '' }}
+                                </div>
+                            @endif
+                            @if($remark->third_installment)
+                                <div class="text-semibold">
+                                    Quoted Fee: {{ $remark->third_installment }} | Payable on {{ $remark->third_payable_on ?? '' }}
                                 </div>
                             @endif
                             @if($remark->file_1)
@@ -557,6 +583,28 @@
                               placeholder="Your remark here...">{{old('remark')}}</textarea>
                     <x-blocks.input-field type="text" class="mb-4" label="Quoted Fee?" name="quoted_fee"
                                           value="{{old('quoted_fee')}}"></x-blocks.input-field>
+                    <x-blocks.input-field type="text" class="mb-4" label="Total Fee" name="total_fee"
+                                              value="{{old('total_fee')}}"></x-blocks.input-field>
+                    <x-blocks.input-field type="text" class="mb-4" label="The above fee covers the following services" name="services"
+                                              value="{{old('services')}}"></x-blocks.input-field>
+                    <div class="flex">
+                        <x-blocks.input-field type="text" class="mb-4" label="First Installment" name="first_installment"
+                                              value="{{old('first_installment')}}"></x-blocks.input-field>
+                        <x-blocks.input-field type="text" class="mb-4" label="Payable on" name="first_payable_on"
+                                              value="{{old('first_payable_on')}}" type="date"></x-blocks.input-field>
+                    </div>
+                    <div class="flex">
+                        <x-blocks.input-field type="text" class="mb-4" label="Second Installment" name="second_installment"
+                                              value="{{old('second_installment')}}"></x-blocks.input-field>
+                        <x-blocks.input-field type="text" class="mb-4" label="Payable on" name="second_payable_on"
+                                              value="{{old('second_payable_on')}}" type="date"></x-blocks.input-field>
+                    </div>
+                    <div class="flex">
+                        <x-blocks.input-field type="text" class="mb-4" label="Third Installment" name="third_installment"
+                                              value="{{old('third_installment')}}"></x-blocks.input-field>
+                        <x-blocks.input-field type="text" class="mb-4" label="Payable on" name="third_payable_on"
+                                              value="{{old('third_payable_on')}}" type="date"></x-blocks.input-field>
+                    </div>
                     <x-blocks.input-field type="date" class="mb-4" label="Next Follow Up?" name="next_follow"
                                           value="{{old('next_follow')}}"></x-blocks.input-field>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
