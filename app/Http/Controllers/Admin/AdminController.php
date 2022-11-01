@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\FormRemark;
 use App\Models\FormSubmission;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -26,11 +27,13 @@ class AdminController extends Controller
 
     public function settings()
     {
+        $assessmentOptions = Setting::where('key','assessment_options')->first();
         return view('admin.settings',[
             'title' => 'Settings',
             'breadcrumbs' => [
                 ['label' => 'Settings', 'route_name' => 'admin.settings']
-            ]
+            ],
+            'assessment_options' => $assessmentOptions ? $assessmentOptions->value : []
         ]);
     }
 }

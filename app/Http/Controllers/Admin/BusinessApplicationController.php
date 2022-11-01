@@ -6,10 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\BussinessApplication;
 use App\Models\Country;
 use App\Models\FormSubmission;
+use App\Models\Setting;
+use App\Models\SignedContract;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 
 
 class BusinessApplicationController extends Controller
@@ -21,7 +24,8 @@ class BusinessApplicationController extends Controller
      */
     public function index(Request $request): View
     {
-        $data = FormSubmission::select('id','client_id','form_data->name as name','form_data->email as email','form_data->country as country','assessed_as')->where('form_type_id',2)->orderBy('created_at','DESC');
+        $data = FormSubmission::select('id','client_id','form_data->name as name','form_data->email as email','form_data->country as country','assessed_as')
+            ->where('form_type_id',2)->orderBy('created_at','DESC');
         $search = $request->input('search');
         if($search)
         {
@@ -51,12 +55,20 @@ class BusinessApplicationController extends Controller
             'data' => $data,
             'columns' => $columns,
             'search' => $search,
-            'assessed_as' => $assessed_as
+            'assessed_as' => $assessed_as,
+            'assessment_options' => FormSubmission::select('assessed_as')
+                ->where('form_type_id',2)
+                ->distinct()->get()->pluck('assessed_as')
         ]);
     }
 
     public function show($id) {
-        $model = FormSubmission::with('remarks')->find($id);
+        $model = FormSubmission::with(['remarks','signedContracts'])->find($id);
+        $optionsModel = Setting::where('key','assessment_options')->first();
+        $options = [];
+        if($optionsModel) {
+            $options = $optionsModel->value;
+        }
         return view('admin.business-applications.view',[
             'data' => $model,
             'title' => 'Business Application: '.$model->client_id,
@@ -64,6 +76,7 @@ class BusinessApplicationController extends Controller
                 ['label' => 'Business Applications', 'route_name' => 'admin.business-applications.index'],
                 ['label' => $model->client_id, 'route_name' => 'admin.business-applications.index']
             ],
+            'assessment_options' => $options,
         ]);
     }
 
@@ -114,5 +127,26 @@ class BusinessApplicationController extends Controller
             return $pdf->download($form->client_id . '-'.strtolower($request->input('agreement')).'-agreement.pdf');
         }
         return redirect()->back()->with('danger','Please specify agreement type');
+    }
+
+    public function uploadSignedContract(Request $request, $id): \Illuminate\Http\RedirectResponse
+    {
+        $form = FormSubmission::find($id);
+        $request->validate([
+            'category' => 'required',
+            'contract_file' => 'required'
+        ]);
+
+        $path = $request->file('contract_file')->store('signed_contracts','public');
+
+        $model = new SignedContract([
+            'path' => $path,
+            'category' => $request->input('category')
+        ]);
+
+        $model->formSubmission()->associate($form);
+        $model->save();
+
+        return Response::redirectToRoute('admin.business-applications.show',$id);
     }
 }

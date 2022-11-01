@@ -365,10 +365,13 @@
                 <label for="assessed_as" class="block font-bold mb-2 text-sm  text-gray-900 dark:text-gray-400">Assessed As</label>
                 <select id="assessed_as" name="assessed_as" class="mx-2 mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-72 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                     <option>--Please Select--</option>
-                    <option value="ICT" @if($data->assessed_as == 'ICT') selected @endif>ICT</option>
+                    @foreach($assessment_options as $option)
+                        <option value="{{$option}}" @if($data->assessed_as == $option) selected @endif>{{$option}}</option>
+                    @endforeach
+                    <!--<option value="ICT" @if($data->assessed_as == 'ICT') selected @endif>ICT</option>
                     <option value="CSUV" @if($data->assessed_as == 'CSUV') selected @endif>CSUV</option>
                     <option value="PNP" @if($data->assessed_as == 'PNP') selected @endif>PNP</option>
-                    <option value="C11" @if($data->assessed_as == 'C11') selected @endif>C11</option>
+                    <option value="C11" @if($data->assessed_as == 'C11') selected @endif>C11</option>-->
                 </select>
                 <x-blocks.button class="" label="Submit" type="submit"></x-blocks.button>
             </div>
@@ -380,13 +383,67 @@
                 <label for="agreement" class="block font-bold mb-2 text-sm  text-gray-900 dark:text-gray-400">Agreement</label>
                 <select id="agreement" name="agreement" class="mx-2 mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-72 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                     <option value="0">--Please Select--</option>
-                    <option value="C11">C11</option>
+                    @foreach($assessment_options as $option)
+                        <option value="{{$option}}" @if($data->assessed_as == $option) selected @endif>{{$option}}</option>
+                    @endforeach
                 </select>
                 <x-blocks.button class="" label="Download" type="submit"></x-blocks.button>
             </div>
         </form>
         @endrole
     </x-blocks.card>
+    @role('super_admin')
+    <x-blocks.card>
+        <div class="text-xl mb-2">Signed Contracts</div>
+        <form method="POST" action="{{route('admin.business-applications.upload-contract',$data->id)}}" enctype="multipart/form-data">
+            <div class="flex items-center">
+                    @csrf
+                    <label for="contact_category" class="block font-bold mb-2 text-sm  text-gray-900 dark:text-gray-400">Category</label>
+                    <select id="contact_category" name="category" class="mx-2 mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-72 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="true">
+                        <option value="">--Please Select--</option>
+                        @foreach($assessment_options as $option)
+                            <option value="{{$option}}" @if($data->assessed_as == $option) selected @endif>{{$option}}</option>
+                        @endforeach
+                    </select>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="user_avatar">Upload file</label>
+                    <input class="block text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" name="contract_file" required="true">
+                    <x-blocks.button class="" label="Upload" type="submit"></x-blocks.button>
+            </div>
+        </form>
+        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="py-3 px-6">
+                        Category
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        File
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                @if(count($data->signedContracts)>0)
+                    @foreach($data->signedContracts as $contract)
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{$contract->category}}
+                        </th>
+                        <td class="py-4 px-6 text-blue-600">
+                            <a target="_blank" href="{{asset('storage/'.$contract->path)}}">Download</a>
+                        </td>
+                    </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="100%" class="text-center py-4">No Records found</td>
+                    </tr>
+                @endif
+                </tbody>
+            </table>
+        </div>
+    </x-blocks.card>
+    @endrole
     <div>
         <div class="grid grid-cols-1">
             @if($data->remarks->count() > 0)

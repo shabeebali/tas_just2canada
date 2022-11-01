@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Employer;
 use App\Models\FormSubmission;
+use App\Models\Setting;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,7 +15,8 @@ class EmployerController extends Controller
 {
     public function index(Request $request): View
     {
-        $data = FormSubmission::select('id','client_id','form_data->name as name','form_data->email as email','assessed_as')->where('form_type_id',4)->orderBy('created_at','DESC');
+        $data = FormSubmission::select('id','client_id','form_data->name as name','form_data->email as email','assessed_as')
+            ->where('form_type_id',4)->orderBy('created_at','DESC');
         $search = $request->input('search');
         if($search)
         {
@@ -42,12 +44,20 @@ class EmployerController extends Controller
             'data' => $data,
             'columns' => $columns,
             'search' => $search,
-            'assessed_as' => $assessed_as
+            'assessed_as' => $assessed_as,
+            'assessment_options' => FormSubmission::select('assessed_as')
+                ->where('form_type_id',4)
+                ->distinct()->get()->pluck('assessed_as')
         ]);
     }
 
     public function show($id) {
         $model = FormSubmission::with('remarks')->find($id);
+        $optionsModel = Setting::where('key','assessment_options')->first();
+        $options = [];
+        if($optionsModel) {
+            $options = $optionsModel->value;
+        }
         return view('admin.employers.view',[
             'data' => $model,
             'title' => 'Employer Document Information: '.$model->client_id,
@@ -55,6 +65,7 @@ class EmployerController extends Controller
                 ['label' => 'Employer Document Information', 'route_name' => 'admin.employers.index'],
                 ['label' => $model->client_id, 'route_name' => 'admin.employers.index']
             ],
+            'assessment_options' => $options
         ]);
     }
 

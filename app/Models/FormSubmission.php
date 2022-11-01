@@ -41,4 +41,9 @@ class FormSubmission extends Model
     {
         return $this->hasMany(FormRemark::class);
     }
+
+    public function signedContracts(): HasMany
+    {
+        return $this->hasMany(SignedContract::class);
+    }
 }

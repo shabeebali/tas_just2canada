@@ -25,6 +25,8 @@ Route::middleware(['auth:web','role:admin|super_admin'])->name('admin.')->group(
     Route::post('users/{id}/change-password',[UserController::class,'changePassword'])->name('users.change-password');
     Route::resource('users', UserController::class);
     Route::resource('pages',PageController::class);
+    Route::post('business-applications/{id}/upload-contract',[BusinessApplicationController::class,'uploadSignedContract'])
+        ->name('business-applications.upload-contract');
     Route::get('business-applications/{id}/download', function ($id) {
         /**
          * @var $model FormSubmission
@@ -59,6 +61,43 @@ Route::middleware(['auth:web','role:admin|super_admin'])->name('admin.')->group(
     })->name('employers.download');
     Route::resource('employers', EmployerController::class);
     Route::resource('skilled-worker-applications', SkilledWorkerApplicationController::class);
+    Route::post('settings/assessment-options', function (\Illuminate\Http\Request $request) {
+        $request->validate([
+            'name' => 'required'
+        ]);
+        $assessmentSettingsModel = \App\Models\Setting::where('key','assessment_options')->first();
+        if($assessmentSettingsModel) {
+            $options = $assessmentSettingsModel->value;
+            if($request->input('is_edit')) {
+                $options[$request->input('edit_index')] = $request->input('name');
+            } else {
+                $options[] = $request->input('name');
+            }
+        } else {
+            $assessmentSettingsModel = new \App\Models\Setting();
+            $assessmentSettingsModel->key = 'assessment_options';
+            $options = [$request->input('name')];
+        }
+        $assessmentSettingsModel->value = $options;
+        $assessmentSettingsModel->save();
+        Session::flash('success', 'Update Success');
+        return Response::json([
+            'message' => 'success'
+        ]);
+
+    })->name('settings.assessment-options');
+    Route::post('settings/assessment-options/delete', function (\Illuminate\Http\Request $request) {
+        $assessmentSettingsModel = \App\Models\Setting::where('key','assessment_options')->first();
+        $options = $assessmentSettingsModel->value;
+        unset($options[$request->input('index')]);
+        $options = array_values($options);
+        $assessmentSettingsModel->value = $options;
+        $assessmentSettingsModel->save();
+        Session::flash('success', 'Delete Success');
+        return Response::json([
+            'message' => 'success'
+        ]);
+    })->name('settings.assessment-options.delete');
     Route::get('settings', [AdminController::class, 'settings'])->name('settings');
     Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
     Route::get('profile',[\App\Http\Controllers\Admin\ProfileController::class, 'index'])->name('profile');
