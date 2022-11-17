@@ -255,10 +255,25 @@
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['product_description']  ?? ''}}</td>
                                         </tr>
-                                        <tr>
+                                        <!--<tr>
                                             <td style="padding-left:10px" width="40%" height="20"><b>9. Will the applicant consider two applicants to apply under the entrepreneur stream in the same application?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['apply_same'] ?? '' }}</td>
+                                        </tr>-->
+                                        <tr>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>9. Business website address</b></td>
+                                            <td width="5%">:</td>
+                                            <td width="65%">{{ $data->form_data['website_address'] ?? '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>Do you intend to open a branch / subsidiary office of your existing business in Canada and would you or key personnel from your office transfer to Canada under the Intra Company Transfer (ICT) program</b></td>
+                                            <td width="5%">:</td>
+                                            <td width="65%">{{ $data->form_data['intend_to_open_branch'] ?? '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>If yes, how many people are employed in your business outside Canada?</b></td>
+                                            <td width="5%">:</td>
+                                            <td width="65%">{{ $data->form_data['how_many_employed'] ?? '' }}</td>
                                         </tr>
                                         <tr>
                                             <td style="padding-left:10px" width="40%" height="20"><b>10. Educational Qualification</b></td>

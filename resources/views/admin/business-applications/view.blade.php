@@ -197,11 +197,26 @@
                             </td>
                         </tr>
                     @endif
+                    <!--
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
                             <span class="bg-gray-900 text-white px-2">9</span> <strong>Will the applicant consider two
                                 applicants to apply under the entrepreneur stream in the same
                                 application?:</strong> {{ $data->form_data['apply_same'] ?? '' }}
+                        </td>
+                    </tr>-->
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <span class="bg-gray-900 text-white px-2">9</span> <strong>Business website address:</strong> {{ $data->form_data['website_address'] ?? '' }}
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <strong>Do you intend to open a branch / subsidiary office of your existing business in Canada and would you or key personnel from your office transfer to Canada under the Intra Company Transfer (ICT) program:</strong> {{ $data->form_data['intend_to_open_branch'] ?? '' }}
+                        </td>
+                        <td class="{{ $valueClass }}">
+                           <strong>If yes, how many people are employed in your business outside Canada?
+                                :</strong> {{ $data->form_data['how_many_employed'] ?? '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">

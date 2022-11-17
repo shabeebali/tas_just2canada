@@ -238,10 +238,32 @@
 
                             <div class="clearfix"></div>
                             <br>
+                            <!--
                             <div class="col-md-12"><strong>9.</strong> Certain business immigration programs allow two applicants to apply for permanent residence in Canada for the same project as long as both of the respective applicants meet the qualifying criteria of the program. Would you consider two applicants to apply under the entrepreneur stream in the same application?
                                 <br>
                                 <input class="" name="apply_same" type="radio" value="Yes" @if(old('apply_same') == 'Yes') checked @endif> Yes &nbsp;&nbsp;&nbsp;
                                 <input class="" name="apply_same" type="radio" value="No, not applicable to me" @if(old('apply_same') == 'No, not applicable to me') checked @endif> No, not applicable to me
+                            </div>
+                            -->
+                            <div class="col-md-12"><strong>9.</strong> Please enter your business website address<span class="spanHighlight">*</span>
+                                <input id="" type="text" class="form-control col-12" maxlength="200" name="website_address" value="{{ old('website_address') }}">
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
+                            <div class="col-md-12">Do you intend to open a branch / subsidiary office of your existing business in Canada and would you or key personnel from your office transfer to Canada under the Intra Company Transfer (ICT)  program?<span
+                                    class="spanHighlight">*</span><br>
+                                <input class="radHave_you_been_ordered_to_leave_Canada_or_any_other_country"
+                                       name="intend_to_open_branch" type="radio" value="Yes" @if(old('intend_to_open_branch') == 'Yes') checked @endif> Yes &nbsp;&nbsp;
+                                <input class="radHave_you_been_ordered_to_leave_Canada_or_any_other_country"
+                                       name="intend_to_open_branch" type="radio" value="No" @if(old('intend_to_open_branch') == 'No') checked @endif> No &nbsp;&nbsp;
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
+                            <div class="col-md-4">
+                                If yes, how many people are employed in your business outside Canada
+                                <input id=""
+                                       name="how_many_employed" type="text"
+                                       class="form-control" value="{{ old('how_many_employed') }}">
                             </div>
                             <div class="clearfix"></div>
                             <br>
