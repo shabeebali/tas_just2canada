@@ -68,7 +68,7 @@ class BusinessImmigrationController extends Controller
             'have_you_obtained_educational_credentials_assessment'=>'required',
             'interests' => 'required',
             'g-recaptcha-response' => 'required',
-            'apply_same' => 'required',
+            //'apply_same' => 'required',
             'agree' => 'required',
         ],[
             'in_canada.required' => 'Please specify whether you are in canada or not',
