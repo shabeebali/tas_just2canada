@@ -104,7 +104,7 @@
                 Worker Assessment </a> -->
             <a href="https://secure.officio.ca/qnr?id=444&hash=47bed91fa2b13689fe43b986e75566b3" class="btn navbar-right" data-animation="animated fadeInUp">Skilled
                 Worker Assessment </a>
-            <a href="{{ route('business-immigration.form') }}" class="btn navbar-right" data-animation="animated fadeInUp">Business
+            <a href="{{ route('business-immigration.init') }}" class="btn navbar-right" data-animation="animated fadeInUp">Business
                 Assessment </a>
         </div>
     </div>

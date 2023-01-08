@@ -3,7 +3,7 @@
         <div id="first-slider">
             <div id="carousel-example-generic" class="carousel slide carousel-fade">
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active slide1"><img src="images/banner/form2.jpg" alt=""></div>
+                    <div class="item active slide1"><img src="{{asset('images/banner/form2.jpg')}}" alt=""></div>
                 </div>
             </div>
         </div>
@@ -13,7 +13,7 @@
             <div class="row about_row" style="padding-top:0;">
                 <div class="tittle wow fadeInUpBig" style="text-align: left; visibility: visible;">
                     <h1 class="welc-text"> BUSINESS IMMIGRATION ASSESSMENT FORM
-                        <a href="obtain-free-assessment.html" class="backlink pull-right">
+                        <a href="obtain-free-assessment" class="backlink pull-right">
                             <i class="fa-chevron-left fa"></i> Back
                         </a>
                     </h1>
@@ -41,7 +41,19 @@
                         <br>
                         <br>
                         <div class="form-inner">
-                            <div class="col-md-6"><strong>1.</strong> Full Name
+                            <br>
+                            <div class="col-md-8"><strong>1.</strong> Please select which experience pertains to you? You may select more than one selection if it pertains to you<span class="spanHighlight">*</span><br>
+                                <input class="chkExperience" name="experience" type="radio" value="Business Person" @if(old('experience') == 'Business Person') checked @endif> Business Person <br>
+                                <input name="experience" class="chkExperience" type="radio" value="Senior Manager" @if(old('experience') == 'Senior Manager') checked @endif> Senior Manager <br>
+                                <input name="experience" class="chkExperience" type="radio" value="Self Employed / Art and Entertainment Professional" @if(old('experience') == 'Self Employed / Art and Entertainment Professional') checked @endif> Self Employed / Art and Entertainment Professional <br>
+                                <input name="experience" class="chkExperience" type="radio" value="I am a professional and am willing to invest in a business in Canada" @if(old('experience') == 'I am a professional and am willing to invest in a business in Canada') checked @endif> I am a professional and am willing to invest in a business in Canada <br>
+                                <input name="experience" class="chkExperience" type="radio" value="Skilled Work" @if(old('experience') == 'Skilled Work') checked @endif> Skilled Work <br>
+                                <input name="experience" class="chkExperience" type="radio" value="Student" @if(old('experience') == 'Student') checked @endif> Student <br>
+                                <input name="experience" class="chkExperience" type="radio" value="Other" @if(old('experience') == 'Other') checked @endif> Other <br>
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
+                            <div class="col-md-6"><strong>2.</strong> Full Name
                                 <span class="spanHighlight">*</span> (As per your Passport)
                                 <input id="txtName" type="text" class="form-control col-12" maxlength="40" name="name" value="{{ old('name') }}">
                             </div>
@@ -70,20 +82,17 @@
                             <div class="col-md-6">How did you obtain our reference? (optional)<span class="spanHighlight"></span>
                                 <input id="txtReference" type="text" class="form-control col-12" maxlength="40"  name="reference" value="{{ old('reference') }}"></div>
                             <div class="clearfix"></div>
-                            <div class="col-md-4"><strong>2.</strong> Date of Birth of Principal Applicant<span class="spanHighlight">*</span>
+                            <div class="col-md-4"><strong>3.</strong> Date of Birth of Principal Applicant<span class="spanHighlight">*</span>
                                 <input id="txtDate_of_birth_of_Principal_Applicant" type="date" class="form-control col-12" maxlength="40" name="dob" value="{{ old('dob') }}">
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-md-12"><strong>3.</strong> Marital Status<span class="spanHighlight">*</span><br>
-                                <input class="radMarital_status" name="marital_status" x-model="marital_status" type="radio" value="Married" @if(old('marital_status') == 'Married') checked @endif>Married <br>
-                                <input class="radMarital_status" name="marital_status" x-model="marital_status" type="radio" value="Divorced" @if(old('marital_status') == 'Divorced') checked @endif>Divorced <br>
+                            <div class="col-md-12"><strong>4.</strong> Marital Status<span class="spanHighlight">*</span><br>
+                                <input class="radMarital_status" name="marital_status" x-model="marital_status" type="radio" value="Married" @if(old('marital_status') == 'Married') checked @endif> Married <br>
+                                <input class="radMarital_status" name="marital_status" x-model="marital_status" type="radio" value="Divorced" @if(old('marital_status') == 'Divorced') checked @endif> Divorced <br>
                                 <input class="radMarital_status" name="marital_status" x-model="marital_status" type="radio" value="Legally Separated" @if(old('marital_status') == 'Legally Separated') checked @endif> Legally Separated <br>
                                 <input class="radMarital_status" name="marital_status" x-model="marital_status" type="radio" value="Never Married"  @if(old('marital_status') == 'Never Married') checked @endif> Never Married
                             </div>
                             <div class="clearfix"></div>
-
-
-
                             <br>
                             <template x-if="marital_status == 'Married'">
                                 <div>
@@ -208,19 +217,7 @@
                             <div id="divIfyesis_currently_have_valid_visa" class="col-md-4">If yes, till when? <span class="spanHighlight">*</span>  <input  value="{{old('your_current_visa_validity')}}"  type="date" class="form-control col-12"  maxlength="40" name="your_current_visa_validity" /></div>
                             <div class="clearfix"></div>
                             <br>
-
                             <!-- end changes -->
-
-
-                            <br>
-                            <div class="col-md-8"><strong>7.</strong> PPlease select which experience pertains to you? You may select more than one selection if it pertains to you<span class="spanHighlight">*</span><br>
-                                <input class="chkExperience" name="experience" type="radio" value="Business Person" @if(old('experience') == 'Business Person') checked @endif> Business Person <br>
-                                <input name="experience" class="chkExperience" type="radio" value="Senior Manager" @if(old('experience') == 'Senior Manager') checked @endif> Senior Manager <br>
-                                <input name="experience" class="chkExperience" type="radio" value="Self Employed Artist" @if(old('experience') == 'Self Employed Artist') checked @endif> Self Employed Artist <br>
-                                <input name="experience" class="chkExperience" type="radio" value="I am a professional and am willing to invest in a business in Canada" @if(old('experience') == 'I am a professional and am willing to invest in a business in Canada') checked @endif> I am a professional and am willing to invest in a business in Canada <br>
-                            </div>
-                            <div class="clearfix"></div>
-                            <br>
                             <div class="col-md-12"><strong>8.</strong> What area of business or management experience have you acquired in the past 10 years (you can select more than one option)<span class="spanHighlight">*</span><br>
                                 <input class="radArea_of_business" name="area_of_business[]" type="checkbox" value="Manufacturing / trading"  @if(in_array('Manufacturing / trading',old('area_of_business',[]))) checked @endif> Manufacturing / trading <br>
                                 <input name="area_of_business[]" type="checkbox" class="radArea_of_business" value="Only trading / Import / Export" @if(in_array('Only trading / Import / Export',old('area_of_business',[]))) checked @endif> Only trading / Import / Export <br>

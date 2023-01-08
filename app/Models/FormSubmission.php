@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $form_type_id
  * @property string $created_at
  * @property string $assessed_as
+ * @property int $steps
  * @mixin \Eloquent
  */
 class FormSubmission extends Model
