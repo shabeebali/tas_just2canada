@@ -65,11 +65,17 @@ Route::view('immigration-consultants-in-ncr','frontend.immigration-consultants-i
 Route::view('contact-us', 'frontend.contact-us');
 Route::redirect('business-immigration-assessment.php','business-immigration-assessment');
 Route::view('business-immigration-assessment','frontend.business-immigration-init')->name('business-immigration.init');
+Route::get('business-immigration-assessment/login',[BusinessImmigrationController::class,'login'])->name('business-immigration.login');
+Route::post('business-immigration-assessment/login',[BusinessImmigrationController::class,'doLogin'])->name('business-immigration.do-login');
 Route::get('business-immigration-assessment/form/1',[BusinessImmigrationController::class,'form1'])->name('business-immigration.form-1');
-Route::get('business-immigration-assessment/form/2',[BusinessImmigrationController::class,'form2'])->name('business-immigration.form-2');
-Route::get('business-immigration-assessment/form/3',[BusinessImmigrationController::class,'form3'])->name('business-immigration.form-3');
-Route::get('business-immigration-assessment/form/4',[BusinessImmigrationController::class,'form4'])->name('business-immigration.form-4');
-Route::post('business-immigration-assessment-store-1',[BusinessImmigrationController::class,'store1'])->name('business-immigration.store-1');
+Route::post('business-immigration-assessment-store',[BusinessImmigrationController::class,'store'])->name('business-immigration.store');
+Route::post('business-immigration-assessment-update',[BusinessImmigrationController::class,'update'])->name('business-immigration.update');
+Route::middleware(['auth:visitor'])->group(function() {
+    Route::get('business-immigration-assessment/form/2',[BusinessImmigrationController::class,'form2'])->name('business-immigration.form-2');
+    Route::get('business-immigration-assessment/form/3',[BusinessImmigrationController::class,'form3'])->name('business-immigration.form-3');
+    Route::get('business-immigration-assessment/form/4',[BusinessImmigrationController::class,'form4'])->name('business-immigration.form-4');
+});
+
 Route::get('/{any}', [PageController::class,'page'])->where('any', '.*');
 
 

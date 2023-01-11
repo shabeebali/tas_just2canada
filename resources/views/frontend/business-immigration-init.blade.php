@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-    <section id="aboutus" class="about_us_area   row">
+    <section id="aboutus" class="row">
         <div class="container">
             <div class="row about_row" style="padding-top:0;">
                 <div class="tittle wow fadeInUpBig" style="text-align: left; visibility: visible;">
@@ -21,8 +21,8 @@
             </div>
             <div class="row">
                 <div class="col text-center">
-                    <a href="{{route('business-immigration.form-1')}}" class="btn">New Application</a>
-                    <button class="btn">Continue Old Application</button>
+                    <a href="{{route('business-immigration.form-1').'?new=1'}}" class="btn">New Application</a>
+                    <a href="{{route('business-immigration.login')}}" class="btn">Continue Old Application</a>
                 </div>
             </div>
         </div>

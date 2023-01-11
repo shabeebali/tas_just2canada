@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'employers',
         ],
+        'visitor' => [
+            'driver' => 'session',
+            'provider' => 'form_submissions',
+        ]
     ],
 
     /*
@@ -71,6 +75,10 @@ return [
         'employers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Employer::class,
+        ],
+        'form_submissions' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\FormSubmission::class,
         ],
 
         // 'users' => [

@@ -24,6 +24,11 @@ class Authenticate extends Middleware
             if(in_array('employer',$segments)) {
                 return route('employer.login');
             }
+
+            if(in_array('business-immigration-assessment',$segments)) {
+                return route('business-immigration.init');
+            }
+
             return route('login');
         }
     }
