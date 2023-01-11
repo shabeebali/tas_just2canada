@@ -170,7 +170,7 @@
                             <center>
                                 <div class="g-recaptcha" data-sitekey="{{config('app.recaptcha_key')}}"></div>
                                 <br>
-                                <input type="submit" value="Submit" class="btn">
+                                <input type="submit" value="Continue" class="btn">
                             </center>
                         </div>
                     </form>

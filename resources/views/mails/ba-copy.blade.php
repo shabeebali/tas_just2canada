@@ -83,7 +83,12 @@
                                             <td width="65%">{{ $data->client_id}}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>1. Name</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>1. Experience that applies to the applicant</b></td>
+                                            <td width="5%">:</td>
+                                            <td width="65%">{{ $data->form_data['experience']  ?? ''}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>2. Name</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['name'] }}</td>
                                         </tr>
@@ -120,12 +125,12 @@
                                             <td width="65%">{{ $data->form_data['reference'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>2. Date of Birth</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>3. Date of Birth</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['dob'] ?? '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>3. Marital Status</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>4. Marital Status</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['marital_status'] ?? '' }}</td>
                                         </tr>
@@ -143,12 +148,13 @@
                                                 <td width="65%">{{ $data->form_data['spouse_experience'] }}</td>
                                             </tr>
                                         @endif
+                                        @if(isset($data->form_data['no_of_children']))
                                         <tr>
                                             <td style="padding-left:10px" width="40%" height="20"><b>No. of Children</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['no_of_children'] ?? '' }}</td>
                                         </tr>
-
+                                        @endif
                                         @if(isset($data->form_data['children_age']))
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>How old are your children?</b></td>
@@ -156,8 +162,6 @@
                                                 <td width="65%">{{ $data->form_data['children_age'] }}</td>
                                             </tr>
                                         @endif
-
-
                                         @if(isset($data->form_data['is_children_on_study_permit']))
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>Are any of your children studying in Canada at this time on a study permit?</b></td>
@@ -165,8 +169,6 @@
                                                 <td width="65%">{{ $data->form_data['is_children_on_study_permit'] }}</td>
                                             </tr>
                                         @endif
-
-
                                         @if(isset($data->form_data['children_lt_20']))
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>Have children less than 22 years of age?</b></td>
@@ -195,18 +197,20 @@
                                                 <td width="65%">{{ $data->form_data['spouse_children_mental'] }}</td>
                                             </tr>
                                         @endif
+                                        @if(isset($data->form_data['in_canada']))
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>4. Currently in Canada?</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>5. Currently in Canada?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['in_canada'] ?? '' }}</td>
                                         </tr>
-
+                                        @endif
+                                        @if(isset($data->form_data['Did_you_ever_visit_Canada']))
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>5. Did you ever visit Canada?</b></td>
+                                            <td style="padding-left:10px" width="40%" height="20"><b>6. Did you ever visit Canada?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['Did_you_ever_visit_Canada'] ?? '' }}</td>
                                         </tr>
-
+                                        @endif
                                         @if(isset($data->form_data['if_yes_visited_canada_when']))
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>If Yes, when?</b></td>
@@ -214,15 +218,12 @@
                                                 <td width="65%">{{ $data->form_data['if_yes_visited_canada_when'] }}</td>
                                             </tr>
                                         @endif
-
                                         <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>6. Currently
+                                            <td style="padding-left:10px" width="40%" height="20"><b>7. Currently
                                                     Is your Canadian Temporary Residence Visa or any other visa currently valid?</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['is_currently_have_valid_visa'] ?? '' }}</td>
                                         </tr>
-
-
                                         @if(isset($data->form_data['your_current_visa_validity']))
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>If yes, till when?</b></td>
@@ -230,13 +231,6 @@
                                                 <td width="65%">{{ $data->form_data['your_current_visa_validity'] }}</td>
                                             </tr>
                                         @endif
-
-
-                                        <tr>
-                                            <td style="padding-left:10px" width="40%" height="20"><b>7. Experience that applies to the applicant</b></td>
-                                            <td width="5%">:</td>
-                                            <td width="65%">{{ $data->form_data['experience']  ?? ''}}</td>
-                                        </tr>
                                         @if(isset($data->form_data['area_of_business']))
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>8. Area of business or management experience acquired in past 10 years</b></td>
@@ -250,6 +244,7 @@
                                                 </td>
                                             </tr>
                                         @endif
+
                                         <tr>
                                             <td style="padding-left:10px" width="40%" height="20"><b>Briefly describe product/commodity you deal in your business</b></td>
                                             <td width="5%">:</td>
@@ -386,7 +381,7 @@
                                             <td width="5%">:</td>
                                             <td width="65%">{{ $data->form_data['taken_english_test']  ?? ''}}</td>
                                         </tr>
-                                        @if($data->form_data['taken_english_test'] == 'Yes')
+                                        @if(isset($data->form_data['taken_english_test']) && $data->form_data['taken_english_test'] == 'Yes')
                                             <tr>
                                                 <td style="padding-left:10px" width="40%" height="20"><b>Reading</b></td>
                                                 <td width="5%">:</td>
@@ -438,11 +433,13 @@
                                             <td style="padding-left:10px" width="40%" height="20"><b>24. Interested in</b></td>
                                             <td width="5%">:</td>
                                             <td width="65%">
+                                                @if(isset($data->form_data['interests']))
                                                 <ul>
                                                     @foreach($data->form_data['interests'] as $item)
                                                         <li>{{ $item }}</li>
                                                     @endforeach
                                                 </ul>
+                                                @endif
                                             </td>
                                         </tr>
                                         <tr>

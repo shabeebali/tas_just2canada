@@ -9,7 +9,7 @@
     <div>
         <div class="grid grid-cols-1">
             <div class="font-bold pb-2.5 text-white bg-slate-700 flex justify-between px-4 py-2">
-                <div class="text-xl">Client ID: {{$data->client_id}}</div>
+                <div class="text-xl">Client ID: {{$data->client_id}} | Steps ({{$data->steps}}/4)</div>
                 <div class="flex text-lime-300">
                     @role('super_admin')
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -39,7 +39,13 @@
                     <tbody>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">1</span> <strong>Full Name (As per
+                            <span class="bg-gray-900 text-white px-2">1</span> <strong>Experience that applies to the
+                                applicant:</strong> {{ $data->form_data['experience']  ?? ''}}
+                        </td>
+                    </tr>
+                    <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <span class="bg-gray-900 text-white px-2">2</span> <strong>Full Name (As per
                                 passport):</strong> {{ $data->form_data['name'] }}
                         </td>
                         <td class="{{ $valueClass }}">
@@ -71,12 +77,12 @@
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">2</span> <strong>Date of Birth of the
+                            <span class="bg-gray-900 text-white px-2">3</span> <strong>Date of Birth of the
                                 applicant:</strong> {{ \Carbon\Carbon::parse($data->form_data['dob'])->toDateString() }}
                              ({{\Carbon\Carbon::parse($data->form_data['dob'])->diff(\Carbon\Carbon::now())->format('Age: %y')}})
                         </td>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">3</span> <strong>Marital
+                            <span class="bg-gray-900 text-white px-2">4</span> <strong>Marital
                                 Status:</strong> {{ $data->form_data['marital_status'] ?? '' }}
                         </td>
                     </tr>
@@ -151,33 +157,29 @@
                     @endif
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">4</span> <strong>Currently in canada
+                            <span class="bg-gray-900 text-white px-2">5</span> <strong>Currently in canada
                                 ?:</strong> {{ $data->form_data['in_canada'] ?? '' }}
-                        </td>
-                        <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">5</span> <strong>Did you ever visit Canada?
-                                ?:</strong> {{ $data->form_data['Did_you_ever_visit_Canada'] ?? '' }}
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}">
+                            <span class="bg-gray-900 text-white px-2">6</span> <strong>Did you ever visit Canada?
+                                ?:</strong> {{ $data->form_data['Did_you_ever_visit_Canada'] ?? '' }}
+                        </td>
                         <td class="{{ $valueClass }}">
                             <strong>If Yes, when
                                 ?:</strong> {{ $data->form_data['if_yes_visited_canada_when'] ?? '' }}
                         </td>
 
-                        <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">6</span> <strong>Is your Canadian Temporary Residence Visa or any other visa currently valid?
-                                ?:</strong> {{ $data->form_data['is_currently_have_valid_visa'] ?? '' }}
-                        </td>
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <strong>If yes, till when
-                                ?:</strong> {{ $data->form_data['your_current_visa_validity'] ?? '' }}
+                            <span class="bg-gray-900 text-white px-2">7</span> <strong>Is your Canadian Temporary Residence Visa or any other visa currently valid?
+                                ?:</strong> {{ $data->form_data['is_currently_have_valid_visa'] ?? '' }}
                         </td>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">7</span> <strong>Experience that applies to the
-                                applicant:</strong> {{ $data->form_data['experience']  ?? ''}}
+                            <strong>If yes, till when
+                                ?:</strong> {{ $data->form_data['your_current_visa_validity'] ?? '' }}
                         </td>
                     </tr>
                     @if(isset($data->form_data['area_of_business']))
@@ -323,7 +325,7 @@
                         <td class="{{ $valueClass }}">
                             <span class="bg-gray-900 text-white px-2">22</span> <strong> Taken English proficiency test
                                 (IELTS or CELPIP) ?:</strong> {{ $data->form_data['taken_english_test']  ?? ''}}
-                            @if($data->form_data['taken_english_test'] == 'Yes')
+                            @if(isset($data->form_data['taken_english_test']) && $data->form_data['taken_english_test'] == 'Yes')
                                 <p>Scores:</p>
                                 <ul>
                                     <li>Reading: {{ $data->form_data['reading'] ?? ''}}</li>
@@ -360,11 +362,13 @@
                         </td>
                         <td class="{{ $valueClass }}">
                             <span class="bg-gray-900 text-white px-2">24</span> <strong> Interests:</strong>
+                            @if(isset($data->form_data['interests']))
                             <ul>
                                 @foreach($data->form_data['interests'] as $item)
                                     <li>{{ $item }}</li>
                                 @endforeach
                             </ul>
+                            @endif
                         </td>
                     </tr>
                     </tbody>

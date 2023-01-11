@@ -11,6 +11,7 @@ use App\Models\FormType;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
@@ -148,16 +149,9 @@ class BusinessImmigrationController extends Controller
                 ->bcc([
                     'businessclient@just2canada.ca',
                     'info@tastechnologies.com',
-                ])
-                ->send(new BusinessApplicationMail($formSubmission));
-
-            Mail::to($request->input('mail'))
-                ->bcc([
-                    'businessclient@just2canada.ca',
-                    'info@tastechnologies.com',
                 ])->send(new BusinessApplicationCopyMail($formSubmission));
         } catch (\Exception $e) {
-            //
+            Log::debug($e->getMessage());
         }
 
         return Response::redirectToRoute('business-immigration.form-2');
@@ -210,7 +204,7 @@ class BusinessImmigrationController extends Controller
                     'info@tastechnologies.com',
                 ])->send(new BusinessApplicationCopyMail($form));
         } catch (\Exception $e) {
-            //
+            Log::debug($e->getMessage());
         }
 
         return Response::redirectToRoute('business-immigration.init')->with('success','Your form has been submitted successfully. We will contact you soon');
