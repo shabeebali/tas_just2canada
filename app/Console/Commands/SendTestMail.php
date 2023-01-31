@@ -39,7 +39,8 @@ class SendTestMail extends Command
      */
     public function handle()
     {
-        Mail::to('shabeeboali@gmail.com')->send(new TestMail());
+        Mail::to('hello@shabeeb.dev')->send(new TestMail());
+        $this->info(config('mail.mailers.smtp.username'));
         return 0;
     }
 }
