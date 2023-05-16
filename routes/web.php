@@ -3,6 +3,7 @@
 use App\Http\Controllers\Frontend\BusinessImmigrationController;
 use App\Http\Controllers\Frontend\EmployerController;
 use App\Http\Controllers\Frontend\PageController;
+use App\Http\Controllers\Frontend\QuickRegistrationController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
@@ -57,7 +58,8 @@ Route::prefix('employer')->name('employer.')->group(function(){
         });
     });
 });
-
+Route::view('quick-registration-form','frontend.quick-registration-form')->name('quick-registration-form');
+Route::post('quick-registration-form',[QuickRegistrationController::class,'store'])->name('quick-registration-form');
 Route::view('job-seeker','frontend.job-seeker')->name('job-seeker');
 Route::post('job-seeker',[\App\Http\Controllers\Frontend\JobSeekerController::class,'store'])->name('job-seeker.store');
 Route::view('skilled-worker-assessment','frontend.skilled-worker-assessment')->name('skilled-worker-assessment');

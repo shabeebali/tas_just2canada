@@ -6,9 +6,11 @@ use App\Http\Controllers\Admin\BusinessApplicationController;
 use App\Http\Controllers\Admin\EmployerController;
 use App\Http\Controllers\Admin\JobSeekerController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\QuickRegistrationController;
 use App\Http\Controllers\Admin\SkilledWorkerApplicationController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\FormRemarkController;
 use App\Models\FormSubmission;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +20,8 @@ Route::middleware(['guest'])->group(function() {
 });
 
 Route::middleware(['auth:web','role:admin|super_admin'])->name('admin.')->group(function() {
-    Route::resource('form-remarks',\App\Http\Controllers\FormRemarkController::class)->only('edit','update','store');
+    Route::resource('quick-registrations', QuickRegistrationController::class)->only('index','destroy');
+    Route::resource('form-remarks', FormRemarkController::class)->only('edit','update','store');
     Route::post('business-applications/{id}/agreement-download', [BusinessApplicationController::class,'agreementDownload'])->name('ba.agreement.download');
     Route::get('dashboard',[AdminController::class,'dashboard'])->name('home');
     Route::resource('testimonials',TestimonialController::class);

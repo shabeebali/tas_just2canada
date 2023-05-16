@@ -248,6 +248,35 @@ margin: 2% 0 0 0%;" src="{{asset('images/UCW-logo.png')}}" alt=""></a></p>
         padding: 20px;
         display: none;
     }
+
+    /* Makes the animation pause on hover */
+    .moving-text:hover{
+        animation-play-state: paused;
+    }
+
+    /* The animation */
+    @keyframes marquee{
+        0%{transform: translateX(100%);}
+        100%{transform: translateX(-100%);}
+    }
+
+    /* media query to enable animation for only those who want it */
+    @media (prefers-reduced-motion: no-preference) {
+        .moving-text{
+            animation: marquee 15s linear infinite;
+        }
+    }
+
+    .form-control.is-invalid~.invalid-feedback{
+        display: block;
+    }
+    .invalid-feedback {
+        display: none;
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 80%;
+        color: #dc3545;
+    }
 </style>
 
 
