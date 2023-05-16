@@ -28,11 +28,11 @@ margin: 0 0 2% 2%;" width="300" height="75"> </a></p>
                         <img class="iccrc alignnone wp-image-1601 size-full" style="float: left;
 width: 61%;
 margin: 0 0 0 2%;" src="{{asset('images/iccrc.png')}}" alt="" width="300" height="61"></a></p>
-                <p><a href="study-university-canada.php"><img class="iccrc alignnone wp-image-1601 size-full" style="float: left;
-width: 100%;
-margin: 2% 0 0 0%;" src="{{asset('images/UCW-logo.png')}}" alt=""></a></p>
-                <div class="clearfix"></div>
-                <br>
+                <!--                <p><a href="study-university-canada.php"><img class="iccrc alignnone wp-image-1601 size-full" style="float: left;-->
+                <!--width: 100%;-->
+                <!--margin: 2% 0 0 0%;" src="{{asset('images/UCW-logo.png')}}" alt=""></a></p>-->
+                <!--<div class="clearfix"></div>-->
+                <!--<br>-->
                 <!--<a href="https://just2canada.ca/product/make-payment/" target="_blank" class="btn">Make Payment</a> -->
             </div>
             <div class="col-md-3">
@@ -248,7 +248,6 @@ margin: 2% 0 0 0%;" src="{{asset('images/UCW-logo.png')}}" alt=""></a></p>
         padding: 20px;
         display: none;
     }
-
     /* Makes the animation pause on hover */
     .moving-text:hover{
         animation-play-state: paused;
