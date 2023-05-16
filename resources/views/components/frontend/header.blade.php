@@ -102,10 +102,8 @@
                      height="50"></a>
             <!-- <a href="{{ route('skilled-worker-assessment') }}" class="btn navbar-right" data-animation="animated fadeInUp">Skilled
                 Worker Assessment </a> -->
-            <a href="https://secure.officio.ca/qnr?id=444&hash=47bed91fa2b13689fe43b986e75566b3" class="btn navbar-right" data-animation="animated fadeInUp">Skilled
-                Worker Assessment </a>
-            <a href="{{ route('business-immigration.init') }}" class="btn navbar-right" data-animation="animated fadeInUp">Business
-                Assessment </a>
+            <a href="https://secure.officio.ca/qnr?id=444&hash=47bed91fa2b13689fe43b986e75566b3" class="btn navbar-right" data-animation="animated fadeInUp">Skilled Worker Assessment Form </a>
+            <a href="{{ route('business-immigration.init') }}" class="btn navbar-right" data-animation="animated fadeInUp">Business Assessment Form </a>
         </div>
     </div>
     <!-- End Top Header_Area -->
@@ -141,7 +139,10 @@
                         <a href="{{ url('') }}">Home</a>
                     </li>
                     <li>
-                        <a class="js-scroll-trigger active" href="{{url('about-us')}}">About Us</a>
+                        <a class="js-scroll-trigger" href="{{url('about-us')}}">About Us</a>
+                    </li>
+                    <li>
+                        <a class="js-scroll-trigger" href="{{url('testimonials')}}">Testimonials</a>
                     </li>
                     <li>
                         <a class="js-scroll-trigger" href="{{url('personal-immigration')}}">SKILLED WORKERS IMMIGRATION</a>
