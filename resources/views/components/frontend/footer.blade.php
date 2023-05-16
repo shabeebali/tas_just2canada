@@ -249,6 +249,9 @@ margin: 0 0 0 2%;" src="{{asset('images/iccrc.png')}}" alt="" width="300" height
         display: none;
     }
     /* Makes the animation pause on hover */
+    .moving-text{
+        white-space: nowrap;
+    }
     .moving-text:hover{
         animation-play-state: paused;
     }
@@ -284,6 +287,7 @@ margin: 0 0 0 2%;" src="{{asset('images/iccrc.png')}}" alt="" width="300" height
     .moving-text-container a {
         color: #ffffff;
     }
+
 </style>
 
 
