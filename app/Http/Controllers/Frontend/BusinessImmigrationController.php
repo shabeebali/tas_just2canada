@@ -144,7 +144,7 @@ class BusinessImmigrationController extends Controller
 
         Auth::guard('visitor')->loginUsingId($formSubmission->id);
 
-        try {
+        /* try {
             Mail::to($request->input('mail'))
                 ->bcc([
                     'businessclient@just2canada.ca',
@@ -152,7 +152,7 @@ class BusinessImmigrationController extends Controller
                 ])->send(new BusinessApplicationCopyMail($formSubmission));
         } catch (\Exception $e) {
             Log::debug($e->getMessage());
-        }
+        }*/
 
         return Response::redirectToRoute('business-immigration.form-2');
     }
@@ -191,18 +191,24 @@ class BusinessImmigrationController extends Controller
             return Response::redirectToRoute('business-immigration.form-'.($form->steps + 1));
         }
         try {
-            Mail::to($form->email)
-                ->bcc([
-                    'businessclient@just2canada.ca',
-                    'info@tastechnologies.com',
-                ])
-                ->send(new BusinessApplicationMail($form));
 
-            Mail::to($request->input('mail'))
-                ->bcc([
-                    'businessclient@just2canada.ca',
-                    'info@tastechnologies.com',
-                ])->send(new BusinessApplicationCopyMail($form));
+            if($form->steps == 4)    {
+
+                Mail::to($form->email)
+                    ->bcc([
+                        'businessclient@just2canada.ca',
+                        'info@tastechnologies.com',
+                    ])
+                    ->send(new BusinessApplicationMail($form));
+
+                Mail::to($request->input('mail'))
+                    ->bcc([
+                        'businessclient@just2canada.ca',
+                        'info@tastechnologies.com',
+                    ])->send(new BusinessApplicationCopyMail($form));
+
+            }
+
         } catch (\Exception $e) {
             Log::debug($e->getMessage());
         }
