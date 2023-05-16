@@ -37,8 +37,8 @@ class QuickRegistrationController extends Controller
             try {
                 Mail::to($model->email)
                     ->bcc([
-                        //'businessclient@just2canada.ca',
-                        //'info@tastechnologies.com',
+                        'businessclient@just2canada.ca',
+                        'info@tastechnologies.com',
                     ])
                     ->send(new QuickRegistrationMail($model));
             } catch (\Exception $e) {
