@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,8 +13,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $content
  * @property boolean $active
  * @property boolean $show_in_main_menu
+ * @property string $meta_title
+ * @property string $meta_keywords
+ * @property string $meta_description
+ * @mixin Eloquent
  */
 class Page extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }

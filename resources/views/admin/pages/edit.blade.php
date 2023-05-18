@@ -28,6 +28,10 @@
                 </div>
                 <x-blocks.toggle label="Show In Main Menu?" class="pt-2" name="show_in_main_menu" is-checked="{{old('show_in_main_menu', $page->show_in_main_menu)}}"></x-blocks.toggle>
                 <x-blocks.toggle label="Active?" name="active" is-checked="{{old('active', $page->active)}}"></x-blocks.toggle>
+                <x-blocks.input-field label="Meta Title" name="meta_title" value="{{ old('meta_title',$page->meta_title) }}"/>
+                <x-blocks.input-field label="Meta Keywords" name="meta_keywords" value="{{ old('meta_keywords',$page->meta_keywords) }}"/>
+                <div class="text-sm font-bold py-2">Meta Description</div>
+                <textarea id="meta-description" name="meta_description" rows="4">{{old('meta_description',$page->meta_description)}}</textarea>
             </div>
         </form>
         <script>

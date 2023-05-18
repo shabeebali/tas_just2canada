@@ -58,13 +58,13 @@ Route::prefix('employer')->name('employer.')->group(function(){
         });
     });
 });
-Route::view('quick-registration-form','frontend.quick-registration-form')->name('quick-registration-form');
+//Route::view('quick-registration-form','frontend.quick-registration-form')->name('quick-registration-form');
 Route::post('quick-registration-form',[QuickRegistrationController::class,'store'])->name('quick-registration-form');
 Route::view('job-seeker','frontend.job-seeker')->name('job-seeker');
 Route::post('job-seeker',[\App\Http\Controllers\Frontend\JobSeekerController::class,'store'])->name('job-seeker.store');
 Route::view('skilled-worker-assessment','frontend.skilled-worker-assessment')->name('skilled-worker-assessment');
 Route::view('immigration-consultants-in-ncr','frontend.immigration-consultants-in-ncr');
-Route::view('contact-us', 'frontend.contact-us');
+//Route::view('contact-us', 'frontend.contact-us');
 Route::redirect('business-immigration-assessment.php','business-immigration-assessment');
 Route::view('business-immigration-assessment','frontend.business-immigration-init')->name('business-immigration.init');
 Route::get('business-immigration-assessment/login',[BusinessImmigrationController::class,'login'])->name('business-immigration.login');

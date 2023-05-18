@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Shortcodes\BladeRenderer;
 use App\Shortcodes\ImageGenerator;
 use App\Shortcodes\LinkGenerator;
 use App\Shortcodes\UrlGenerator;
@@ -20,6 +21,7 @@ class ShortcodesServiceProvider extends ServiceProvider
         Shortcode::register('url', UrlGenerator::class);
         Shortcode::register('img', ImageGenerator::class);
         Shortcode::register('a', LinkGenerator::class);
+        Shortcode::register('blade',BladeRenderer::class);
     }
 
     /**
