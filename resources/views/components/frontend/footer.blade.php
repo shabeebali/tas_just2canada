@@ -249,24 +249,36 @@ margin: 0 0 0 2%;" src="{{asset('images/iccrc.png')}}" alt="" width="300" height
         display: none;
     }
     /* Makes the animation pause on hover */
-    .moving-text{
-        white-space: nowrap;
-    }
-    .moving-text:hover{
-        animation-play-state: paused;
+    .marquee {
+        height: 25px;
+        width: 100%;
+        background: red;
+        color: white;
+
+        overflow: hidden;
+        position: relative;
     }
 
-    /* The animation */
-    @keyframes marquee{
-        0%{transform: translateX(100%);}
-        100%{transform: translateX(-100%);}
+    .marquee div {
+        display: block;
+        width: 200%;
+        height: 30px;
+
+        position: absolute;
+        overflow: hidden;
+
+        animation: marquee 15s linear infinite;
     }
 
-    /* media query to enable animation for only those who want it */
-    @media (prefers-reduced-motion: no-preference) {
-        .moving-text{
-            animation: marquee 15s linear infinite;
-        }
+    .marquee a {
+        color: white;
+        float: left;
+        width: 50%;
+    }
+
+    @keyframes marquee {
+        0% { left: 0; }
+        100% { left: -100%; }
     }
 
     .form-control.is-invalid~.invalid-feedback{
