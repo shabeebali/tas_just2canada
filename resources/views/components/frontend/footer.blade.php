@@ -267,6 +267,9 @@ margin: 0 0 0 2%;" src="{{asset('images/iccrc.png')}}" alt="" width="300" height
 
         animation: marquee 15s linear infinite;
     }
+    .marquee div:hover {
+        animation-play-state: paused;
+    }
 
     .marquee a {
         color: white;
