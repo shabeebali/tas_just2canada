@@ -252,9 +252,7 @@ margin: 0 0 0 2%;" src="{{asset('images/iccrc.png')}}" alt="" width="300" height
     .marquee {
         height: 25px;
         width: 100%;
-        background: red;
-        color: white;
-
+        background: #c4171e;
         overflow: hidden;
         position: relative;
     }
@@ -295,9 +293,6 @@ margin: 0 0 0 2%;" src="{{asset('images/iccrc.png')}}" alt="" width="300" height
         padding: 10px 0;
         width: 100%;
         background: #c4171e;
-    }
-    .moving-text-container a {
-        color: #ffffff;
     }
 
 </style>
