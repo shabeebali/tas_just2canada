@@ -850,7 +850,7 @@
                                 label="No"
                                 value="No">
                             </x-blocks.input-radio>
-                            @if($data->form_data['taken_english_test'] == 'Yes')
+                            @if(isset($data->form_data['taken_english_test']) && $data->form_data['taken_english_test'] == 'Yes')
                                 <p>Scores:</p>
                                 <ul>
                                     <li>Reading: <x-blocks.input-field name="reading" value="{{old('reading',$data->form_data['reading'] ?? '')}}"></x-blocks.input-field></li>
