@@ -104,7 +104,7 @@ class BusinessApplicationController extends Controller
         }
         $oldData = $formSubmission->form_data;
         $newData = $request->except(['_method','_token']);
-        $newData['interests'] = $oldData['interests'];
+        $newData['interests'] = $oldData['interests'] ?? [];
         $newData['agree'] = $oldData['agree'] ?? '';
         $formSubmission->form_data = $newData;
         $formSubmission->save();
