@@ -366,7 +366,7 @@
         <td width="5%">:</td>
         <td width="65%">{{ $data->form_data['taken_english_test']  ?? ''}}</td>
     </tr>
-    @if($data->form_data['taken_english_test'] == 'Yes')
+    @if(isset($data->form_data['taken_english_test']) && $data->form_data['taken_english_test'] == 'Yes')
         <tr>
             <td style="padding-left:10px" width="40%" height="20"><b>Reading</b></td>
             <td width="5%">:</td>
@@ -419,9 +419,11 @@
         <td width="5%">:</td>
         <td width="65%">
             <ul>
-                @foreach($data->form_data['interests'] as $item)
-                    <li>{{ $item }}</li>
-                @endforeach
+                @if(isset($data->form_data['interests']))
+                    @foreach($data->form_data['interests'] as $item)
+                        <li>{{ $item }}</li>
+                    @endforeach
+                @endif
             </ul>
         </td>
     </tr>
