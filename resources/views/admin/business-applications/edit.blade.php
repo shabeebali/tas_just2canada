@@ -904,9 +904,11 @@
                         <td class="{{ $valueClass }}">
                             <span class="bg-gray-900 text-white px-2">24</span> <strong> Interests:</strong>
                             <ul>
-                                @foreach($data->form_data['interests'] as $item)
-                                    <li>{{ $item }}</li>
-                                @endforeach
+                                @if(isset($data->form_data['interests']))
+                                    @foreach($data->form_data['interests'] as $item)
+                                        <li>{{ $item }}</li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </td>
                     </tr>
