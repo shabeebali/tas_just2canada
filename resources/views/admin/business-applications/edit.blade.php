@@ -34,30 +34,48 @@
                         <td class="{{ $valueClass }}" colspan="1">
                             <span class="bg-gray-900 text-white px-2">1</span> <strong>Experience that applies to the
                                 applicant:</strong> {{ $data->form_data['experience']  ?? ''}}
-                            <x-blocks.input-radio
+                            <x-blocks.input-checkbox
                                 name="experience"
                                 :checked="old('experience',$data->form_data['experience'] ?? '') == 'Business Person'"
                                 label="Business Person"
                                 value="Business Person">
-                            </x-blocks.input-radio>
-                            <x-blocks.input-radio
+                            </x-blocks.input-checkbox>
+                            <x-blocks.input-checkbox
                                 name="experience"
                                 :checked="old('experience',$data->form_data['experience'] ?? '') == 'Senior Manager'"
                                 label="Senior Manager"
                                 value="Senior Manager">
-                            </x-blocks.input-radio>
-                            <x-blocks.input-radio
+                            </x-blocks.input-checkbox>
+                            <x-blocks.input-checkbox
                                 name="experience"
                                 :checked="old('experience',$data->form_data['experience'] ?? '') == 'Self Employed Artist'"
                                 label="Self Employed Artist"
                                 value="Self Employed Artist">
-                            </x-blocks.input-radio>
-                            <x-blocks.input-radio
+                            </x-blocks.input-checkbox>
+                            <x-blocks.input-checkbox
                                 name="experience"
                                 :checked="old('experience',$data->form_data['experience'] ?? '') == 'I am a professional and am willing to invest in a business in Canada'"
                                 label="I am a professional and am willing to invest in a business in Canada"
                                 value="I am a professional and am willing to invest in a business in Canada">
-                            </x-blocks.input-radio>
+                            </x-blocks.input-checkbox>
+                            <x-blocks.input-checkbox
+                                name="experience"
+                                :checked="old('experience',$data->form_data['experience'] ?? '') == 'Skilled Work'"
+                                label="Skilled Work"
+                                value="Skilled Work">
+                            </x-blocks.input-checkbox>
+                            <x-blocks.input-checkbox
+                                name="experience"
+                                :checked="old('experience',$data->form_data['experience'] ?? '') == 'Student'"
+                                label="Student"
+                                value="Student">
+                            </x-blocks.input-checkbox>
+                            <x-blocks.input-checkbox
+                                name="experience"
+                                :checked="old('experience',$data->form_data['experience'] ?? '') == 'Other'"
+                                label="Other"
+                                value="Other">
+                            </x-blocks.input-checkbox>
                         </td>
                     </tr>
                     <tr>
