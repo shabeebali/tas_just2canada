@@ -63,12 +63,19 @@ class BusinessApplicationController extends Controller
     }
 
     public function show($id) {
+        /**
+         * @var $model FormSubmission
+         */
         $model = FormSubmission::with(['remarks','signedContracts'])->find($id);
         $optionsModel = Setting::where('key','assessment_options')->first();
         $options = [];
         if($optionsModel) {
             $options = $optionsModel->value;
         }
+        $formData = $model->form_data;
+        $formData['experience'] = isset($formData['experience']) ? (!is_array($formData['experience']) ? [$formData['experience']] :$formData['experience']):[];
+        $model->form_data = $formData;
+        $model->save();
         return view('admin.business-applications.view',[
             'data' => $model,
             'title' => 'Business Application: '.$model->client_id,
