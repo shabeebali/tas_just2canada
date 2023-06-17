@@ -85,6 +85,7 @@ class BusinessApplicationController extends Controller
         $model = FormSubmission::find($id);
         $formData = $model->form_data;
         $formData['experience'] = isset($formData['experience']) ? (!is_array($formData['experience']) ? [$formData['experience']] :$formData['experience']):[];
+        $model->form_data = $formData;
         return view('admin.business-applications.edit',[
             'data' => $model,
             'title' => 'Business Application: '.$model->client_id,
