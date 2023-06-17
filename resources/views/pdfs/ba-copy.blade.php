@@ -62,7 +62,18 @@
         <td width="65%">{{ $data->client_id}}</td>
     </tr>
     <tr>
-        <td style="padding-left:10px" width="40%" height="20"><b>1. Name</b></td>
+        <td style="padding-left:10px" width="40%" height="20">1<b>Experience that applies to the applicant</b></td>
+        <td width="5%">:</td>
+        <td width="65%">
+            <ul>
+                @foreach($data->form_data['experience'] as $item)
+                    <li>{{ $item }}</li>
+                @endforeach
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-left:10px" width="40%" height="20"><b>2. Name</b></td>
         <td width="5%">:</td>
         <td width="65%">{{ $data->form_data['name'] }}</td>
     </tr>
@@ -99,12 +110,12 @@
         <td width="65%">{{ $data->form_data['reference'] ?? '' }}</td>
     </tr>
     <tr>
-        <td style="padding-left:10px" width="40%" height="20"><b>2. Date of Birth</b></td>
+        <td style="padding-left:10px" width="40%" height="20"><b>3. Date of Birth</b></td>
         <td width="5%">:</td>
         <td width="65%">{{ $data->form_data['dob'] ?? '' }}</td>
     </tr>
     <tr>
-        <td style="padding-left:10px" width="40%" height="20"><b>3. Marital Status</b></td>
+        <td style="padding-left:10px" width="40%" height="20"><b>4. Marital Status</b></td>
         <td width="5%">:</td>
         <td width="65%">{{ $data->form_data['marital_status'] ?? '' }}</td>
     </tr>
@@ -175,13 +186,13 @@
         </tr>
     @endif
     <tr>
-        <td style="padding-left:10px" width="40%" height="20"><b>4. Currently in Canada?</b></td>
+        <td style="padding-left:10px" width="40%" height="20"><b>5. Currently in Canada?</b></td>
         <td width="5%">:</td>
         <td width="65%">{{ $data->form_data['in_canada'] ?? '' }}</td>
     </tr>
 
     <tr>
-        <td style="padding-left:10px" width="40%" height="20"><b>5. Did you ever visit Canada?</b></td>
+        <td style="padding-left:10px" width="40%" height="20"><b>6. Did you ever visit Canada?</b></td>
         <td width="5%">:</td>
         <td width="65%">{{ $data->form_data['Did_you_ever_visit_Canada'] ?? '' }}</td>
     </tr>
@@ -195,7 +206,7 @@
     @endif
 
     <tr>
-        <td style="padding-left:10px" width="40%" height="20"><b>6. Currently
+        <td style="padding-left:10px" width="40%" height="20"><b>7. Currently
                 Is your Canadian Temporary Residence Visa or any other visa currently valid?</b></td>
         <td width="5%">:</td>
         <td width="65%">{{ $data->form_data['is_currently_have_valid_visa'] ?? '' }}</td>
@@ -209,13 +220,6 @@
             <td width="65%">{{ $data->form_data['your_current_visa_validity'] }}</td>
         </tr>
     @endif
-
-
-    <tr>
-        <td style="padding-left:10px" width="40%" height="20"><b>7. Experience that applies to the applicant</b></td>
-        <td width="5%">:</td>
-        <td width="65%">{{ $data->form_data['experience']  ?? ''}}</td>
-    </tr>
     @if(isset($data->form_data['area_of_business']))
         <tr>
             <td style="padding-left:10px" width="40%" height="20"><b>8. Area of business or management experience acquired in past 10 years</b></td>
