@@ -43,13 +43,13 @@
                         <div class="form-inner">
                             <br>
                             <div class="col-md-8"><strong>1.</strong> Please select which experience pertains to you? You may select more than one selection if it pertains to you<span class="spanHighlight">*</span><br>
-                                <input class="chkExperience" name="experience" type="radio" value="Business Person" @if(old('experience',$data['experience'] ?? '') == 'Business Person') checked @endif> Business Person <br>
-                                <input name="experience" class="chkExperience" type="radio" value="Senior Manager" @if(old('experience',$data['experience'] ?? '') == 'Senior Manager') checked @endif> Senior Manager <br>
-                                <input name="experience" class="chkExperience" type="radio" value="Self Employed / Art and Entertainment Professional" @if(old('experience',$data['experience'] ?? '') == 'Self Employed / Art and Entertainment Professional') checked @endif> Self Employed / Art and Entertainment Professional <br>
-                                <input name="experience" class="chkExperience" type="radio" value="I am a professional and am willing to invest in a business in Canada" @if(old('experience',$data['experience'] ?? '') == 'I am a professional and am willing to invest in a business in Canada') checked @endif> I am a professional and am willing to invest in a business in Canada <br>
-                                <input name="experience" class="chkExperience" type="radio" value="Skilled Work" @if(old('experience',$data['experience'] ?? '') == 'Skilled Work') checked @endif> Skilled Work <br>
-                                <input name="experience" class="chkExperience" type="radio" value="Student" @if(old('experience',$data['experience'] ?? '') == 'Student') checked @endif> Student <br>
-                                <input name="experience" class="chkExperience" type="radio" value="Other" @if(old('experience',$data['experience'] ?? '') == 'Other') checked @endif> Other <br>
+                                <input class="chkExperience" name="experience[]" type="checkbox" value="Business Person" @if(in_array('Business Person',old('experience',$data['experience'] ?? []))) checked @endif> Business Person <br>
+                                <input name="experience[]" class="chkExperience" type="checkbox" value="Senior Manager" @if(in_array('Senior Manager',old('experience',$data['experience'] ?? []))) checked @endif> Senior Manager <br>
+                                <input name="experience[]" class="chkExperience" type="checkbox" value="Self Employed / Art and Entertainment Professional" @if(in_array('Self Employed / Art and Entertainment Professional',old('experience',$data['experience'] ?? []))) checked @endif> Self Employed / Art and Entertainment Professional <br>
+                                <input name="experience[]" class="chkExperience" type="checkbox" value="I am a professional and am willing to invest in a business in Canada" @if(in_array('I am a professional and am willing to invest in a business in Canada',old('experience',$data['experience'] ?? []))) checked @endif> I am a professional and am willing to invest in a business in Canada <br>
+                                <input name="experience[]" class="chkExperience" type="checkbox" value="Skilled Work" @if(in_array('Skilled Work',old('experience',$data['experience'] ?? []))) checked @endif> Skilled Work <br>
+                                <input name="experience[]" class="chkExperience" type="checkbox" value="Student" @if(in_array('Student',old('experience',$data['experience'] ?? []))) checked @endif> Student <br>
+                                <input name="experience[]" class="chkExperience" type="checkbox" value="Other" @if(in_array('Other',old('experience',$data['experience'] ?? []))) checked @endif> Other <br>
                             </div>
                             <div class="clearfix"></div>
                             <br>

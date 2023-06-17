@@ -40,7 +40,16 @@
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
                             <span class="bg-gray-900 text-white px-2">1</span> <strong>Experience that applies to the
-                                applicant:</strong> {{ $data->form_data['experience']  ?? ''}}
+                                applicant:</strong>
+                            @if(is_array($data->form_data['experience']))
+                                <ul>
+                                    @foreach($data->form_data['experience'] as $exp)
+                                        <li>{{ $exp }}</li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                {{ $data->form_data['experience']  ?? ''}}
+                            @endif
                         </td>
                     </tr>
                     <tr class="{{ $rowClass }}">

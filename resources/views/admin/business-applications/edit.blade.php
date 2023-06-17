@@ -31,8 +31,38 @@
                     </thead>
                     <tbody>
                     <tr class="{{ $rowClass }}">
+                        <td class="{{ $valueClass }}" colspan="1">
+                            <span class="bg-gray-900 text-white px-2">1</span> <strong>Experience that applies to the
+                                applicant:</strong> {{ $data->form_data['experience']  ?? ''}}
+                            <x-blocks.input-radio
+                                name="experience"
+                                :checked="old('experience',$data->form_data['experience'] ?? '') == 'Business Person'"
+                                label="Business Person"
+                                value="Business Person">
+                            </x-blocks.input-radio>
+                            <x-blocks.input-radio
+                                name="experience"
+                                :checked="old('experience',$data->form_data['experience'] ?? '') == 'Senior Manager'"
+                                label="Senior Manager"
+                                value="Senior Manager">
+                            </x-blocks.input-radio>
+                            <x-blocks.input-radio
+                                name="experience"
+                                :checked="old('experience',$data->form_data['experience'] ?? '') == 'Self Employed Artist'"
+                                label="Self Employed Artist"
+                                value="Self Employed Artist">
+                            </x-blocks.input-radio>
+                            <x-blocks.input-radio
+                                name="experience"
+                                :checked="old('experience',$data->form_data['experience'] ?? '') == 'I am a professional and am willing to invest in a business in Canada'"
+                                label="I am a professional and am willing to invest in a business in Canada"
+                                value="I am a professional and am willing to invest in a business in Canada">
+                            </x-blocks.input-radio>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">1</span> <strong>Full Name (As per
+                            <span class="bg-gray-900 text-white px-2">2</span> <strong>Full Name (As per
                                 passport):</strong>
                             <x-blocks.input-field name="name" value="{{ old('name',$data->form_data['name']) }}"/>
                         </td>
@@ -75,12 +105,12 @@
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">2</span> <strong>Date of Birth of the
+                            <span class="bg-gray-900 text-white px-2">3</span> <strong>Date of Birth of the
                                 applicant:</strong>
                             <x-blocks.input-field name="dob" value="{{ old('dob',$data->form_data['dob']) }}" type="date"></x-blocks.input-field>
                         </td>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">3</span> <strong>Marital
+                            <span class="bg-gray-900 text-white px-2">4</span> <strong>Marital
                                 Status:</strong>
                             <x-blocks.input-radio
                                 name="marital_status"
@@ -281,7 +311,7 @@
                     @endif
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">4</span> <strong>Currently in canada
+                            <span class="bg-gray-900 text-white px-2">5</span> <strong>Currently in canada
                                 ?:</strong>
                             <x-blocks.input-radio
                                 name="in_canada"
@@ -296,8 +326,10 @@
                                 value="No">
                             </x-blocks.input-radio>
                         </td>
+                    </tr>
+                    <tr>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">5</span> <strong>Did you ever visit Canada?
+                            <span class="bg-gray-900 text-white px-2">6</span> <strong>Did you ever visit Canada?
                                 ?:</strong>
                             <x-blocks.input-radio
                                 name="Did_you_ever_visit_Canada"
@@ -312,16 +344,15 @@
                                 value="No">
                             </x-blocks.input-radio>
                         </td>
-                    </tr>
-                    <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
                             <strong>If Yes, when
                                 ?:</strong>
                             <x-blocks.input-field name="if_yes_visited_canada_when" value="{{old('if_yes_visited_canada_when',$data->form_data['if_yes_visited_canada_when'] ?? '')}}"></x-blocks.input-field>
                         </td>
-
+                    </tr>
+                    <tr>
                         <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">6</span> <strong>Is your Canadian Temporary Residence Visa or any other visa currently valid?
+                            <span class="bg-gray-900 text-white px-2">7</span> <strong>Is your Canadian Temporary Residence Visa or any other visa currently valid?
                                 ?:</strong>
                             <x-blocks.input-radio
                                 name="is_currently_have_valid_visa"
@@ -336,40 +367,10 @@
                                 value="No">
                             </x-blocks.input-radio>
                         </td>
-                    </tr>
-                    <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
                             <strong>If yes, till when
                                 ?:</strong>
                             <x-blocks.input-field name="your_current_visa_validity" value="{{old('your_current_visa_validity',$data->form_data['your_current_visa_validity'] ?? '')}}"></x-blocks.input-field>
-                        </td>
-                        <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">7</span> <strong>Experience that applies to the
-                                applicant:</strong> {{ $data->form_data['experience']  ?? ''}}
-                            <x-blocks.input-radio
-                                name="experience"
-                                :checked="old('experience',$data->form_data['experience'] ?? '') == 'Business Person'"
-                                label="Business Person"
-                                value="Business Person">
-                            </x-blocks.input-radio>
-                            <x-blocks.input-radio
-                                name="experience"
-                                :checked="old('experience',$data->form_data['experience'] ?? '') == 'Senior Manager'"
-                                label="Senior Manager"
-                                value="Senior Manager">
-                            </x-blocks.input-radio>
-                            <x-blocks.input-radio
-                                name="experience"
-                                :checked="old('experience',$data->form_data['experience'] ?? '') == 'Self Employed Artist'"
-                                label="Self Employed Artist"
-                                value="Self Employed Artist">
-                            </x-blocks.input-radio>
-                            <x-blocks.input-radio
-                                name="experience"
-                                :checked="old('experience',$data->form_data['experience'] ?? '') == 'I am a professional and am willing to invest in a business in Canada'"
-                                label="I am a professional and am willing to invest in a business in Canada"
-                                value="I am a professional and am willing to invest in a business in Canada">
-                            </x-blocks.input-radio>
                         </td>
                     </tr>
                     @if(isset($data->form_data['area_of_business']))
@@ -427,24 +428,60 @@
                             </td>
                         </tr>
                     @endif
+                    @if(isset($data->form_data['apply_same']))
+                        <tr class="{{ $rowClass }}">
+                            <td class="{{ $valueClass }}">
+                                <strong>Will the applicant consider two
+                                    applicants to apply under the entrepreneur stream in the same
+                                    application?:</strong>
+                                <x-blocks.input-radio
+                                    name="apply_same"
+                                    :checked="old('apply_same',$data->form_data['apply_same'] ?? '') == 'Yes'"
+                                    label="Yes"
+                                    value="Yes">
+                                </x-blocks.input-radio>
+                                <x-blocks.input-radio
+                                    name="apply_same"
+                                    :checked="old('apply_same',$data->form_data['apply_same'] ?? '') == 'No'"
+                                    label="No"
+                                    value="No">
+                                </x-blocks.input-radio>
+                            </td>
+                        </tr>
+                    @endif
+                    @if(isset($data->form_data['website_address']))
+                        <tr>
+                            <td class="{{ $valueClass }}">
+                                <span class="bg-gray-900 text-white px-2">9</span> <strong>Business website address:</strong>
+                                <x-blocks.input-field name="website_address" value="{{old('website_address',$data->form_data['website_address'] ?? '')}}"></x-blocks.input-field>
+                            </td>
+                        </tr>
+                    @endif
                     <tr class="{{ $rowClass }}">
-                        <td class="{{ $valueClass }}">
-                            <span class="bg-gray-900 text-white px-2">9</span> <strong>Will the applicant consider two
-                                applicants to apply under the entrepreneur stream in the same
-                                application?:</strong>
-                            <x-blocks.input-radio
-                                name="apply_same"
-                                :checked="old('apply_same',$data->form_data['apply_same'] ?? '') == 'Yes'"
-                                label="Yes"
-                                value="Yes">
-                            </x-blocks.input-radio>
-                            <x-blocks.input-radio
-                                name="apply_same"
-                                :checked="old('apply_same',$data->form_data['apply_same'] ?? '') == 'No'"
-                                label="No"
-                                value="No">
-                            </x-blocks.input-radio>
-                        </td>
+                        @if(isset($data->form_data['intend_to_open_branch']))
+                            <td class="{{ $valueClass }}">
+                                <strong>Do you intend to open a branch / subsidiary office of your existing business in Canada and would you or key personnel from your office transfer to Canada under the Intra Company Transfer (ICT) program:</strong>
+                                <x-blocks.input-radio
+                                    name="intend_to_open_branch"
+                                    :checked="old('intend_to_open_branch',$data->form_data['intend_to_open_branch'] ?? '') == 'Yes'"
+                                    label="Yes"
+                                    value="Yes">
+                                </x-blocks.input-radio>
+                                <x-blocks.input-radio
+                                    name="intend_to_open_branch"
+                                    :checked="old('intend_to_open_branch',$data->form_data['intend_to_open_branch'] ?? '') == 'No'"
+                                    label="No"
+                                    value="No">
+                                </x-blocks.input-radio>
+                            </td>
+                        @endif
+                        @if(isset($data->form_data['']))
+                            <td class="{{ $valueClass }}">
+                                <strong>If yes, how many people are employed in your business outside Canada?
+                                    :</strong>
+                                <x-blocks.input-field name="how_many_employed" value="{{old('how_many_employed',$data->form_data['how_many_employed'] ?? '')}}"></x-blocks.input-field>
+                            </td>
+                        @endif
                     </tr>
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}">
