@@ -33,7 +33,7 @@
                     <tr class="{{ $rowClass }}">
                         <td class="{{ $valueClass }}" colspan="1">
                             <span class="bg-gray-900 text-white px-2">1</span> <strong>Experience that applies to the
-                                applicant:</strong> {{ $data->form_data['experience']  ?? ''}}
+                                applicant:</strong>
                             <x-blocks.input-checkbox
                                 name="experience"
                                 :checked="old('experience',$data->form_data['experience'] ?? '') == 'Business Person'"
